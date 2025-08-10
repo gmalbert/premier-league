@@ -3,6 +3,7 @@ import datetime
 import pandas as pd
 from os import path
 import os
+import numpy as np
 
 DATA_DIR = 'data_files/'
 
@@ -161,6 +162,28 @@ historical_data.rename(columns=column_rename_map, inplace=True)
 
 # Select all columns that are blank, and drop them
 historical_data.dropna(axis=1, how='all', inplace=True)
+historical_data.drop(columns=['Division'], inplace=True)
+
+# HomeWin, AwayWin, Draw columns
+historical_data['HomeWin'] = (historical_data['FullTimeResult'] == 'H').astype(int)
+historical_data['AwayWin'] = (historical_data['FullTimeResult'] == 'A').astype(int)
+historical_data['Draw'] = (historical_data['FullTimeResult'] == 'D').astype(int)
+
+# WinningTeam column
+historical_data['WinningTeam'] = np.where(
+    historical_data['FullTimeResult'] == 'H',
+    historical_data['HomeTeam'],
+    np.where(
+        historical_data['FullTimeResult'] == 'A',
+        historical_data['AwayTeam'],
+        np.nan
+    )
+)
+
+# Half-time win columns (optional)
+historical_data['HalfTimeHomeWin'] = (historical_data['HalfTimeResult'] == 'H').astype(int)
+historical_data['HalfTimeAwayWin'] = (historical_data['HalfTimeResult'] == 'A').astype(int)
+historical_data['HalfTimeDraw'] = (historical_data['HalfTimeResult'] == 'D').astype(int)
 
 historical_data.to_csv(path.join(DATA_DIR, 'combined_historical_data.csv'), sep='\t', index=False)
 
