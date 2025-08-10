@@ -19,7 +19,7 @@ st.write(
 csv_path = path.join(DATA_DIR, 'combined_historical_data.csv')
 
 if path.exists(csv_path):
-    df = pd.read_csv(csv_path)
+    df = pd.read_csv(csv_path, sep='\t')
     st.subheader("Historical Data")
     st.dataframe(df)
 else:
