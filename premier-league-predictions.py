@@ -4,7 +4,7 @@ from os import path
 
 DATA_DIR = 'data_files/'
 
-st.set_page_config(page_title="Premier League Historical Data", layout="wide")
+st.set_page_config(page_title="Premier League Historical Data", layout="wide", page_icon=path.join(DATA_DIR, 'favicon.ico'))
 
 st.image(path.join(DATA_DIR, 'Premier_league_logo.png'))
 st.title("Premier League Historical Data Viewer")
@@ -19,7 +19,7 @@ st.write(
 csv_path = path.join(DATA_DIR, 'combined_historical_data.csv')
 
 if path.exists(csv_path):
-    df = pd.read_csv(csv_path, sep='\t')
+    df = pd.read_csv(csv_path, sep='\t',)
     st.subheader("Historical Data")
     st.dataframe(df)
 else:
