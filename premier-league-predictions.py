@@ -2,8 +2,11 @@ import streamlit as st
 import pandas as pd
 from os import path
 
+DATA_DIR = 'data_files/'
+
 st.set_page_config(page_title="Premier League Historical Data", layout="wide")
 
+st.image(path.join(DATA_DIR, 'Premier_league_logo.png'))
 st.title("Premier League Historical Data Viewer")
 st.write(
     """
@@ -12,8 +15,8 @@ st.write(
     """
 )
 
-DATA_DIR = 'data_files/'
-csv_path = path.join(DATA_DIR, 'historical_data.csv')
+
+csv_path = path.join(DATA_DIR, 'combined_historical_data.csv')
 
 if path.exists(csv_path):
     df = pd.read_csv(csv_path)
