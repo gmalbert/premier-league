@@ -14,7 +14,7 @@ st.set_page_config(page_title="Premier League Historical Data", layout="wide", p
 st.image(path.join(DATA_DIR, 'Premier_league_logo.png'))
 st.title("Premier League Historical Data Viewer & Predictor")
 
-csv_path = path.join(DATA_DIR, 'combined_historical_data.csv')
+csv_path = path.join(DATA_DIR, 'combined_historical_data_with_calculations.csv')
 
 if not path.exists(csv_path):
     st.warning(f"No historical data file found at `{csv_path}`. Please add your CSV file to get started.")
@@ -39,7 +39,7 @@ if st.checkbox("Show Predictive Data"):
     drop_cols = [
         'MatchDate', 'KickoffTime', 'FullTimeResult', 'HomeTeam', 'AwayTeam', 'WinningTeam',
         'HomeWin', 'AwayWin', 'Draw',  'HalfTimeHomeWin', 'HalfTimeAwayWin', 'HalfTimeDraw', 'FullTimeHomeGoals', 'FullTimeAwayGoals',
-        'HalfTimeResult', 'HalfTimeHomeGoals', 'HalfTimeAwayGoals',
+        'HalfTimeResult', 'HalfTimeHomeGoals', 'HalfTimeAwayGoals', 'HomePoints', 'AwayPoints'
     ]
     X = df.drop(columns=[col for col in drop_cols if col in df.columns] + ['target'], errors='ignore')
     y = df['target']
