@@ -21,6 +21,23 @@ from generate_pdf_report import generate_statistical_report, generate_quick_repo
 from models.ensemble_predictor import create_ensemble_model, create_simple_ensemble
 from models.neural_predictor import train_neural_model, predict_neural
 from models.poisson_predictor import predict_match_poisson
+from models.poisson_evaluation import evaluate_poisson_file
+
+# cache the expensive historical evaluation so Streamlit doesn't recompute on every interaction
+@st.cache_data
+def get_poisson_metrics(csv_path: str = 'data_files/combined_historical_data_with_calculations.csv'):
+    """Return historical Poisson evaluation metrics as plain Python types."""
+    metrics = evaluate_poisson_file(csv_path)
+    # convert any numpy types to native Python scalars for pickling
+    cleaned = {}
+    for k, v in metrics.items():
+        try:
+            cleaned[k] = float(v)
+        except Exception:
+            # if value is not directly convertible (e.g. nested dict), skip or keep as-is
+            cleaned[k] = v
+    return cleaned
+
 from models.lstm_predictor import predict_match_lstm
 from optimize_model import optimize_xgboost
 from footer import add_betting_oracle_footer
@@ -1050,6 +1067,30 @@ with tab3:
         }
         pred_df = pd.DataFrame(prediction_cols, index=upcoming_df.index)
         upcoming_df = pd.concat([upcoming_df, pred_df], axis=1)
+
+        # show evaluation metrics for the Poisson model using historical data
+        with st.expander('📈 Poisson Model Historical Metrics'):
+            metrics = get_poisson_metrics()
+            st.write('League average goals used for fitting:', round(metrics['league_avg'], 3))
+            cols = st.columns(2)
+            cols[0].metric('Home goals MAE', f"{metrics['home_mae']:.3f}")
+            cols[1].metric('Away goals MAE', f"{metrics['away_mae']:.3f}")
+            cols = st.columns(2)
+            cols[0].metric('Home goals RMSE', f"{metrics['home_rmse']:.3f}")
+            cols[1].metric('Away goals RMSE', f"{metrics['away_rmse']:.3f}")
+            st.write('Outcome accuracy:', f"{metrics['outcome_acc']:.3f}")
+            st.write('Brier scores (home/draw/away):',
+                     f"{metrics['brier_home']:.3f}, {metrics['brier_draw']:.3f}, {metrics['brier_away']:.3f}")
+
+            # historical chart
+            hist_path = path.join(DATA_DIR, 'poisson_metrics_history.csv')
+            if path.exists(hist_path):
+                hist_df = pd.read_csv(hist_path, parse_dates=['date'])
+                hist_df = hist_df.set_index('date')
+                # show only the date portion on the x-axis
+                hist_df.index = hist_df.index.strftime('%Y-%m-%d')
+                st.write('### Historical Poisson Metrics')
+                st.line_chart(hist_df[['home_mae', 'away_mae']])
         
     elif selected_model == "LSTM Time Series":
         # Use LSTM time series model for predictions

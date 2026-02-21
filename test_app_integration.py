@@ -79,6 +79,23 @@ except Exception as e:
 
 # Test 4: Compare speed vs CSV loading
 print('\n⚡ Test 4: Speed comparison...')
+
+# Additional check: Poisson metrics helper and cached function
+print('\n🧪 Test 5: Poisson metrics helper and cache')
+try:
+    from models.poisson_evaluation import evaluate_poisson_file
+    pm = evaluate_poisson_file('data_files/combined_historical_data_with_calculations.csv')
+    print(f'   ✅ Poisson metrics loaded, home_mae={pm["home_mae"]:.3f}')
+except Exception as e:
+    print(f'   ❌ Failed to load Poisson metrics: {e}')
+try:
+    from premier_league_predictions import get_poisson_metrics
+    # call twice to exercise caching path
+    m1 = get_poisson_metrics()
+    m2 = get_poisson_metrics()
+    print(f'   ✅ Cached function returned: {m1}')
+except Exception as e:
+    print(f'   ❌ Cached function failed: {e}')
 try:
     import pandas as pd
     from sklearn.preprocessing import LabelEncoder

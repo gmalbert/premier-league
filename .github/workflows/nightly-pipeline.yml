@@ -64,6 +64,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements-ci.txt
+      - name: Run tests
+        run: |
+          echo "Running basic tests..."
+          pytest test_poisson_evaluation.py
 
       - name: Run data pipeline
         timeout-minutes: 15  # 15 minutes for data processing
@@ -118,7 +122,10 @@ jobs:
           for model_name, metrics in perf.items():
               print(f'{model_name}: Acc={metrics[\"accuracy\"]:.3f}, MAE={metrics[\"mae\"]:.3f}')
           "
-
+      - name: Evaluate Poisson metrics
+        run: |
+          echo "Running Poisson evaluation script..."
+          python evaluate_poisson.py
       - name: Validate data
         run: |
           echo "Validating updated data..."

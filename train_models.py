@@ -16,6 +16,7 @@ from sklearn.metrics import mean_absolute_error, accuracy_score
 from sklearn.preprocessing import LabelEncoder
 from models.ensemble_predictor import create_simple_ensemble
 from models.neural_predictor import train_neural_model, predict_neural
+from models.poisson_evaluation import evaluate_poisson_file
 from optimize_model import optimize_xgboost
 
 DATA_DIR = 'data_files/'
@@ -181,6 +182,27 @@ def train_and_save_models():
     if neural_model is not None:
         performance['neural'] = {'accuracy': neural_acc, 'mae': neural_mae}
 
+    # evaluate poisson metrics on the same historical data
+    try:
+        poisson_metrics = evaluate_poisson_file(path.join(DATA_DIR, 'combined_historical_data_with_calculations_new.csv'))
+        performance['poisson'] = poisson_metrics
+        # append to history CSV
+        hist_path = path.join(DATA_DIR, 'poisson_metrics_history.csv')
+        hist_df = pd.DataFrame([{
+            'date': pd.Timestamp.now(),
+            'home_mae': poisson_metrics['home_mae'],
+            'away_mae': poisson_metrics['away_mae'],
+            'home_rmse': poisson_metrics['home_rmse'],
+            'away_rmse': poisson_metrics['away_rmse'],
+            'outcome_acc': poisson_metrics['outcome_acc']
+        }])
+        if path.exists(hist_path):
+            hist_df.to_csv(hist_path, mode='a', header=False, index=False)
+        else:
+            hist_df.to_csv(hist_path, index=False)
+    except Exception as e:
+        print(f"⚠️  Poisson evaluation failed: {e}")
+
     with open(path.join(MODELS_DIR, 'model_performance.pkl'), 'wb') as f:
         pickle.dump(performance, f)
 
@@ -189,7 +211,11 @@ def train_and_save_models():
     print(".2f")
     print("\nModel Performance Summary:")
     for model_name, metrics in performance.items():
-        print(f"{model_name}: Accuracy={metrics['accuracy']:.3f}, MAE={metrics['mae']:.3f}")
+        if model_name == 'poisson':
+            # poisson entry contains detailed metrics
+            print(f"poisson: home_mae={metrics['home_mae']:.3f}, away_mae={metrics['away_mae']:.3f}, outcome_acc={metrics['outcome_acc']:.3f}")
+        else:
+            print(f"{model_name}: Accuracy={metrics['accuracy']:.3f}, MAE={metrics['mae']:.3f}")
 
 if __name__ == "__main__":
     train_and_save_models()

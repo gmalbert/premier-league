@@ -40,6 +40,7 @@ This project predicts the likely outcome of upcoming Premier League matches (hom
 	- Shows upcoming fixtures and predicted probabilities with risk assessment
 	- Displays kickoff times converted to Eastern Time (ET)
 	- **NEW: Statistics tab** with referee performance metrics, manager statistics, team form analysis, and league-wide averages
+- **NEW: Poisson regression diagnostics** include a live display of goal‑prediction MAE/RMSE and a historical chart of those metrics over time (visible when selecting Poisson model)
 	- **NEW: Model comparison** showing performance improvements between baseline XGBoost, ensemble, neural network, and LSTM time series models
 - An ESPN-based fixture fetcher (`fetch_upcoming_fixtures.py`) that pulls upcoming matches from ESPN's API and saves them to `data_files/upcoming_fixtures.csv`.
 - Referee data integration: Scrapes referee assignments from Playmaker Stats and calculates historical referee statistics (disciplinary tendencies, win rates, home advantage bias).
@@ -91,6 +92,14 @@ Fetch upcoming fixtures (optional) and generate processed data:
 python fetch_upcoming_fixtures.py  # pulls upcoming matches from ESPN API
 python combineHistorical.py        # combine raw CSVs (if you maintain raw files)
 python prepare_model_data.py       # process and generate features
+```
+
+Run the Poisson evaluation script to compute goal‑prediction metrics (used in the app and CI):
+
+```bash
+python evaluate_poisson.py
+# or to verify via unit test
+pytest test_poisson_evaluation.py
 ```
 
 Run the Streamlit app:
