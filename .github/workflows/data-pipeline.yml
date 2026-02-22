@@ -86,91 +86,12 @@ jobs:
       - name: Validate models
         run: |
           echo "Validating trained models..."
-          python -c "
-          import os
-          import pickle
-          models_dir = 'models/'
-          
-          # Required models (must be present)
-          required_models = ['xgb_baseline.pkl', 'ensemble_model.pkl', 'optimized_xgb.pkl', 'model_performance.pkl']
-          
-          # Optional models (neural network might fail)
-          optional_models = ['neural_model.pkl', 'neural_scaler.pkl']
-          
-          missing_required = []
-          missing_optional = []
-          
-          for model_file in required_models:
-              if not os.path.exists(os.path.join(models_dir, model_file)):
-                  missing_required.append(model_file)
-                  
-          for model_file in optional_models:
-              if not os.path.exists(os.path.join(models_dir, model_file)):
-                  missing_optional.append(model_file)
-          
-          if missing_required:
-              raise FileNotFoundError(f'Missing required model files: {missing_required}')
-              
-          if missing_optional:
-              print(f'⚠️  Optional model files not found (this is OK): {missing_optional}')
-          else:
-              print('✅ All model files present (including optional neural network)')
-              
-          # Load and check performance
-          with open(os.path.join(models_dir, 'model_performance.pkl'), 'rb') as f:
-              perf = pickle.load(f)
-          print('Model performance loaded successfully')
-          for model_name, metrics in perf.items():
-              if model_name == 'poisson':
-                  print(f"poisson: home_mae={metrics.get('home_mae', float('nan')):.3f}, away_mae={metrics.get('away_mae', float('nan')):.3f}, outcome_acc={metrics.get('outcome_acc', float('nan')):.3f}")
-              else:
-                  print(f'{model_name}: Acc={metrics.get("accuracy", float("nan")):.3f}, MAE={metrics.get("mae", float("nan")):.3f}')
-          "
+          python validate_models.py
 
       - name: Validate models
         run: |
           echo "Validating trained models..."
-          python -c "
-          import os
-          import pickle
-          models_dir = 'models/'
-          
-          # Required models (must be present)
-          required_models = ['xgb_baseline.pkl', 'ensemble_model.pkl', 'optimized_xgb.pkl', 'model_performance.pkl']
-          
-          # Optional models (neural network might fail)
-          optional_models = ['neural_model.pkl', 'neural_scaler.pkl']
-          
-          missing_required = []
-          missing_optional = []
-          
-          for model_file in required_models:
-              if not os.path.exists(os.path.join(models_dir, model_file)):
-                  missing_required.append(model_file)
-                  
-          for model_file in optional_models:
-              if not os.path.exists(os.path.join(models_dir, model_file)):
-                  missing_optional.append(model_file)
-          
-          if missing_required:
-              raise FileNotFoundError(f'Missing required model files: {missing_required}')
-              
-          if missing_optional:
-              print(f'⚠️  Optional model files not found (this is OK): {missing_optional}')
-          else:
-              print('✅ All model files present (including optional neural network)')
-              
-          # Load and check performance
-          with open(os.path.join(models_dir, 'model_performance.pkl'), 'rb') as f:
-              perf = pickle.load(f)
-          print('Model performance loaded successfully')
-          for model_name, metrics in perf.items():
-              # Poisson metrics use a different structure
-              if model_name == 'poisson':
-                  print(f"poisson: home_mae={metrics.get('home_mae', float('nan')):.3f}, away_mae={metrics.get('away_mae', float('nan')):.3f}, outcome_acc={metrics.get('outcome_acc', float('nan')):.3f}")
-              else:
-                  print(f'{model_name}: Acc={metrics.get("accuracy", float("nan")):.3f}, MAE={metrics.get("mae", float("nan")):.3f}')
-          "
+          python validate_models.py
       - name: Evaluate Poisson metrics
         run: |
           echo "Running Poisson evaluation script..."
