@@ -67,7 +67,8 @@ jobs:
       - name: Run tests
         run: |
           echo "Running basic tests..."
-          pytest test_poisson_evaluation.py
+          # use module invocation to ensure pytest is available
+          python -m pytest test_poisson_evaluation.py
 
       - name: Run data pipeline
         timeout-minutes: 15  # 15 minutes for data processing
