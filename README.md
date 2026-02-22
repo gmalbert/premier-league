@@ -98,8 +98,8 @@ Run the Poisson evaluation script to compute goal‑prediction metrics (used in 
 
 ```bash
 python evaluate_poisson.py
-# or to verify via unit test
-pytest test_poisson_evaluation.py
+# or to verify via unit test (use module form so the runner is found)
+python -m pytest test_poisson_evaluation.py
 ```
 
 Run the Streamlit app:
