@@ -121,7 +121,10 @@ jobs:
               perf = pickle.load(f)
           print('Model performance loaded successfully')
           for model_name, metrics in perf.items():
-              print(f'{model_name}: Acc={metrics[\"accuracy\"]:.3f}, MAE={metrics[\"mae\"]:.3f}')
+              if model_name == 'poisson':
+                  print(f"poisson: home_mae={metrics.get('home_mae', float('nan')):.3f}, away_mae={metrics.get('away_mae', float('nan')):.3f}, outcome_acc={metrics.get('outcome_acc', float('nan')):.3f}")
+              else:
+                  print(f'{model_name}: Acc={metrics.get("accuracy", float("nan")):.3f}, MAE={metrics.get("mae", float("nan")):.3f}')
           "
       - name: Evaluate Poisson metrics
         run: |
