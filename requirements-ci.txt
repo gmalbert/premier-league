@@ -6,8 +6,4 @@ scikit-learn
 scipy
 xgboost
 torch
-torchvision
-openmeteo-requests
-requests-cache
-retry-requests
 pytest

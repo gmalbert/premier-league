@@ -94,37 +94,38 @@ jobs:
             exit 0  # Don't fail the workflow, just log the issue
           fi
 
-      - name: Wake Streamlit App (headless Playwright)
+      - name: Set up Node.js for Playwright
         if: ${{ !startsWith(steps.ping.outputs.response, '2') }}
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Restore Playwright & npm cache
-        if: ${{ !startsWith(steps.ping.outputs.response, '2') }}
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.npm
-            ~/.cache/ms-playwright
-            ~/.cache/playwright
-          key: ${{ runner.os }}-playwright-cache-v1
-          restore-keys: |
-            ${{ runner.os }}-playwright-cache-
-
-      - name: Install Playwright and browsers
+      - name: Install Playwright and wake app
         if: ${{ !startsWith(steps.ping.outputs.response, '2') }}
         run: |
-          npm init -y
-          npm i playwright --silent --no-audit --no-fund
+          # install into the workspace (no package.json needed)
+          npm install playwright --silent --no-audit --no-fund
           npx playwright install chromium --with-deps
-
-      - name: Run headless browser to open the app
-        if: ${{ !startsWith(steps.ping.outputs.response, '2') }}
-        env:
-          STREAMLIT_APP_URL: ${{ env.STREAMLIT_APP_URL }}
-        run: |
-          node -e "const {chromium}=require('playwright');(async()=>{let browser; try{browser=await chromium.launch({args:['--no-sandbox','--disable-setuid-sandbox']}); const page=await browser.newPage(); console.log('Playwright: navigating to', process.env.STREAMLIT_APP_URL); await page.goto(process.env.STREAMLIT_APP_URL,{waitUntil:'domcontentloaded',timeout:120000}); await page.waitForSelector('section[data-testid=\"stApp\"]',{timeout:120000}); await page.waitForTimeout(5000); console.log('Playwright: visit complete');}catch(e){console.log('Playwright error:',e && e.message ? e.message : e);}finally{if(browser){try{await browser.close();}catch(_){}}}})();"
+          node -e "
+            const { chromium } = require('playwright');
+            (async () => {
+              let browser;
+              try {
+                browser = await chromium.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+                const page = await browser.newPage();
+                console.log('Navigating to ${{ env.STREAMLIT_APP_URL }}');
+                await page.goto('${{ env.STREAMLIT_APP_URL }}', { waitUntil: 'domcontentloaded', timeout: 120000 });
+                // Wait for Streamlit app shell to render
+                await page.waitForSelector('section[data-testid=\"stApp\"]', { timeout: 120000 });
+                await page.waitForTimeout(5000);
+                console.log('Wake visit complete');
+              } catch (e) {
+                console.log('Playwright error:', e.message || e);
+              } finally {
+                if (browser) await browser.close().catch(() => {});
+              }
+            })();
+          "
 
       - name: Log completion
         if: always()
