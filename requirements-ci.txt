@@ -7,3 +7,6 @@ scipy
 xgboost
 torch
 pytest
+openmeteo-requests
+requests-cache
+retry-requests
