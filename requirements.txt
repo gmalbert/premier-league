@@ -3,7 +3,7 @@ numpy
 pandas
 requests
 scikit-learn
-streamlit
+streamlit>=1.51
 xgboost
 plotly
 torch
@@ -15,3 +15,4 @@ retry-requests
 reportlab
 seaborn
 pytest
+altair
