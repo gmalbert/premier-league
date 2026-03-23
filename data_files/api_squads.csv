@@ -1,0 +1,619 @@
+TeamID	Team	PlayerID	PlayerName	Age	Number	Position
+40	Liverpool	280	Alisson Becker	33.0	1	Goalkeeper
+40	Liverpool	24760	G. Mamardashvili	25.0	25	Goalkeeper
+40	Liverpool	415992	K. Miściur	18.0	74	Goalkeeper
+40	Liverpool	342467	Á. Pécsi	20.0	1	Goalkeeper
+40	Liverpool	18889	F. Woodman	28.0	28	Goalkeeper
+40	Liverpool	180317	C. Bradley	22.0	12	Defender
+40	Liverpool	284	J. Gomez	28.0	2	Defender
+40	Liverpool	206254	M. Kerkez	22.0	6	Defender
+40	Liverpool	1145	I. Konaté	26.0	5	Defender
+40	Liverpool	409047	G. Leoni	19.0	15	Defender
+40	Liverpool	328081	W. Omoruyi	19.0	3	Defender
+40	Liverpool	380666	C. Pinnington	18.0	3	Defender
+40	Liverpool	135525	C. Ramsay	22.0	47	Defender
+40	Liverpool	289	A. Robertson	31.0	26	Defender
+40	Liverpool	162904	R. Williams	24.0	46	Defender
+40	Liverpool	290	V. van Dijk	34.0	4	Defender
+40	Liverpool	8500	W. Endo	32.0	3	Midfielder
+40	Liverpool	152654	J. Frimpong	25.0	30	Defender
+40	Liverpool	542	R. Gravenberch	23.0	38	Midfielder
+40	Liverpool	293	C. Jones	24.0	17	Midfielder
+40	Liverpool	339205	M. Laffey	20.0	12	Midfielder
+40	Liverpool	6716	A. Mac Allister	27.0	10	Midfielder
+40	Liverpool	389032	K. Morrison	19.0	68	Midfielder
+40	Liverpool	407032	A. Nallo	19.0	65	Defender
+40	Liverpool	397997	T. Nyoni	18.0	42	Midfielder
+40	Liverpool	301286	Tommy Pilling	21.0	10	Midfielder
+40	Liverpool	1096	D. Szoboszlai	25.0	8	Defender
+40	Liverpool	203224	F. Wirtz	22.0	7	Midfielder
+40	Liverpool	30410	F. Chiesa	28.0	14	Attacker
+40	Liverpool	314661	J. Danns	19.0	9	Attacker
+40	Liverpool	174565	H. Ekitike	23.0	22	Attacker
+40	Liverpool	344223	K. Figueroa	19.0	9	Attacker
+40	Liverpool	247	C. Gakpo	26.0	18	Attacker
+40	Liverpool	286764	Kaide Gordon	21.0	49	Attacker
+40	Liverpool	2864	A. Isak	26.0	9	Attacker
+40	Liverpool	452685	R. Ngumoha	17.0	73	Midfielder
+40	Liverpool	306	Mohamed Salah	33.0	11	Attacker
+42	Arsenal	2273	Kepa	31.0	13	Goalkeeper
+42	Arsenal	416697	J. Porter	17.0	1	Goalkeeper
+42	Arsenal	403221	K. Ranson	18.0	79	Goalkeeper
+42	Arsenal	19465	David Raya	30.0	1	Goalkeeper
+42	Arsenal	337933	Alexei Rojas Fedorushchenko	20.0	51	Goalkeeper
+42	Arsenal	342243	T. Setford	19.0	35	Goalkeeper
+42	Arsenal	157052	R. Calafiori	23.0	33	Defender
+42	Arsenal	22224	Gabriel Magalhães	28.0	6	Defender
+42	Arsenal	127817	P. Hincapié	23.0	5	Defender
+42	Arsenal	313245	M. Lewis-Skelly	19.0	49	Defender
+42	Arsenal	333682	Cristhian Mosquera	21.0	3	Defender
+42	Arsenal	380696	Joshua Nichols	19.0	2	Defender
+42	Arsenal	22090	W. Saliba	24.0	2	Defender
+42	Arsenal	482903	M. Salmon	16.0	89	Defender
+42	Arsenal	38746	J. Timber	24.0	12	Defender
+42	Arsenal	19959	B. White	28.0	4	Defender
+42	Arsenal	442044	M. Dowman	16.0	56	Midfielder
+42	Arsenal	19586	E. Eze	27.0	10	Midfielder
+42	Arsenal	553530	I. Ibrahim	17.0	6	Midfielder
+42	Arsenal	47311	Mikel Merino	29.0	23	Midfielder
+42	Arsenal	30407	C. Nørgaard	31.0	16	Midfielder
+42	Arsenal	37127	M. Ødegaard	27.0	8	Midfielder
+42	Arsenal	2937	D. Rice	26.0	41	Midfielder
+42	Arsenal	47315	Martín Zubimendi	26.0	36	Midfielder
+42	Arsenal	463908	B. Bailey-Joseph	17.0	7	Attacker
+42	Arsenal	643	Gabriel Jesus	28.0	9	Attacker
+42	Arsenal	18979	V. Gyökeres	27.0	14	Attacker
+42	Arsenal	457731	A. Annous	18.0	11	Attacker
+42	Arsenal	978	K. Havertz	26.0	29	Attacker
+42	Arsenal	136723	N. Madueke	23.0	20	Midfielder
+42	Arsenal	127769	Gabriel Martinelli	24.0	11	Attacker
+42	Arsenal	557442	C. O'Neill	17.0	10	Attacker
+42	Arsenal	1460	B. Saka	24.0	7	Midfielder
+42	Arsenal	1946	L. Trossard	31.0	19	Midfielder
+50	Man City	19012	M. Bettinelli	33.0	13	Goalkeeper
+50	Man City	1622	G. Donnarumma	26.0	25	Goalkeeper
+50	Man City	162489	J. Trafford	23.0	1	Goalkeeper
+50	Man City	21138	R. Aït-Nouri	24.0	21	Defender
+50	Man City	18861	N. Aké	30.0	6	Defender
+50	Man City	293168	Max Alleyne	20.0	68	Defender
+50	Man City	451583	K. Braithwaite	17.0	4	Defender
+50	Man City	567	Rúben Dias	28.0	3	Defender
+50	Man City	67971	M. Guéhi	25.0	15	Defender
+50	Man City	129033	J. Gvardiol	23.0	24	Defender
+50	Man City	360114	A. Khusanov	21.0	45	Defender
+50	Man City	284230	R. Lewis	21.0	82	Defender
+50	Man City	626	J. Stones	31.0	5	Defender
+50	Man City	156477	R. Cherki	22.0	10	Midfielder
+50	Man City	631	P. Foden	25.0	47	Midfielder
+50	Man City	389034	Charlie Gray	19.0	8	Midfielder
+50	Man City	2291	M. Kovačić	31.0	8	Midfielder
+50	Man City	442048	R. McAidoo	17.0	7	Midfielder
+50	Man City	161933	Nico González	23.0	14	Midfielder
+50	Man City	41621	Matheus Nunes	27.0	27	Defender
+50	Man City	323591	S. Nypan	19.0	10	Midfielder
+50	Man City	307123	N. O&apos;Reilly	20.0	33	Midfielder
+50	Man City	36902	T. Reijnders	27.0	4	Midfielder
+50	Man City	44	Rodri	29.0	16	Midfielder
+50	Man City	568413	T. Samba	17.0	10	Midfielder
+50	Man City	636	Bernardo Silva	31.0	20	Midfielder
+50	Man City	1422	J. Doku	23.0	11	Midfielder
+50	Man City	1100	E. Haaland	25.0	9	Attacker
+50	Man City	448969	Reigan Heskey	17.0	11	Attacker
+50	Man City	81573	Omar Marmoush	26.0	7	Attacker
+50	Man City	266657	Sávio	21.0	26	Attacker
+50	Man City	19281	A. Semenyo	25.0	42	Midfielder
+49	Chelsea	286616	F. Jörgensen	23.0	12	Goalkeeper
+49	Chelsea	287868	Max Merrick	20.0	1	Goalkeeper
+49	Chelsea	18959	Robert Sánchez	28.0	1	Goalkeeper
+49	Chelsea	180940	T. Sharman-Lowe	22.0	28	Goalkeeper
+49	Chelsea	64167	G. Słonina	21.0	44	Goalkeeper
+49	Chelsea	366735	Joshua Kofi Acheampong	19.0	34	Defender
+49	Chelsea	19145	T. Adarabioyo	28.0	4	Defender
+49	Chelsea	95	B. Badiashile	24.0	5	Defender
+49	Chelsea	19720	T. Chalobah	26.0	23	Defender
+49	Chelsea	47380	Marc Cucurella	27.0	3	Defender
+49	Chelsea	22094	W. Fofana	25.0	29	Defender
+49	Chelsea	161907	M. Gusto	22.0	27	Defender
+49	Chelsea	341642	J. Hato	19.0	21	Defender
+49	Chelsea	19545	R. James	26.0	24	Midfielder
+49	Chelsea	276184	M. Sarr	20.0	19	Defender
+49	Chelsea	305834	Andrey Santos	21.0	17	Midfielder
+49	Chelsea	116117	M. Caicedo	24.0	25	Midfielder
+49	Chelsea	417653	J. Derry	18.0	15	Midfielder
+49	Chelsea	308678	Dário Essugo	20.0	6	Midfielder
+49	Chelsea	5996	E. Fernández	24.0	8	Midfielder
+49	Chelsea	394167	O. Harrison	18.0	14	Midfielder
+49	Chelsea	610563	C. Holland	16.0	75	Midfielder
+49	Chelsea	282125	R. Lavia	21.0	45	Midfielder
+49	Chelsea	152982	C. Palmer	23.0	10	Midfielder
+49	Chelsea	482888	R. Walsh	17.0	8	Midfielder
+49	Chelsea	161948	L. Delap	22.0	9	Attacker
+49	Chelsea	425733	Estêvão	18.0	41	Attacker
+49	Chelsea	284324	A. Garnacho	21.0	49	Attacker
+49	Chelsea	286894	J. Bynoe-Gittens	21.0	11	Attacker
+49	Chelsea	392270	Marc Guiu	19.0	38	Attacker
+49	Chelsea	10329	João Pedro	24.0	20	Midfielder
+49	Chelsea	359117	Shumaira Mheuka	18.0	62	Attacker
+49	Chelsea	1864	Pedro Neto	25.0	7	Midfielder
+34	Newcastle	365988	Aidan Harris	19.0	58	Goalkeeper
+34	Newcastle	557523	A. Harrison	19.0	13	Goalkeeper
+34	Newcastle	18911	N. Pope	33.0	1	Goalkeeper
+34	Newcastle	20355	A. Ramsdale	27.0	32	Goalkeeper
+34	Newcastle	18737	J. Ruddy	39.0	26	Goalkeeper
+34	Newcastle	38734	S. Botman	25.0	4	Defender
+34	Newcastle	18961	D. Burn	33.0	33	Defender
+34	Newcastle	284492	L. Hall	21.0	3	Defender
+34	Newcastle	2855	E. Krafth	31.0	17	Defender
+34	Newcastle	158694	T. Livramento	23.0	21	Defender
+34	Newcastle	318056	A. Murphy	21.0	37	Defender
+34	Newcastle	2806	F. Schär	34.0	5	Defender
+34	Newcastle	337934	L. Shahar	18.0	61	Defender
+34	Newcastle	163189	M. Thiaw	24.0	12	Defender
+34	Newcastle	169	K. Trippier	35.0	2	Defender
+34	Newcastle	567998	S. Alabi	16.0	85	Midfielder
+34	Newcastle	10135	Bruno Guimarães	28.0	39	Midfielder
+34	Newcastle	723	Joelinton	29.0	7	Midfielder
+34	Newcastle	328105	L. Miley	19.0	67	Midfielder
+34	Newcastle	19163	J. Murphy	30.0	23	Midfielder
+34	Newcastle	394165	S. Neave	18.0	9	Midfielder
+34	Newcastle	423714	Park Seung-Soo	18.0	11	Midfielder
+34	Newcastle	19192	J. Ramsey	24.0	41	Midfielder
+34	Newcastle	31146	S. Tonali	25.0	8	Midfielder
+34	Newcastle	1463	J. Willock	26.0	28	Midfielder
+34	Newcastle	18778	H. Barnes	28.0	11	Attacker
+34	Newcastle	153430	A. Elanga	23.0	20	Attacker
+34	Newcastle	138787	A. Gordon	24.0	10	Attacker
+34	Newcastle	315237	W. Osula	22.0	18	Attacker
+34	Newcastle	20649	Y. Wissa	29.0	9	Attacker
+34	Newcastle	158054	N. Woltemade	23.0	27	Midfielder
+66	Aston Villa	36878	M. Bizot	34.0	40	Goalkeeper
+66	Aston Villa	19599	E. Martínez	33.0	23	Goalkeeper
+66	Aston Villa	452427	R. Oakley	17.0	13	Goalkeeper
+66	Aston Villa	398004	S. Proctor	19.0	1	Goalkeeper
+66	Aston Villa	284390	J. Wright	21.0	64	Goalkeeper
+66	Aston Villa	284457	L. Bogarde	21.0	26	Defender
+66	Aston Villa	19298	M. Cash	28.0	2	Defender
+66	Aston Villa	2724	L. Digne	32.0	12	Defender
+66	Aston Villa	388013	Andrés García	22.0	16	Defender
+66	Aston Villa	19354	E. Konsa	28.0	4	Defender
+66	Aston Villa	889	V. Lindelöf	31.0	3	Defender
+66	Aston Villa	138816	I. Maatsen	23.0	22	Defender
+66	Aston Villa	19179	T. Mings	32.0	5	Defender
+66	Aston Villa	482915	L. Routh	18.0	12	Defender
+66	Aston Villa	46815	Pau Torres	28.0	14	Defender
+66	Aston Villa	2287	R. Barkley	32.0	6	Midfielder
+66	Aston Villa	19071	E. Buendía	29.0	10	Midfielder
+66	Aston Villa	453101	B. Burrows	17.0	9	Midfielder
+66	Aston Villa	416250	T. Carroll	19.0	4	Midfielder
+66	Aston Villa	47522	Douglas Luiz	27.0	21	Midfielder
+66	Aston Villa	19035	H. Elliott	22.0	9	Midfielder
+66	Aston Villa	364566	George Hemmings	18.0	8	Midfielder
+66	Aston Villa	1904	B. Kamara	26.0	44	Midfielder
+66	Aston Villa	553420	M. Kone	18.0	6	Midfielder
+66	Aston Villa	19191	J.  McGinn	31.0	7	Midfielder
+66	Aston Villa	162714	A. Onana	24.0	24	Midfielder
+66	Aston Villa	19170	M. Rogers	23.0	27	Midfielder
+66	Aston Villa	2926	Y. Tielemans	28.0	8	Midfielder
+66	Aston Villa	19194	T. Abraham	28.0	18	Attacker
+66	Aston Villa	464004	Alysson Edward	19.0	47	Attacker
+66	Aston Villa	983	L. Bailey	28.0	31	Attacker
+66	Aston Villa	514519	Brian Madjo	16.0	24	Attacker
+66	Aston Villa	18	J. Sancho	25.0	19	Midfielder
+66	Aston Villa	19366	O. Watkins	30.0	11	Attacker
+65	Nott'm Forest	329358	Aaron Bott	21.0	63	Goalkeeper
+65	Nott'm Forest	18933	A. Gunn	29.0	18	Goalkeeper
+65	Nott'm Forest	70366	John	29.0	13	Goalkeeper
+65	Nott'm Forest	25004	S. Ortega	33.0	27	Goalkeeper
+65	Nott'm Forest	2919	M. Sels	33.0	26	Goalkeeper
+65	Nott'm Forest	357238	Keehan Willows	20.0	67	Goalkeeper
+65	Nott'm Forest	329357	Z. Abbott	19.0	44	Defender
+65	Nott'm Forest	2771	O. Aina	29.0	34	Defender
+65	Nott'm Forest	18739	W. Boly	34.0	30	Defender
+65	Nott'm Forest	362711	Jair	20.0	23	Defender
+65	Nott'm Forest	2817	N. Milenković	28.0	31	Defender
+65	Nott'm Forest	67943	Morato	24.0	4	Defender
+65	Nott'm Forest	363695	Murillo	23.0	5	Defender
+65	Nott'm Forest	163069	L. Netz	22.0	25	Defender
+65	Nott'm Forest	181806	N. Savona	22.0	37	Defender
+65	Nott'm Forest	380663	J. Sinclair	19.0	61	Midfielder
+65	Nott'm Forest	138780	N. Williams	24.0	3	Defender
+65	Nott'm Forest	138908	E. Anderson	23.0	8	Midfielder
+65	Nott'm Forest	6056	N. Domínguez	27.0	16	Midfielder
+65	Nott'm Forest	18746	M. Gibbs-White	25.0	10	Midfielder
+65	Nott'm Forest	2298	C. Hudson-Odoi	25.0	7	Midfielder
+65	Nott'm Forest	158697	J. McAtee	23.0	24	Attacker
+65	Nott'm Forest	22149	I. Sangaré	28.0	6	Midfielder
+65	Nott'm Forest	353968	A. Whitehall	19.0	51	Midfielder
+65	Nott'm Forest	19305	R. Yates	28.0	22	Midfielder
+65	Nott'm Forest	8598	T. Awoniyi	28.0	9	Attacker
+65	Nott'm Forest	129695	D. Bakwa	23.0	29	Midfielder
+65	Nott'm Forest	383771	Z. Blake	2025.0	11	Attacker
+65	Nott'm Forest	284428	O. Hutchinson	22.0	21	Attacker
+65	Nott'm Forest	9366	Igor Jesus	24.0	19	Attacker
+65	Nott'm Forest	199089	L. Lucca	25.0	20	Attacker
+65	Nott'm Forest	48648	D. Ndoye	25.0	14	Midfielder
+65	Nott'm Forest	18931	C. Wood	34.0	11	Attacker
+51	Brighton	167663	T. McGill	25.0	38	Goalkeeper
+51	Brighton	449076	Nils Ramming	18.0	1	Goalkeeper
+51	Brighton	18960	J. Steele	35.0	23	Goalkeeper
+51	Brighton	129058	B. Verbruggen	23.0	1	Goalkeeper
+51	Brighton	22160	O. Boscagli	28.0	21	Defender
+51	Brighton	162007	M. De Cuyper	25.0	29	Defender
+51	Brighton	18963	L. Dunk	34.0	5	Defender
+51	Brighton	7600	Igor	27.0	3	Defender
+51	Brighton	1361	F. Kadıoğlu	26.0	24	Defender
+51	Brighton	412086	F. Simmonds	17.0	4	Defender
+51	Brighton	328076	C. Tasker	19.0	2	Defender
+51	Brighton	537	J. Veltman	33.0	34	Defender
+51	Brighton	38695	J. van Hecke	25.0	6	Defender
+51	Brighton	265820	Y. Ayari	22.0	26	Midfielder
+51	Brighton	356041	C. Baleba	21.0	17	Midfielder
+51	Brighton	278370	D. Gómez	22.0	25	Midfielder
+51	Brighton	18970	P. Groß	34.0	30	Midfielder
+51	Brighton	305730	J. Hinshelwood	20.0	13	Midfielder
+51	Brighton	392610	H. Howell	17.0	53	Midfielder
+51	Brighton	296	J. Milner	39.0	20	Midfielder
+51	Brighton	19030	M. O&apos;Riley	25.0	33	Midfielder
+51	Brighton	92993	M. Wieffer	26.0	27	Defender
+51	Brighton	392482	C. Kostoulas	18.0	19	Attacker
+51	Brighton	18973	S. March	31.0	7	Midfielder
+51	Brighton	383685	Y. Minteh	21.0	11	Midfielder
+51	Brighton	106835	K. Mitoma	28.0	22	Midfielder
+51	Brighton	553958	N. Oriola	18.0	11	Attacker
+51	Brighton	90590	G. Rutter	23.0	10	Attacker
+51	Brighton	343311	S. Tzimas	19.0	9	Attacker
+51	Brighton	1469	D. Welbeck	35.0	18	Attacker
+35	Bournemouth	18932	F. Forster	37.0	17	Goalkeeper
+35	Bournemouth	26644	C. Mandas	24.0	29	Goalkeeper
+35	Bournemouth	118307	Đ. Petrović	26.0	1	Goalkeeper
+35	Bournemouth	22136	B. Diakité	24.0	18	Defender
+35	Bournemouth	20093	J. Hill	23.0	23	Defender
+35	Bournemouth	330437	Álex Jiménez	20.0	20	Defender
+35	Bournemouth	412719	Veljko Milosavljević	18.0	44	Defender
+35	Bournemouth	6610	M. Senesi	28.0	5	Defender
+35	Bournemouth	18869	A. Smith	34.0	15	Defender
+35	Bournemouth	363333	J. Soler	20.0	6	Defender
+35	Bournemouth	162267	A. Truffert	24.0	3	Defender
+35	Bournemouth	1150	T. Adams	26.0	12	Midfielder
+35	Bournemouth	129682	A. Adli	25.0	21	Midfielder
+35	Bournemouth	1125	R. Christie	30.0	10	Midfielder
+35	Bournemouth	18872	L. Cook	28.0	4	Midfielder
+35	Bournemouth	390769	Michael Dacosta	20.0	51	Midfielder
+35	Bournemouth	626383	Malcom Dacosta	17.0	51	Midfielder
+35	Bournemouth	304853	A. Scott	22.0	8	Midfielder
+35	Bournemouth	573755	C. Stevens	18.0	53	Midfielder
+35	Bournemouth	19245	M. Tavernier	26.0	16	Midfielder
+35	Bournemouth	361485	A. Tóth	20.0	27	Midfielder
+35	Bournemouth	18870	D. Brooks	28.0	7	Midfielder
+35	Bournemouth	343576	B. Doak	20.0	11	Attacker
+35	Bournemouth	152856	Evanilson	26.0	9	Attacker
+35	Bournemouth	792	J. Kluivert	26.0	19	Attacker
+35	Bournemouth	368030	E. Kroupi	19.0	22	Attacker
+35	Bournemouth	407806	Rayan	19.0	37	Midfielder
+35	Bournemouth	402434	Remy Rees-Dottin	19.0	50	Attacker
+35	Bournemouth	47499	E. Ünal	28.0	26	Attacker
+55	Brentford	19340	E. Balcombe	26.0	31	Goalkeeper
+55	Brentford	389579	J. Eyestone	19.0	41	Goalkeeper
+55	Brentford	281	C. Kelleher	27.0	1	Goalkeeper
+55	Brentford	61742	H. Valdimarsson	24.0	12	Goalkeeper
+55	Brentford	1119	K. Ajer	27.0	20	Defender
+55	Brentford	19495	N. Collins	24.0	22	Defender
+55	Brentford	19346	R. Henry	28.0	3	Defender
+55	Brentford	44871	A. Hickey	23.0	2	Defender
+55	Brentford	342022	M. Kayode	21.0	33	Defender
+55	Brentford	19789	E. Pinnock	32.0	5	Defender
+55	Brentford	577002	J. Stephenson	18.0	50	Defender
+55	Brentford	36922	S. van den Berg	24.0	4	Defender
+55	Brentford	513316	Luka Bentt	18.0	48	Midfielder
+55	Brentford	153066	Fábio Carvalho	23.0	14	Midfielder
+55	Brentford	15908	M. Damsgaard	25.0	24	Midfielder
+55	Brentford	292	J. Henderson	35.0	6	Midfielder
+55	Brentford	25073	V. Janelt	27.0	27	Midfielder
+55	Brentford	47438	M. Jensen	29.0	8	Midfielder
+55	Brentford	106725	K. Lewis-Potter	24.0	23	Defender
+55	Brentford	319517	A. Milambo	20.0	17	Midfielder
+55	Brentford	178077	K. Schade	24.0	7	Attacker
+55	Brentford	263538	Y. Yarmolyuk	21.0	18	Midfielder
+55	Brentford	402317	R. Donovan	19.0	45	Midfielder
+55	Brentford	393193	Kaye Iyowuna Furo	18.0	47	Attacker
+55	Brentford	727	R. Nelson	26.0	11	Attacker
+55	Brentford	284797	D. Ouattara	23.0	19	Attacker
+55	Brentford	624708	O. Shield	19.0	49	Defender
+55	Brentford	196156	Thiago	24.0	9	Attacker
+36	Fulham	21566	B. Lecomte	34.0	23	Goalkeeper
+36	Fulham	1438	B. Leno	33.0	1	Goalkeeper
+36	Fulham	288129	Alfie Shane McNally	21.0	1	Goalkeeper
+36	Fulham	384981	S. Amissah	18.0	5	Defender
+36	Fulham	2729	J. Andersen	29.0	5	Defender
+36	Fulham	152967	C. Bassey	26.0	3	Defender
+36	Fulham	2920	T. Castagne	30.0	21	Defender
+36	Fulham	131	Jorge Cuenca	26.0	15	Defender
+36	Fulham	18814	I. Diop	28.0	31	Defender
+36	Fulham	19549	A. Robinson	28.0	33	Defender
+36	Fulham	657	K. Tete	30.0	2	Defender
+36	Fulham	1934	S. Berge	27.0	16	Midfielder
+36	Fulham	278133	Oscar Bobb	22.0	14	Midfielder
+36	Fulham	19025	T. Cairney	34.0	10	Midfielder
+36	Fulham	1455	A. Iwobi	29.0	17	Midfielder
+36	Fulham	389315	Joshua King	18.0	24	Midfielder
+36	Fulham	2823	S. Lukić	29.0	20	Midfielder
+36	Fulham	19480	H. Reed	30.0	6	Midfielder
+36	Fulham	557335	S. Ridgeon	17.0	10	Midfielder
+36	Fulham	19032	R. Sessegnon	25.0	30	Midfielder
+36	Fulham	1161	E. Smith Rowe	25.0	32	Midfielder
+36	Fulham	19221	H. Wilson	28.0	8	Midfielder
+36	Fulham	1696	S. Chukwueze	26.0	19	Attacker
+36	Fulham	2887	R. Jiménez	34.0	7	Attacker
+36	Fulham	237819	Kevin	22.0	22	Attacker
+36	Fulham	436443	J. Kusi-Asare	18.0	9	Attacker
+36	Fulham	195106	Rodrigo Muniz	24.0	9	Attacker
+52	Crystal Palace	22157	W. Benítez	32.0	44	Goalkeeper
+52	Crystal Palace	19088	D. Henderson	28.0	1	Goalkeeper
+52	Crystal Palace	19684	R. Matthews	31.0	31	Goalkeeper
+52	Crystal Palace	557414	D. Benamar	17.0	14	Defender
+52	Crystal Palace	412759	J. Canvot	19.0	23	Defender
+52	Crystal Palace	380703	Rio Cardines	19.0	59	Midfielder
+52	Crystal Palace	18862	N. Clyne	34.0	17	Defender
+52	Crystal Palace	557584	G. King	18.0	5	Defender
+52	Crystal Palace	20995	M. Lacroix	25.0	5	Defender
+52	Crystal Palace	182201	T. Mitchell	26.0	3	Midfielder
+52	Crystal Palace	13736	D. Muñoz	29.0	2	Defender
+52	Crystal Palace	278898	C. Riad	22.0	34	Defender
+52	Crystal Palace	126949	C. Richards	25.0	26	Defender
+52	Crystal Palace	26303	B. Sosa	27.0	24	Defender
+52	Crystal Palace	286458	J. Devenny	22.0	55	Midfielder
+52	Crystal Palace	557413	J. Drakes-Thomas	16.0	7	Midfielder
+52	Crystal Palace	18806	W. Hughes	30.0	19	Midfielder
+52	Crystal Palace	2601	D. Kamada	29.0	18	Midfielder
+52	Crystal Palace	2490	J. Lerma	31.0	8	Midfielder
+52	Crystal Palace	301295	K. Rodney	21.0	42	Midfielder
+52	Crystal Palace	403554	Christantus Uche	22.0	12	Midfielder
+52	Crystal Palace	288102	A. Wharton	21.0	20	Midfielder
+52	Crystal Palace	557475	B. Casey	17.0	11	Attacker
+52	Crystal Palace	137303	E. Guessand	24.0	29	Attacker
+52	Crystal Palace	129711	B. Johnson	24.0	11	Midfielder
+52	Crystal Palace	2032	J. Strand Larsen	25.0	22	Attacker
+52	Crystal Palace	557416	Z. Marsh	20.0	9	Attacker
+52	Crystal Palace	25927	J. Mateta	28.0	14	Attacker
+52	Crystal Palace	1468	E. Nketiah	26.0	9	Attacker
+52	Crystal Palace	184226	Yeremy Pino	23.0	10	Midfielder
+52	Crystal Palace	2218	I. Sarr	27.0	7	Attacker
+45	Everton	82855	T. King	30.0	31	Goalkeeper
+45	Everton	2932	J. Pickford	31.0	1	Goalkeeper
+45	Everton	18860	M. Travers	26.0	12	Goalkeeper
+45	Everton	431921	Adam Aznou Ben Cheikh	19.0	39	Defender
+45	Everton	17661	J. Branthwaite	23.0	32	Defender
+45	Everton	18758	S. Coleman	37.0	23	Defender
+45	Everton	2934	M. Keane	32.0	5	Defender
+45	Everton	2165	V. Mykolenko	26.0	16	Defender
+45	Everton	270139	J. O&apos;Brien	24.0	15	Defender
+45	Everton	138417	N. Patterson	24.0	2	Defender
+45	Everton	2936	J. Tarkowski	33.0	6	Defender
+45	Everton	284327	R. Welch	22.0	4	Defender
+45	Everton	195993	C. Alcaraz	23.0	24	Midfielder
+45	Everton	405360	H. Armstrong	18.0	45	Midfielder
+45	Everton	546654	C. Bates	20.0	15	Midfielder
+45	Everton	148099	K. Dewsbury-Hall	27.0	22	Midfielder
+45	Everton	895	J. Garner	24.0	37	Midfielder
+45	Everton	19187	J. Grealish	30.0	18	Midfielder
+45	Everton	2990	I. Gueye	36.0	27	Midfielder
+45	Everton	284500	T. Iroegbunam	22.0	42	Midfielder
+45	Everton	18929	D. McNeil	26.0	7	Midfielder
+45	Everton	588468	Malik Olayiwola	16.0	10	Midfielder
+45	Everton	202854	M. Röhl	23.0	34	Midfielder
+45	Everton	343684	T. Barry	23.0	11	Attacker
+45	Everton	125743	Beto	27.0	9	Attacker
+45	Everton	304317	T. Dibling	19.0	20	Midfielder
+45	Everton	334037	Tyrique George	19.0	19	Attacker
+45	Everton	413034	B. Graham	18.0	11	Attacker
+45	Everton	18592	I. Ndiaye	25.0	10	Midfielder
+48	West Ham	253	A. Areola	32.0	23	Goalkeeper
+48	West Ham	15870	M. Hermansen	25.0	1	Goalkeeper
+48	West Ham	337932	F. Herrick	19.0	49	Goalkeeper
+48	West Ham	409303	E. Diouf	21.0	12	Midfielder
+48	West Ham	21998	A. Disasi	27.0	4	Defender
+48	West Ham	557541	A. Golambeckis	17.0	6	Defender
+48	West Ham	18744	M. Kilman	28.0	3	Defender
+48	West Ham	1445	K. Mavropanos	28.0	15	Defender
+48	West Ham	553065	E. Mayers	18.0	63	Defender
+48	West Ham	327730	O. Scarles	20.0	30	Defender
+48	West Ham	138	J. Todibo	26.0	25	Defender
+48	West Ham	171	K. Walker-Peters	28.0	2	Defender
+48	West Ham	18846	A. Wan-Bissaka	28.0	29	Midfielder
+48	West Ham	336585	Mateus Fernandes	21.0	18	Midfielder
+48	West Ham	401278	M. Kanté	20.0	55	Midfielder
+48	West Ham	358969	K. Lamadrid	22.0	21	Midfielder
+48	West Ham	326176	S. Magassa	22.0	27	Midfielder
+48	West Ham	288118	L. Orford	19.0	8	Midfielder
+48	West Ham	284446	F. Potts	22.0	32	Midfielder
+48	West Ham	1243	T. Souček	30.0	28	Midfielder
+48	West Ham	557409	J. Ajala	18.0	10	Attacker
+48	West Ham	19428	J. Bowen	29.0	20	Attacker
+48	West Ham	50856	V. Castellanos	27.0	11	Attacker
+48	West Ham	301187	Pablo	21.0	19	Attacker
+48	West Ham	37724	C. Summerville	24.0	7	Attacker
+48	West Ham	18753	Adama Traoré	29.0	17	Attacker
+48	West Ham	2939	C. Wilson	33.0	9	Attacker
+33	Man United	50132	A. Bayındır	27.0	1	Goalkeeper
+33	Man United	2931	T. Heaton	39.0	22	Goalkeeper
+33	Man United	162511	S. Lammens	23.0	31	Goalkeeper
+33	Man United	886	Diogo Dalot	26.0	2	Defender
+33	Man United	382452	P. Dorgu	21.0	13	Defender
+33	Man United	328101	T. Fredricson	20.0	33	Defender
+33	Man United	402329	A. Heaven	19.0	26	Defender
+33	Man United	440159	G. Kukonki	17.0	4	Defender
+33	Man United	475598	D. León	18.0	5	Defender
+33	Man United	2935	H. Maguire	32.0	5	Defender
+33	Man United	37145	T. Malacia	26.0	12	Defender
+33	Man United	2467	Lisandro Martínez	27.0	6	Defender
+33	Man United	545	N. Mazraoui	28.0	3	Defender
+33	Man United	891	L. Shaw	30.0	23	Defender
+33	Man United	342970	L. Yoro	20.0	15	Defender
+33	Man United	532	M. de Ligt	26.0	4	Defender
+33	Man United	747	Casemiro	33.0	18	Midfielder
+33	Man United	1485	Bruno Fernandes	31.0	8	Midfielder
+33	Man United	383770	J. Fletcher	18.0	10	Midfielder
+33	Man United	557460	T. Fletcher	18.0	39	Midfielder
+33	Man United	284322	K. Mainoo	20.0	37	Midfielder
+33	Man United	344229	J. Moorhouse	20.0	7	Midfielder
+33	Man United	19220	M. Mount	26.0	7	Midfielder
+33	Man United	51494	M. Ugarte	24.0	25	Midfielder
+33	Man United	1165	Matheus Cunha	26.0	10	Midfielder
+33	Man United	157997	A. Diallo	23.0	16	Midfielder
+33	Man United	557462	S. Lacey	18.0	7	Attacker
+33	Man United	404769	Bendito Mantato	17.0	15	Attacker
+33	Man United	20589	B. Mbeumo	26.0	19	Attacker
+33	Man United	389309	O. Martin	18.0	9	Attacker
+33	Man United	115589	B. Šeško	22.0	30	Attacker
+33	Man United	70100	J. Zirkzee	24.0	11	Attacker
+39	Wolves	19341	D. Bentley	32.0	25	Goalkeeper
+39	Wolves	19143	S. Johnstone	32.0	31	Goalkeeper
+39	Wolves	1590	José Sá	32.0	1	Goalkeeper
+39	Wolves	280687	Hugo Bueno	23.0	3	Midfielder
+39	Wolves	135334	S. Bueno	27.0	4	Defender
+39	Wolves	18742	M. Doherty	33.0	2	Defender
+39	Wolves	282770	Rodrigo Gomes	22.0	21	Defender
+39	Wolves	66407	L. Krejčí	26.0	37	Defender
+39	Wolves	397999	S. Olagunju	18.0	4	Defender
+39	Wolves	449245	Pedro Lima	19.0	17	Defender
+39	Wolves	41606	Toti Gomes	26.0	24	Defender
+39	Wolves	265782	D. Møller Wolfe	23.0	6	Defender
+39	Wolves	265784	André	24.0	7	Midfielder
+39	Wolves	20665	J. Bellegarde	27.0	27	Attacker
+39	Wolves	546745	T. Edozie	19.0	9	Midfielder
+39	Wolves	896	A. Gomes	25.0	47	Midfielder
+39	Wolves	195103	João Gomes	24.0	8	Midfielder
+39	Wolves	195717	Y. Mosquera	24.0	15	Defender
+39	Wolves	401098	L. Rawlings	17.0	10	Midfielder
+39	Wolves	386750	Xu Bin	21.0	6	Midfielder
+39	Wolves	19484	A. Armstrong	28.0	9	Attacker
+39	Wolves	110153	T. Arokodare	25.0	14	Attacker
+39	Wolves	385726	E. González	20.0	7	Attacker
+39	Wolves	24888	Hwang Hee-Chan	29.0	11	Attacker
+39	Wolves	456206	M. Mane	18.0	36	Attacker
+39	Wolves	379678	Ethan Sutherland	19.0	11	Attacker
+39	Wolves	296560	J. Tchatchoua	24.0	38	Midfielder
+47	Tottenham	156428	B. Austin	26.0	40	Goalkeeper
+47	Tottenham	344247	Luca Gunter	20.0	1	Goalkeeper
+47	Tottenham	265826	A. Kinský	22.0	31	Goalkeeper
+47	Tottenham	31354	G. Vicario	29.0	1	Goalkeeper
+47	Tottenham	467839	J. Byfield	17.0	67	Defender
+47	Tottenham	25287	K. Danso	27.0	4	Defender
+47	Tottenham	164	B. Davies	32.0	33	Defender
+47	Tottenham	162498	R. Drăgușin	23.0	3	Defender
+47	Tottenham	328089	A. Gray	19.0	14	Midfielder
+47	Tottenham	459203	M. Hardy	17.0	5	Defender
+47	Tottenham	47519	Pedro Porro	26.0	23	Midfielder
+47	Tottenham	30776	C. Romero	27.0	17	Defender
+47	Tottenham	361735	J. Rowswell	19.0	76	Defender
+47	Tottenham	414455	Souza	19.0	38	Midfielder
+47	Tottenham	19235	D. Spence	25.0	24	Defender
+47	Tottenham	204039	D. Udogie	23.0	13	Defender
+47	Tottenham	152849	M. van de Ven	24.0	37	Defender
+47	Tottenham	863	R. Bentancur	28.0	30	Midfielder
+47	Tottenham	347316	L. Bergvall	19.0	15	Midfielder
+47	Tottenham	18968	Y. Bissouma	29.0	8	Midfielder
+47	Tottenham	67972	C. Gallagher	25.0	22	Midfielder
+47	Tottenham	584077	T. Hall	18.0	6	Midfielder
+47	Tottenham	15911	M. Kudus	25.0	20	Midfielder
+47	Tottenham	310531	Rio Kyerematen	20.0	57	Midfielder
+47	Tottenham	380689	C. Olusesi	18.0	52	Midfielder
+47	Tottenham	41104	João Palhinha	30.0	6	Midfielder
+47	Tottenham	237129	P. Sarr	23.0	29	Midfielder
+47	Tottenham	162016	X. Simons	22.0	7	Midfielder
+47	Tottenham	21104	R. Kolo Muani	27.0	39	Attacker
+47	Tottenham	394935	M. Melia	18.0	9	Attacker
+47	Tottenham	336564	W. Odobert	21.0	28	Attacker
+47	Tottenham	2413	Richarlison	28.0	9	Attacker
+47	Tottenham	18883	D. Solanke	28.0	19	Attacker
+47	Tottenham	270510	M. Tel	20.0	11	Midfielder
+47	Tottenham	557391	T. Thompson	17.0	17	Attacker
+47	Tottenham	465310	L. Williams-Barnett	17.0	68	Attacker
+47	Tottenham	418942	J. Wilson	18.0	79	Attacker
+46	Leicester	18858	A. Begović	38.0	31	Goalkeeper
+46	Leicester	288137	Harry French	20.0	51	Goalkeeper
+46	Leicester	152970	J. Stolarczyk	25.0	1	Goalkeeper
+46	Leicester	179996	Fran Vieites	26.0	13	Goalkeeper
+46	Leicester	417310	O. Aluko	19.0	56	Defender
+46	Leicester	557468	K. Gray		4	Defender
+46	Leicester	158710	V. Kristiansen	23.0	16	Defender
+46	Leicester	18894	J. Lascelles	32.0	24	Defender
+46	Leicester	278118	B. Nelson	21.0	4	Defender
+46	Leicester	30427	C. Okoli	24.0	5	Defender
+46	Leicester	437569	L. Page	17.0	8	Defender
+46	Leicester	18771	Ricardo Pereira	32.0	21	Defender
+46	Leicester	152969	L. Thomas	24.0	33	Defender
+46	Leicester	18943	J. Vestergaard	33.0	23	Defender
+46	Leicester	19825	J. Aribo	29.0	18	Midfielder
+46	Leicester	18779	H. Choudhury	28.0	17	Defender
+46	Leicester	19004	B. De Cordova-Reid	32.0	14	Attacker
+46	Leicester	328074	J. James	21.0	6	Midfielder
+46	Leicester	284487	Wanya Marçal	23.0	27	Midfielder
+46	Leicester	278079	A. Ramsey	22.0	30	Midfielder
+46	Leicester	180	O. Skipp	25.0	22	Midfielder
+46	Leicester	182	H. Winks	29.0	8	Midfielder
+46	Leicester	3428	J. Ayew	34.0	9	Attacker
+46	Leicester	1098	P. Daka	27.0	20	Attacker
+46	Leicester	303467	A. Fatawu	21.0	7	Midfielder
+46	Leicester	879	S. Mavididi	27.0	10	Midfielder
+46	Leicester	460853	J. Monga	16.0	28	Midfielder
+46	Leicester	380681	D. Mukasa	18.0	29	Attacker
+46	Leicester	411808	D. Richards	20.0	12	Attacker
+46	Leicester	284403	Silko Amari Otieno Thomas	21.0	39	Attacker
+57	Ipswich	18958	D. Button	36.0	27	Goalkeeper
+57	Ipswich	82097	A. Palmer	29.0	1	Goalkeeper
+57	Ipswich	19541	C. Walton	30.0	28	Goalkeeper
+57	Ipswich	283265	E. Baggott	23.0	25	Defender
+57	Ipswich	327749	S. Boniface	19.0	48	Defender
+57	Ipswich	19119	L. Davis	26.0	3	Defender
+57	Ipswich	19577	D. Furlong	30.0	19	Defender
+57	Ipswich	127579	J. Greaves	25.0	24	Defender
+57	Ipswich	18823	B. Johnson	25.0	18	Defender
+57	Ipswich	19546	C. Kipré	29.0	4	Defender
+57	Ipswich	17597	D. O&apos;Shea	26.0	26	Defender
+57	Ipswich	894	A. Young	40.0	15	Defender
+57	Ipswich	20089	W. Burns	31.0	7	Attacker
+57	Ipswich	15797	J. Cajuste	26.0	12	Midfielder
+57	Ipswich	37236	A. Matusiwa	27.0	5	Midfielder
+57	Ipswich	19910	D. Neil	24.0	6	Midfielder
+57	Ipswich	195121	M. Núñez	25.0	32	Midfielder
+57	Ipswich	18397	J. Taylor	27.0	14	Midfielder
+57	Ipswich	2380	C. Akpom	30.0	29	Attacker
+57	Ipswich	161590	Iván Azón	23.0	31	Attacker
+57	Ipswich	19136	J. Clarke	25.0	47	Midfielder
+57	Ipswich	342654	S. Egeli	19.0	8	Attacker
+57	Ipswich	8794	G. Hirst	26.0	9	Attacker
+57	Ipswich	283290	K. McAteer	24.0	20	Midfielder
+57	Ipswich	286349	A. Mehmeti	24.0	33	Midfielder
+57	Ipswich	138931	J. Philogene	23.0	11	Attacker
+41	Southampton	19406	G. Long	32.0	25	Goalkeeper
+41	Southampton	18935	A. McCarthy	36.0	1	Goalkeeper
+41	Southampton	126530	Daniel Peretz	25.0	41	Goalkeeper
+41	Southampton	19719	J. Bree	28.0	14	Defender
+41	Southampton	557522	T. Dobson-Ventura	19.0	5	Defender
+41	Southampton	144729	T. Harwood-Bellis	23.0	6	Defender
+41	Southampton	341234	E. Jelert	22.0	38	Defender
+41	Southampton	19587	R. Manning	29.0	3	Defender
+41	Southampton	334353	J. Quarshie	21.0	17	Defender
+41	Southampton	15745	M. Roerslev	26.0	2	Defender
+41	Southampton	18940	J. Stephens	31.0	5	Defender
+41	Southampton	180919	Welington	24.0	34	Defender
+41	Southampton	19248	N. Wood-Gordon	23.0	15	Defender
+41	Southampton	231039	F. Azaz	25.0	10	Midfielder
+41	Southampton	304318	Cameron Bragg	20.0	48	Midfielder
+41	Southampton	284356	S. Charles	22.0	24	Midfielder
+41	Southampton	19733	F. Downes	26.0	4	Midfielder
+41	Southampton	283278	T. Fellows	22.0	18	Midfielder
+41	Southampton	282060	C. Jander	22.0	20	Midfielder
+41	Southampton	351013	K. Matsuki	22.0	27	Midfielder
+41	Southampton	322305	J. O&apos;Brien-Whitmarsh	20.0	37	Midfielder
+41	Southampton	18949	Oriol Romeu	34.0	28	Midfielder
+41	Southampton	401241	M. Sesay	18.0	8	Midfielder
+41	Southampton	557372	B. Williams		19	Midfielder
+41	Southampton	137302	C. Archer	24.0	19	Midfielder
+41	Southampton	278085	S. Edozie	22.0	23	Midfielder
+41	Southampton	2001	C. Larin	30.0	9	Attacker
+41	Southampton	546536	N. Oyekunle	18.0	49	Attacker
+41	Southampton	380691	Jay Robinson	18.0	46	Attacker
+41	Southampton	283323	Léo Scienza	27.0	13	Midfielder
+41	Southampton	45078	R. Stewart	29.0	11	Attacker

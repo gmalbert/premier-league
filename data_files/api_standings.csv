@@ -1,0 +1,21 @@
+TeamAPI	Team	TeamID	Rank	Points	Played	Win	Draw	Lose	GoalsFor	GoalsAgainst	GoalDifference	Form	HomeWin	HomeDraw	HomeLose	AwayWin	AwayDraw	AwayLose
+Liverpool	Liverpool	40	1	84	38	25	9	4	86	41	45	DLDLW	14	4	1	11	5	3
+Arsenal	Arsenal	42	2	74	38	20	14	4	69	34	35	WWDLD	11	6	2	9	8	2
+Manchester City	Man City	50	3	71	38	21	8	9	72	44	28	WWDWW	13	3	3	8	5	6
+Chelsea	Chelsea	49	4	69	38	20	9	9	64	43	21	WWLWW	12	5	2	8	4	7
+Newcastle	Newcastle	34	5	66	38	20	6	12	68	47	21	LLWDW	12	2	5	8	4	7
+Aston Villa	Aston Villa	66	6	66	38	19	9	10	58	51	7	LWWWL	11	7	1	8	2	9
+Nottingham Forest	Nott'm Forest	65	7	65	38	19	8	11	58	46	12	LWDDL	9	5	5	10	3	6
+Brighton	Brighton	51	8	61	38	16	13	9	66	59	7	WWWDW	8	8	3	8	5	6
+Bournemouth	Bournemouth	35	9	56	38	15	11	12	58	46	12	WLLWD	8	4	7	7	7	5
+Brentford	Brentford	55	10	56	38	16	8	14	66	57	9	DLWWW	9	4	6	7	4	8
+Fulham	Fulham	36	11	54	38	15	9	14	54	54	0	LWLLW	7	5	7	8	4	7
+Crystal Palace	Crystal Palace	52	12	53	38	13	14	11	51	51	0	DWWDD	6	7	6	7	7	5
+Everton	Everton	45	13	48	38	11	15	12	42	44	-2	WWWDL	5	9	5	6	6	7
+West Ham	West Ham	48	14	43	38	11	10	17	46	62	-16	WLWDL	5	5	9	6	5	8
+Manchester United	Man United	33	15	42	38	11	9	18	44	54	-10	WLLLD	7	3	9	4	6	9
+Wolves	Wolves	39	16	42	38	12	6	20	54	69	-15	DLLLW	6	3	10	6	3	10
+Tottenham	Tottenham	47	17	38	38	11	5	22	64	65	-1	LLLDL	6	3	10	5	2	12
+Leicester	Leicester	46	18	25	38	6	7	25	33	80	-47	LWDWL	4	3	12	2	4	13
+Ipswich	Ipswich	57	19	22	38	4	10	24	36	82	-46	LLLDL	1	4	14	3	6	10
+Southampton	Southampton	41	20	12	38	2	6	30	26	86	-60	LLDLL	1	3	15	1	3	15

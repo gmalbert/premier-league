@@ -23,7 +23,7 @@ A friendly app and data pipeline for predicting English Premier League match out
 
 This project predicts the likely outcome of upcoming Premier League matches (home win, draw, or away win) using historical match data and machine learning. It also shows upcoming fixtures, kickoff times (in Eastern Time), and simple explanations of the model's predictions so fans can quickly understand which team is favored. Additionally, it provides detailed referee statistics, manager performance metrics, and team form analysis to help fans understand how different referees, managers, and recent performance might influence match outcomes.
 
-**Latest Enhancement:** The prediction model now uses an ensemble approach combining multiple machine learning algorithms, resulting in **3.5% higher accuracy** compared to the previous XGBoost-only model. Neural network and LSTM time series support have also been added for advanced deep learning predictions.
+**Latest Enhancement:** Live 2025-26 Premier League standings and current-season team stats are now computed from the historical match dataset, and the UI now routes standings/prediction outputs to 2025-26 context while still offering 2024-25 API insights as supplemental analytics. The prediction model now uses an ensemble approach combining multiple machine learning algorithms, resulting in **3.5% higher accuracy** compared to the previous XGBoost-only model. Neural network and LSTM time series support have also been added for advanced deep learning predictions.
 
 [Back to top](#premier-league-predictor)
 

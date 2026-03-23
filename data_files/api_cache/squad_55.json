@@ -1,0 +1,235 @@
+[
+  {
+    "team": {
+      "id": 55,
+      "name": "Brentford",
+      "logo": "https://media.api-sports.io/football/teams/55.png"
+    },
+    "players": [
+      {
+        "id": 19340,
+        "name": "E. Balcombe",
+        "age": 26,
+        "number": 31,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/19340.png"
+      },
+      {
+        "id": 389579,
+        "name": "J. Eyestone",
+        "age": 19,
+        "number": 41,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/389579.png"
+      },
+      {
+        "id": 281,
+        "name": "C. Kelleher",
+        "age": 27,
+        "number": 1,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/281.png"
+      },
+      {
+        "id": 61742,
+        "name": "H. Valdimarsson",
+        "age": 24,
+        "number": 12,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/61742.png"
+      },
+      {
+        "id": 1119,
+        "name": "K. Ajer",
+        "age": 27,
+        "number": 20,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/1119.png"
+      },
+      {
+        "id": 19495,
+        "name": "N. Collins",
+        "age": 24,
+        "number": 22,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/19495.png"
+      },
+      {
+        "id": 19346,
+        "name": "R. Henry",
+        "age": 28,
+        "number": 3,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/19346.png"
+      },
+      {
+        "id": 44871,
+        "name": "A. Hickey",
+        "age": 23,
+        "number": 2,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/44871.png"
+      },
+      {
+        "id": 342022,
+        "name": "M. Kayode",
+        "age": 21,
+        "number": 33,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/342022.png"
+      },
+      {
+        "id": 19789,
+        "name": "E. Pinnock",
+        "age": 32,
+        "number": 5,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/19789.png"
+      },
+      {
+        "id": 577002,
+        "name": "J. Stephenson",
+        "age": 18,
+        "number": 50,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/577002.png"
+      },
+      {
+        "id": 36922,
+        "name": "S. van den Berg",
+        "age": 24,
+        "number": 4,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/36922.png"
+      },
+      {
+        "id": 513316,
+        "name": "Luka Bentt",
+        "age": 18,
+        "number": 48,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/513316.png"
+      },
+      {
+        "id": 153066,
+        "name": "F\u00e1bio Carvalho",
+        "age": 23,
+        "number": 14,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/153066.png"
+      },
+      {
+        "id": 15908,
+        "name": "M. Damsgaard",
+        "age": 25,
+        "number": 24,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/15908.png"
+      },
+      {
+        "id": 292,
+        "name": "J. Henderson",
+        "age": 35,
+        "number": 6,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/292.png"
+      },
+      {
+        "id": 25073,
+        "name": "V. Janelt",
+        "age": 27,
+        "number": 27,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/25073.png"
+      },
+      {
+        "id": 47438,
+        "name": "M. Jensen",
+        "age": 29,
+        "number": 8,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/47438.png"
+      },
+      {
+        "id": 106725,
+        "name": "K. Lewis-Potter",
+        "age": 24,
+        "number": 23,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/106725.png"
+      },
+      {
+        "id": 319517,
+        "name": "A. Milambo",
+        "age": 20,
+        "number": 17,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/319517.png"
+      },
+      {
+        "id": 178077,
+        "name": "K. Schade",
+        "age": 24,
+        "number": 7,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/178077.png"
+      },
+      {
+        "id": 263538,
+        "name": "Y. Yarmolyuk",
+        "age": 21,
+        "number": 18,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/263538.png"
+      },
+      {
+        "id": 402317,
+        "name": "R. Donovan",
+        "age": 19,
+        "number": 45,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/402317.png"
+      },
+      {
+        "id": 393193,
+        "name": "Kaye Iyowuna Furo",
+        "age": 18,
+        "number": 47,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/393193.png"
+      },
+      {
+        "id": 727,
+        "name": "R. Nelson",
+        "age": 26,
+        "number": 11,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/727.png"
+      },
+      {
+        "id": 284797,
+        "name": "D. Ouattara",
+        "age": 23,
+        "number": 19,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/284797.png"
+      },
+      {
+        "id": 624708,
+        "name": "O. Shield",
+        "age": 19,
+        "number": 49,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/624708.png"
+      },
+      {
+        "id": 196156,
+        "name": "Thiago",
+        "age": 24,
+        "number": 9,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/196156.png"
+      }
+    ]
+  }
+]

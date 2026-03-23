@@ -1,0 +1,275 @@
+[
+  {
+    "team": {
+      "id": 65,
+      "name": "Nottingham Forest",
+      "logo": "https://media.api-sports.io/football/teams/65.png"
+    },
+    "players": [
+      {
+        "id": 329358,
+        "name": "Aaron Bott",
+        "age": 21,
+        "number": 63,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/329358.png"
+      },
+      {
+        "id": 18933,
+        "name": "A. Gunn",
+        "age": 29,
+        "number": 18,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/18933.png"
+      },
+      {
+        "id": 70366,
+        "name": "John",
+        "age": 29,
+        "number": 13,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/70366.png"
+      },
+      {
+        "id": 25004,
+        "name": "S. Ortega",
+        "age": 33,
+        "number": 27,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/25004.png"
+      },
+      {
+        "id": 2919,
+        "name": "M. Sels",
+        "age": 33,
+        "number": 26,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/2919.png"
+      },
+      {
+        "id": 357238,
+        "name": "Keehan Willows",
+        "age": 20,
+        "number": 67,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/357238.png"
+      },
+      {
+        "id": 329357,
+        "name": "Z. Abbott",
+        "age": 19,
+        "number": 44,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/329357.png"
+      },
+      {
+        "id": 2771,
+        "name": "O. Aina",
+        "age": 29,
+        "number": 34,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/2771.png"
+      },
+      {
+        "id": 18739,
+        "name": "W. Boly",
+        "age": 34,
+        "number": 30,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/18739.png"
+      },
+      {
+        "id": 362711,
+        "name": "Jair",
+        "age": 20,
+        "number": 23,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/362711.png"
+      },
+      {
+        "id": 2817,
+        "name": "N. Milenkovi\u0107",
+        "age": 28,
+        "number": 31,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/2817.png"
+      },
+      {
+        "id": 67943,
+        "name": "Morato",
+        "age": 24,
+        "number": 4,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/67943.png"
+      },
+      {
+        "id": 363695,
+        "name": "Murillo",
+        "age": 23,
+        "number": 5,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/363695.png"
+      },
+      {
+        "id": 163069,
+        "name": "L. Netz",
+        "age": 22,
+        "number": 25,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/163069.png"
+      },
+      {
+        "id": 181806,
+        "name": "N. Savona",
+        "age": 22,
+        "number": 37,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/181806.png"
+      },
+      {
+        "id": 380663,
+        "name": "J. Sinclair",
+        "age": 19,
+        "number": 61,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/380663.png"
+      },
+      {
+        "id": 138780,
+        "name": "N. Williams",
+        "age": 24,
+        "number": 3,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/138780.png"
+      },
+      {
+        "id": 138908,
+        "name": "E. Anderson",
+        "age": 23,
+        "number": 8,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/138908.png"
+      },
+      {
+        "id": 6056,
+        "name": "N. Dom\u00ednguez",
+        "age": 27,
+        "number": 16,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/6056.png"
+      },
+      {
+        "id": 18746,
+        "name": "M. Gibbs-White",
+        "age": 25,
+        "number": 10,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/18746.png"
+      },
+      {
+        "id": 2298,
+        "name": "C. Hudson-Odoi",
+        "age": 25,
+        "number": 7,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/2298.png"
+      },
+      {
+        "id": 158697,
+        "name": "J. McAtee",
+        "age": 23,
+        "number": 24,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/158697.png"
+      },
+      {
+        "id": 22149,
+        "name": "I. Sangar\u00e9",
+        "age": 28,
+        "number": 6,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/22149.png"
+      },
+      {
+        "id": 353968,
+        "name": "A. Whitehall",
+        "age": 19,
+        "number": 51,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/353968.png"
+      },
+      {
+        "id": 19305,
+        "name": "R. Yates",
+        "age": 28,
+        "number": 22,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/19305.png"
+      },
+      {
+        "id": 8598,
+        "name": "T. Awoniyi",
+        "age": 28,
+        "number": 9,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/8598.png"
+      },
+      {
+        "id": 129695,
+        "name": "D. Bakwa",
+        "age": 23,
+        "number": 29,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/129695.png"
+      },
+      {
+        "id": 383771,
+        "name": "Z. Blake",
+        "age": 2025,
+        "number": 11,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/383771.png"
+      },
+      {
+        "id": 284428,
+        "name": "O. Hutchinson",
+        "age": 22,
+        "number": 21,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/284428.png"
+      },
+      {
+        "id": 9366,
+        "name": "Igor Jesus",
+        "age": 24,
+        "number": 19,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/9366.png"
+      },
+      {
+        "id": 199089,
+        "name": "L. Lucca",
+        "age": 25,
+        "number": 20,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/199089.png"
+      },
+      {
+        "id": 48648,
+        "name": "D. Ndoye",
+        "age": 25,
+        "number": 14,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/48648.png"
+      },
+      {
+        "id": 18931,
+        "name": "C. Wood",
+        "age": 34,
+        "number": 11,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/18931.png"
+      }
+    ]
+  }
+]

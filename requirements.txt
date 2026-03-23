@@ -1,6 +1,7 @@
 beautifulsoup4
 numpy
 pandas
+python-dotenv
 requests
 scikit-learn
 streamlit>=1.51

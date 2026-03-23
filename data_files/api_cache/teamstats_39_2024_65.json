@@ -1,0 +1,326 @@
+{
+  "league": {
+    "id": 39,
+    "name": "Premier League",
+    "country": "England",
+    "logo": "https://media.api-sports.io/football/leagues/39.png",
+    "flag": "https://media.api-sports.io/flags/gb-eng.svg",
+    "season": 2024
+  },
+  "team": {
+    "id": 65,
+    "name": "Nottingham Forest",
+    "logo": "https://media.api-sports.io/football/teams/65.png"
+  },
+  "form": "DWDWDLDWWWLLWLWWWWWWDWLWLLDWWWLLWLDDWL",
+  "fixtures": {
+    "played": {
+      "home": 19,
+      "away": 19,
+      "total": 38
+    },
+    "wins": {
+      "home": 9,
+      "away": 10,
+      "total": 19
+    },
+    "draws": {
+      "home": 5,
+      "away": 3,
+      "total": 8
+    },
+    "loses": {
+      "home": 5,
+      "away": 6,
+      "total": 11
+    }
+  },
+  "goals": {
+    "for": {
+      "total": {
+        "home": 26,
+        "away": 32,
+        "total": 58
+      },
+      "average": {
+        "home": "1.4",
+        "away": "1.7",
+        "total": "1.5"
+      },
+      "minute": {
+        "0-15": {
+          "total": 11,
+          "percentage": "19.30%"
+        },
+        "16-30": {
+          "total": 9,
+          "percentage": "15.79%"
+        },
+        "31-45": {
+          "total": 8,
+          "percentage": "14.04%"
+        },
+        "46-60": {
+          "total": 9,
+          "percentage": "15.79%"
+        },
+        "61-75": {
+          "total": 11,
+          "percentage": "19.30%"
+        },
+        "76-90": {
+          "total": 6,
+          "percentage": "10.53%"
+        },
+        "91-105": {
+          "total": 3,
+          "percentage": "5.26%"
+        },
+        "106-120": {
+          "total": null,
+          "percentage": null
+        }
+      },
+      "under_over": {
+        "0.5": {
+          "over": 30,
+          "under": 8
+        },
+        "1.5": {
+          "over": 15,
+          "under": 23
+        },
+        "2.5": {
+          "over": 8,
+          "under": 30
+        },
+        "3.5": {
+          "over": 2,
+          "under": 36
+        },
+        "4.5": {
+          "over": 1,
+          "under": 37
+        }
+      }
+    },
+    "against": {
+      "total": {
+        "home": 16,
+        "away": 30,
+        "total": 46
+      },
+      "average": {
+        "home": "0.8",
+        "away": "1.6",
+        "total": "1.2"
+      },
+      "minute": {
+        "0-15": {
+          "total": 8,
+          "percentage": "17.02%"
+        },
+        "16-30": {
+          "total": 5,
+          "percentage": "10.64%"
+        },
+        "31-45": {
+          "total": 6,
+          "percentage": "12.77%"
+        },
+        "46-60": {
+          "total": 9,
+          "percentage": "19.15%"
+        },
+        "61-75": {
+          "total": 7,
+          "percentage": "14.89%"
+        },
+        "76-90": {
+          "total": 8,
+          "percentage": "17.02%"
+        },
+        "91-105": {
+          "total": 4,
+          "percentage": "8.51%"
+        },
+        "106-120": {
+          "total": null,
+          "percentage": null
+        }
+      },
+      "under_over": {
+        "0.5": {
+          "over": 25,
+          "under": 13
+        },
+        "1.5": {
+          "over": 13,
+          "under": 25
+        },
+        "2.5": {
+          "over": 5,
+          "under": 33
+        },
+        "3.5": {
+          "over": 2,
+          "under": 36
+        },
+        "4.5": {
+          "over": 1,
+          "under": 37
+        }
+      }
+    }
+  },
+  "biggest": {
+    "streak": {
+      "wins": 6,
+      "draws": 2,
+      "loses": 2
+    },
+    "wins": {
+      "home": "7-0",
+      "away": "0-3"
+    },
+    "loses": {
+      "home": "1-3",
+      "away": "5-0"
+    },
+    "goals": {
+      "for": {
+        "home": 7,
+        "away": 4
+      },
+      "against": {
+        "home": 3,
+        "away": 5
+      }
+    }
+  },
+  "clean_sheet": {
+    "home": 8,
+    "away": 5,
+    "total": 13
+  },
+  "failed_to_score": {
+    "home": 5,
+    "away": 3,
+    "total": 8
+  },
+  "penalty": {
+    "scored": {
+      "total": 3,
+      "percentage": "100.00%"
+    },
+    "missed": {
+      "total": 0,
+      "percentage": "0%"
+    },
+    "total": 3
+  },
+  "lineups": [
+    {
+      "formation": "4-2-3-1",
+      "played": 30
+    },
+    {
+      "formation": "3-5-2",
+      "played": 2
+    },
+    {
+      "formation": "4-3-1-2",
+      "played": 2
+    },
+    {
+      "formation": "4-4-2",
+      "played": 1
+    },
+    {
+      "formation": "3-4-2-1",
+      "played": 1
+    },
+    {
+      "formation": "3-4-1-2",
+      "played": 1
+    },
+    {
+      "formation": "4-2-2-2",
+      "played": 1
+    }
+  ],
+  "cards": {
+    "yellow": {
+      "0-15": {
+        "total": 5,
+        "percentage": "5.56%"
+      },
+      "16-30": {
+        "total": 5,
+        "percentage": "5.56%"
+      },
+      "31-45": {
+        "total": 11,
+        "percentage": "12.22%"
+      },
+      "46-60": {
+        "total": 19,
+        "percentage": "21.11%"
+      },
+      "61-75": {
+        "total": 19,
+        "percentage": "21.11%"
+      },
+      "76-90": {
+        "total": 17,
+        "percentage": "18.89%"
+      },
+      "91-105": {
+        "total": 12,
+        "percentage": "13.33%"
+      },
+      "106-120": {
+        "total": null,
+        "percentage": null
+      },
+      "": {
+        "total": 2,
+        "percentage": "2.22%"
+      }
+    },
+    "red": {
+      "0-15": {
+        "total": null,
+        "percentage": null
+      },
+      "16-30": {
+        "total": null,
+        "percentage": null
+      },
+      "31-45": {
+        "total": null,
+        "percentage": null
+      },
+      "46-60": {
+        "total": null,
+        "percentage": null
+      },
+      "61-75": {
+        "total": null,
+        "percentage": null
+      },
+      "76-90": {
+        "total": 2,
+        "percentage": "100.00%"
+      },
+      "91-105": {
+        "total": null,
+        "percentage": null
+      },
+      "106-120": {
+        "total": null,
+        "percentage": null
+      }
+    }
+  }
+}
