@@ -1,0 +1,41 @@
+Category	PlayerID	PlayerName	Age	Nationality	TeamAPI	Team	Position	Appearances	Rating	Goals	Assists	Shots	ShotsOnTarget	KeyPasses	PassAccuracy	Tackles	Dribbles	YellowCards	RedCards
+TopScorer	306	Mohamed Salah	33	Egypt	Liverpool	Liverpool	Attacker	38	7.792105	29.0	18	104	61	91		22	57	1	0
+TopScorer	2864	A. Isak	26	Sweden	Newcastle	Newcastle	Attacker	34	7.279411	23.0	6	76	46	42		12	42	1	0
+TopScorer	1100	E. Haaland	25	Norway	Manchester City	Man City	Attacker	32	7.254838	22.0	3	92	60	29		12	13	2	0
+TopScorer	18931	C. Wood	34	New Zealand	Nottingham Forest	Nott'm Forest	Attacker	36	6.986111	20.0	3	56	35	22		6	5	1	0
+TopScorer	20589	B. Mbeumo	26	Cameroon	Brentford	Brentford	Attacker	38	7.450000	20.0	7	65	41	70		49	52	3	0
+TopScorer	20649	Y. Wissa	29	Congo DR	Brentford	Brentford	Attacker	35	7.157142	19.0	4	69	43	29		22	15	5	0
+TopScorer	19366	O. Watkins	30	England	Aston Villa	Aston Villa	Attacker	38	6.907894	16.0	8	67	40	25		10	10	2	0
+TopScorer	1165	Matheus Cunha	26	Brazil	Manchester United	Man United	Attacker	33	7.630303	15.0	6	80	44	58		38	61	4	0
+TopScorer	1165	Matheus Cunha	26	Brazil	Wolves	Wolves	Attacker	33	7.630303	15.0	6	80	44	58		38	61	4	0
+TopScorer	152982	C. Palmer	23	England	Chelsea	Chelsea	Midfielder	37	7.656756	15.0	8	86	51	91		34	51	7	0
+TopScorer	2032	J. Strand Larsen	25	Norway	Wolves	Wolves	Attacker	35	6.888571	14.0	4	49	34	21		10	8	4	0
+TopScorer	25927	J. Mateta	28	France	Crystal Palace	Crystal Palace	Attacker	37	6.927027	14.0	2	53	33	29		18	19	2	0
+TopScorer	2489	L. Díaz	28	Colombia	Liverpool	Liverpool	Attacker	36	7.269444	13.0	5	49	30	56		39	53	2	0
+TopScorer	19428	J. Bowen	29	England	West Ham	West Ham	Attacker	34	7.197058	13.0	8	59	37	52		41	44	1	0
+TopScorer	161948	L. Delap	22	England	Ipswich	Ipswich	Attacker	37	6.878378	12.0	2	53	32	20		11	40	11	0
+TopScorer	2887	R. Jiménez	34	Mexico	Fulham	Fulham	Attacker	38	7.013157	12.0	3	73	33	24		35	21	4	0
+TopScorer	792	J. Kluivert	26	Netherlands	Bournemouth	Bournemouth	Attacker	34	7.161764	12.0	6	52	29	45		23	36	8	0
+TopScorer	19281	A. Semenyo	25	Ghana	Bournemouth	Bournemouth	Attacker	37	7.210810	11.0	5	81	41	46		55	69	9	0
+TopScorer	129711	B. Johnson	24	Wales	Tottenham	Tottenham	Attacker	33	7.072727	11.0	3	43	20	19		39	19	5	0
+TopScorer	178077	K. Schade	24	Germany	Brentford	Brentford	Midfielder	38	7.013157	11.0	2	43	27	23		39	30	3	0
+TopAssist	306	Mohamed Salah	33	Egypt	Liverpool	Liverpool	Attacker	38	7.792105	29.0	18	104	61	91		22	57	1	0
+TopAssist	19163	J. Murphy	30	England	Newcastle	Newcastle	Midfielder	35	7.128571	8.0	11	31	15	41		28	35	4	0
+TopAssist	153430	A. Elanga	23	Sweden	Newcastle	Newcastle	Attacker	38	7.018421	6.0	11	37	24	50		20	25	1	0
+TopAssist	153430	A. Elanga	23	Sweden	Nottingham Forest	Nott'm Forest	Attacker	38	7.018421	6.0	11	37	24	50		20	25	1	0
+TopAssist	19170	M. Rogers	23	England	Aston Villa	Aston Villa	Attacker	37	6.989189	8.0	10	34	20	52		43	66	10	0
+TopAssist	1485	Bruno Fernandes	31	Portugal	Manchester United	Man United	Midfielder	37	7.605555	8.0	10	65	29	91	45.0	84	28	5	2
+TopAssist	1460	B. Saka	24	England	Arsenal	Arsenal	Attacker	25	7.528000	6.0	10	41	23	61		30	41	3	0
+TopAssist	15908	M. Damsgaard	25	Denmark	Brentford	Brentford	Midfielder	38	7.210526	2.0	10	20	7	64		83	50	2	0
+TopAssist	19549	A. Robinson	28	USA	Fulham	Fulham	Defender	36	7.136111		10	11	2	44		95	38	8	0
+TopAssist	186	Son Heung-Min	33	Korea Republic	Tottenham	Tottenham	Attacker	30	7.263333	7.0	9	39	26	50		17	29	1	0
+TopAssist	19366	O. Watkins	30	England	Aston Villa	Aston Villa	Attacker	38	6.907894	16.0	8	67	40	25		10	10	2	0
+TopAssist	152982	C. Palmer	23	England	Chelsea	Chelsea	Midfielder	37	7.656756	15.0	8	86	51	91		34	51	7	0
+TopAssist	19428	J. Bowen	29	England	West Ham	West Ham	Attacker	34	7.197058	13.0	8	59	37	52		41	44	1	0
+TopAssist	19586	E. Eze	27	England	Crystal Palace	Crystal Palace	Midfielder	34	7.297058	8.0	8	61	29	59		39	67	1	0
+TopAssist	18746	M. Gibbs-White	25	England	Nottingham Forest	Nott'm Forest	Midfielder	34	7.264705	7.0	8	48	22	52		43	32	11	1
+TopAssist	37127	M. Ødegaard	27	Norway	Arsenal	Arsenal	Midfielder	30	7.290000	3.0	8	30	17	64	40.0	19	25	4	0
+TopAssist	266657	Sávio	21	Brazil	Manchester City	Man City	Attacker	36	7.333333	1.0	8	37	21	46		23	52	3	0
+TopAssist	20589	B. Mbeumo	26	Cameroon	Brentford	Brentford	Attacker	38	7.450000	20.0	7	65	41	70		49	52	3	0
+TopAssist	18784	J. Maddison	29	England	Tottenham	Tottenham	Midfielder	31	7.329032	9.0	7	28	17	42		31	33	6	0
+TopAssist	1946	L. Trossard	31	Belgium	Arsenal	Arsenal	Attacker	38	7.078947	8.0	7	44	22	42		31	38	3	0

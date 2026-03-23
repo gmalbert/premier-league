@@ -1,0 +1,243 @@
+[
+  {
+    "team": {
+      "id": 35,
+      "name": "Bournemouth",
+      "logo": "https://media.api-sports.io/football/teams/35.png"
+    },
+    "players": [
+      {
+        "id": 18932,
+        "name": "F. Forster",
+        "age": 37,
+        "number": 17,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/18932.png"
+      },
+      {
+        "id": 26644,
+        "name": "C. Mandas",
+        "age": 24,
+        "number": 29,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/26644.png"
+      },
+      {
+        "id": 118307,
+        "name": "\u0110. Petrovi\u0107",
+        "age": 26,
+        "number": 1,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/118307.png"
+      },
+      {
+        "id": 22136,
+        "name": "B. Diakit\u00e9",
+        "age": 24,
+        "number": 18,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/22136.png"
+      },
+      {
+        "id": 20093,
+        "name": "J. Hill",
+        "age": 23,
+        "number": 23,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/20093.png"
+      },
+      {
+        "id": 330437,
+        "name": "\u00c1lex Jim\u00e9nez",
+        "age": 20,
+        "number": 20,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/330437.png"
+      },
+      {
+        "id": 412719,
+        "name": "Veljko Milosavljevi\u0107",
+        "age": 18,
+        "number": 44,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/412719.png"
+      },
+      {
+        "id": 6610,
+        "name": "M. Senesi",
+        "age": 28,
+        "number": 5,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/6610.png"
+      },
+      {
+        "id": 18869,
+        "name": "A. Smith",
+        "age": 34,
+        "number": 15,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/18869.png"
+      },
+      {
+        "id": 363333,
+        "name": "J. Soler",
+        "age": 20,
+        "number": 6,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/363333.png"
+      },
+      {
+        "id": 162267,
+        "name": "A. Truffert",
+        "age": 24,
+        "number": 3,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/162267.png"
+      },
+      {
+        "id": 1150,
+        "name": "T. Adams",
+        "age": 26,
+        "number": 12,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/1150.png"
+      },
+      {
+        "id": 129682,
+        "name": "A. Adli",
+        "age": 25,
+        "number": 21,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/129682.png"
+      },
+      {
+        "id": 1125,
+        "name": "R. Christie",
+        "age": 30,
+        "number": 10,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/1125.png"
+      },
+      {
+        "id": 18872,
+        "name": "L. Cook",
+        "age": 28,
+        "number": 4,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/18872.png"
+      },
+      {
+        "id": 390769,
+        "name": "Michael Dacosta",
+        "age": 20,
+        "number": 51,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/390769.png"
+      },
+      {
+        "id": 626383,
+        "name": "Malcom Dacosta",
+        "age": 17,
+        "number": 51,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/626383.png"
+      },
+      {
+        "id": 304853,
+        "name": "A. Scott",
+        "age": 22,
+        "number": 8,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/304853.png"
+      },
+      {
+        "id": 573755,
+        "name": "C. Stevens",
+        "age": 18,
+        "number": 53,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/573755.png"
+      },
+      {
+        "id": 19245,
+        "name": "M. Tavernier",
+        "age": 26,
+        "number": 16,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/19245.png"
+      },
+      {
+        "id": 361485,
+        "name": "A. T\u00f3th",
+        "age": 20,
+        "number": 27,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/361485.png"
+      },
+      {
+        "id": 18870,
+        "name": "D. Brooks",
+        "age": 28,
+        "number": 7,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/18870.png"
+      },
+      {
+        "id": 343576,
+        "name": "B. Doak",
+        "age": 20,
+        "number": 11,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/343576.png"
+      },
+      {
+        "id": 152856,
+        "name": "Evanilson",
+        "age": 26,
+        "number": 9,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/152856.png"
+      },
+      {
+        "id": 792,
+        "name": "J. Kluivert",
+        "age": 26,
+        "number": 19,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/792.png"
+      },
+      {
+        "id": 368030,
+        "name": "E. Kroupi",
+        "age": 19,
+        "number": 22,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/368030.png"
+      },
+      {
+        "id": 407806,
+        "name": "Rayan",
+        "age": 19,
+        "number": 37,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/407806.png"
+      },
+      {
+        "id": 402434,
+        "name": "Remy Rees-Dottin",
+        "age": 19,
+        "number": 50,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/402434.png"
+      },
+      {
+        "id": 47499,
+        "name": "E. \u00dcnal",
+        "age": 28,
+        "number": 26,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/47499.png"
+      }
+    ]
+  }
+]

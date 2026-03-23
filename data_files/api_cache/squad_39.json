@@ -1,0 +1,227 @@
+[
+  {
+    "team": {
+      "id": 39,
+      "name": "Wolves",
+      "logo": "https://media.api-sports.io/football/teams/39.png"
+    },
+    "players": [
+      {
+        "id": 19341,
+        "name": "D. Bentley",
+        "age": 32,
+        "number": 25,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/19341.png"
+      },
+      {
+        "id": 19143,
+        "name": "S. Johnstone",
+        "age": 32,
+        "number": 31,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/19143.png"
+      },
+      {
+        "id": 1590,
+        "name": "Jos\u00e9 S\u00e1",
+        "age": 32,
+        "number": 1,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/1590.png"
+      },
+      {
+        "id": 280687,
+        "name": "Hugo Bueno",
+        "age": 23,
+        "number": 3,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/280687.png"
+      },
+      {
+        "id": 135334,
+        "name": "S. Bueno",
+        "age": 27,
+        "number": 4,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/135334.png"
+      },
+      {
+        "id": 18742,
+        "name": "M. Doherty",
+        "age": 33,
+        "number": 2,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/18742.png"
+      },
+      {
+        "id": 282770,
+        "name": "Rodrigo Gomes",
+        "age": 22,
+        "number": 21,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/282770.png"
+      },
+      {
+        "id": 66407,
+        "name": "L. Krej\u010d\u00ed",
+        "age": 26,
+        "number": 37,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/66407.png"
+      },
+      {
+        "id": 397999,
+        "name": "S. Olagunju",
+        "age": 18,
+        "number": 4,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/397999.png"
+      },
+      {
+        "id": 449245,
+        "name": "Pedro Lima",
+        "age": 19,
+        "number": 17,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/449245.png"
+      },
+      {
+        "id": 41606,
+        "name": "Toti Gomes",
+        "age": 26,
+        "number": 24,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/41606.png"
+      },
+      {
+        "id": 265782,
+        "name": "D. M\u00f8ller Wolfe",
+        "age": 23,
+        "number": 6,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/265782.png"
+      },
+      {
+        "id": 265784,
+        "name": "Andr\u00e9",
+        "age": 24,
+        "number": 7,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/265784.png"
+      },
+      {
+        "id": 20665,
+        "name": "J. Bellegarde",
+        "age": 27,
+        "number": 27,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/20665.png"
+      },
+      {
+        "id": 546745,
+        "name": "T. Edozie",
+        "age": 19,
+        "number": 9,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/546745.png"
+      },
+      {
+        "id": 896,
+        "name": "A. Gomes",
+        "age": 25,
+        "number": 47,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/896.png"
+      },
+      {
+        "id": 195103,
+        "name": "Jo\u00e3o Gomes",
+        "age": 24,
+        "number": 8,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/195103.png"
+      },
+      {
+        "id": 195717,
+        "name": "Y. Mosquera",
+        "age": 24,
+        "number": 15,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/195717.png"
+      },
+      {
+        "id": 401098,
+        "name": "L. Rawlings",
+        "age": 17,
+        "number": 10,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/401098.png"
+      },
+      {
+        "id": 386750,
+        "name": "Xu Bin",
+        "age": 21,
+        "number": 6,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/386750.png"
+      },
+      {
+        "id": 19484,
+        "name": "A. Armstrong",
+        "age": 28,
+        "number": 9,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/19484.png"
+      },
+      {
+        "id": 110153,
+        "name": "T. Arokodare",
+        "age": 25,
+        "number": 14,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/110153.png"
+      },
+      {
+        "id": 385726,
+        "name": "E. Gonz\u00e1lez",
+        "age": 20,
+        "number": 7,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/385726.png"
+      },
+      {
+        "id": 24888,
+        "name": "Hwang Hee-Chan",
+        "age": 29,
+        "number": 11,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/24888.png"
+      },
+      {
+        "id": 456206,
+        "name": "M. Mane",
+        "age": 18,
+        "number": 36,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/456206.png"
+      },
+      {
+        "id": 379678,
+        "name": "Ethan Sutherland",
+        "age": 19,
+        "number": 11,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/379678.png"
+      },
+      {
+        "id": 296560,
+        "name": "J. Tchatchoua",
+        "age": 24,
+        "number": 38,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/296560.png"
+      }
+    ]
+  }
+]

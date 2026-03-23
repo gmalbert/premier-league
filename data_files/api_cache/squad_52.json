@@ -1,0 +1,259 @@
+[
+  {
+    "team": {
+      "id": 52,
+      "name": "Crystal Palace",
+      "logo": "https://media.api-sports.io/football/teams/52.png"
+    },
+    "players": [
+      {
+        "id": 22157,
+        "name": "W. Ben\u00edtez",
+        "age": 32,
+        "number": 44,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/22157.png"
+      },
+      {
+        "id": 19088,
+        "name": "D. Henderson",
+        "age": 28,
+        "number": 1,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/19088.png"
+      },
+      {
+        "id": 19684,
+        "name": "R. Matthews",
+        "age": 31,
+        "number": 31,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/19684.png"
+      },
+      {
+        "id": 557414,
+        "name": "D. Benamar",
+        "age": 17,
+        "number": 14,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/557414.png"
+      },
+      {
+        "id": 412759,
+        "name": "J. Canvot",
+        "age": 19,
+        "number": 23,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/412759.png"
+      },
+      {
+        "id": 380703,
+        "name": "Rio Cardines",
+        "age": 19,
+        "number": 59,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/380703.png"
+      },
+      {
+        "id": 18862,
+        "name": "N. Clyne",
+        "age": 34,
+        "number": 17,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/18862.png"
+      },
+      {
+        "id": 557584,
+        "name": "G. King",
+        "age": 18,
+        "number": 5,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/557584.png"
+      },
+      {
+        "id": 20995,
+        "name": "M. Lacroix",
+        "age": 25,
+        "number": 5,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/20995.png"
+      },
+      {
+        "id": 182201,
+        "name": "T. Mitchell",
+        "age": 26,
+        "number": 3,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/182201.png"
+      },
+      {
+        "id": 13736,
+        "name": "D. Mu\u00f1oz",
+        "age": 29,
+        "number": 2,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/13736.png"
+      },
+      {
+        "id": 278898,
+        "name": "C. Riad",
+        "age": 22,
+        "number": 34,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/278898.png"
+      },
+      {
+        "id": 126949,
+        "name": "C. Richards",
+        "age": 25,
+        "number": 26,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/126949.png"
+      },
+      {
+        "id": 26303,
+        "name": "B. Sosa",
+        "age": 27,
+        "number": 24,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/26303.png"
+      },
+      {
+        "id": 286458,
+        "name": "J. Devenny",
+        "age": 22,
+        "number": 55,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/286458.png"
+      },
+      {
+        "id": 557413,
+        "name": "J. Drakes-Thomas",
+        "age": 16,
+        "number": 7,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/557413.png"
+      },
+      {
+        "id": 18806,
+        "name": "W. Hughes",
+        "age": 30,
+        "number": 19,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/18806.png"
+      },
+      {
+        "id": 2601,
+        "name": "D. Kamada",
+        "age": 29,
+        "number": 18,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/2601.png"
+      },
+      {
+        "id": 2490,
+        "name": "J. Lerma",
+        "age": 31,
+        "number": 8,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/2490.png"
+      },
+      {
+        "id": 301295,
+        "name": "K. Rodney",
+        "age": 21,
+        "number": 42,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/301295.png"
+      },
+      {
+        "id": 403554,
+        "name": "Christantus Uche",
+        "age": 22,
+        "number": 12,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/403554.png"
+      },
+      {
+        "id": 288102,
+        "name": "A. Wharton",
+        "age": 21,
+        "number": 20,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/288102.png"
+      },
+      {
+        "id": 557475,
+        "name": "B. Casey",
+        "age": 17,
+        "number": 11,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/557475.png"
+      },
+      {
+        "id": 137303,
+        "name": "E. Guessand",
+        "age": 24,
+        "number": 29,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/137303.png"
+      },
+      {
+        "id": 129711,
+        "name": "B. Johnson",
+        "age": 24,
+        "number": 11,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/129711.png"
+      },
+      {
+        "id": 2032,
+        "name": "J. Strand Larsen",
+        "age": 25,
+        "number": 22,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/2032.png"
+      },
+      {
+        "id": 557416,
+        "name": "Z. Marsh",
+        "age": 20,
+        "number": 9,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/557416.png"
+      },
+      {
+        "id": 25927,
+        "name": "J. Mateta",
+        "age": 28,
+        "number": 14,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/25927.png"
+      },
+      {
+        "id": 1468,
+        "name": "E. Nketiah",
+        "age": 26,
+        "number": 9,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/1468.png"
+      },
+      {
+        "id": 184226,
+        "name": "Yeremy Pino",
+        "age": 23,
+        "number": 10,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/184226.png"
+      },
+      {
+        "id": 2218,
+        "name": "I. Sarr",
+        "age": 27,
+        "number": 7,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/2218.png"
+      }
+    ]
+  }
+]

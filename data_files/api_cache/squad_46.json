@@ -1,0 +1,251 @@
+[
+  {
+    "team": {
+      "id": 46,
+      "name": "Leicester",
+      "logo": "https://media.api-sports.io/football/teams/46.png"
+    },
+    "players": [
+      {
+        "id": 18858,
+        "name": "A. Begovi\u0107",
+        "age": 38,
+        "number": 31,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/18858.png"
+      },
+      {
+        "id": 288137,
+        "name": "Harry French",
+        "age": 20,
+        "number": 51,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/288137.png"
+      },
+      {
+        "id": 152970,
+        "name": "J. Stolarczyk",
+        "age": 25,
+        "number": 1,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/152970.png"
+      },
+      {
+        "id": 179996,
+        "name": "Fran Vieites",
+        "age": 26,
+        "number": 13,
+        "position": "Goalkeeper",
+        "photo": "https://media.api-sports.io/football/players/179996.png"
+      },
+      {
+        "id": 417310,
+        "name": "O. Aluko",
+        "age": 19,
+        "number": 56,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/417310.png"
+      },
+      {
+        "id": 557468,
+        "name": "K. Gray",
+        "age": null,
+        "number": 4,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/557468.png"
+      },
+      {
+        "id": 158710,
+        "name": "V. Kristiansen",
+        "age": 23,
+        "number": 16,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/158710.png"
+      },
+      {
+        "id": 18894,
+        "name": "J. Lascelles",
+        "age": 32,
+        "number": 24,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/18894.png"
+      },
+      {
+        "id": 278118,
+        "name": "B. Nelson",
+        "age": 21,
+        "number": 4,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/278118.png"
+      },
+      {
+        "id": 30427,
+        "name": "C. Okoli",
+        "age": 24,
+        "number": 5,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/30427.png"
+      },
+      {
+        "id": 437569,
+        "name": "L. Page",
+        "age": 17,
+        "number": 8,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/437569.png"
+      },
+      {
+        "id": 18771,
+        "name": "Ricardo Pereira",
+        "age": 32,
+        "number": 21,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/18771.png"
+      },
+      {
+        "id": 152969,
+        "name": "L. Thomas",
+        "age": 24,
+        "number": 33,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/152969.png"
+      },
+      {
+        "id": 18943,
+        "name": "J. Vestergaard",
+        "age": 33,
+        "number": 23,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/18943.png"
+      },
+      {
+        "id": 19825,
+        "name": "J. Aribo",
+        "age": 29,
+        "number": 18,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/19825.png"
+      },
+      {
+        "id": 18779,
+        "name": "H. Choudhury",
+        "age": 28,
+        "number": 17,
+        "position": "Defender",
+        "photo": "https://media.api-sports.io/football/players/18779.png"
+      },
+      {
+        "id": 19004,
+        "name": "B. De Cordova-Reid",
+        "age": 32,
+        "number": 14,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/19004.png"
+      },
+      {
+        "id": 328074,
+        "name": "J. James",
+        "age": 21,
+        "number": 6,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/328074.png"
+      },
+      {
+        "id": 284487,
+        "name": "Wanya Mar\u00e7al",
+        "age": 23,
+        "number": 27,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/284487.png"
+      },
+      {
+        "id": 278079,
+        "name": "A. Ramsey",
+        "age": 22,
+        "number": 30,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/278079.png"
+      },
+      {
+        "id": 180,
+        "name": "O. Skipp",
+        "age": 25,
+        "number": 22,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/180.png"
+      },
+      {
+        "id": 182,
+        "name": "H. Winks",
+        "age": 29,
+        "number": 8,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/182.png"
+      },
+      {
+        "id": 3428,
+        "name": "J. Ayew",
+        "age": 34,
+        "number": 9,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/3428.png"
+      },
+      {
+        "id": 1098,
+        "name": "P. Daka",
+        "age": 27,
+        "number": 20,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/1098.png"
+      },
+      {
+        "id": 303467,
+        "name": "A. Fatawu",
+        "age": 21,
+        "number": 7,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/303467.png"
+      },
+      {
+        "id": 879,
+        "name": "S. Mavididi",
+        "age": 27,
+        "number": 10,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/879.png"
+      },
+      {
+        "id": 460853,
+        "name": "J. Monga",
+        "age": 16,
+        "number": 28,
+        "position": "Midfielder",
+        "photo": "https://media.api-sports.io/football/players/460853.png"
+      },
+      {
+        "id": 380681,
+        "name": "D. Mukasa",
+        "age": 18,
+        "number": 29,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/380681.png"
+      },
+      {
+        "id": 411808,
+        "name": "D. Richards",
+        "age": 20,
+        "number": 12,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/411808.png"
+      },
+      {
+        "id": 284403,
+        "name": "Silko Amari Otieno Thomas",
+        "age": 21,
+        "number": 39,
+        "position": "Attacker",
+        "photo": "https://media.api-sports.io/football/players/284403.png"
+      }
+    ]
+  }
+]

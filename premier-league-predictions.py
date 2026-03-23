@@ -94,6 +94,127 @@ def get_dataframe_height(df, row_height=35, header_height=38, padding=2, max_hei
         return min(calculated_height, max_height)
     return calculated_height
 
+
+@st.cache_data(ttl=3600)  # Cache for 1 hour
+def compute_live_standings(csv_path):
+    """Compute current 2025-26 season standings from actual match results in the historical CSV."""
+    _df = pd.read_csv(csv_path, sep='\t')
+    _df['MatchDate'] = pd.to_datetime(_df['MatchDate'])
+    current = _df[_df['MatchDate'] >= '2025-07-01'].copy()
+    if current.empty:
+        return pd.DataFrame()
+
+    records = []
+    for _, row in current.iterrows():
+        home, away = row['HomeTeam'], row['AwayTeam']
+        hg = int(row['FullTimeHomeGoals']) if pd.notna(row['FullTimeHomeGoals']) else 0
+        ag = int(row['FullTimeAwayGoals']) if pd.notna(row['FullTimeAwayGoals']) else 0
+        result = row['FullTimeResult']
+        hw = hd = hl = aw = ad = al = 0
+        if result == 'H':
+            hw = 1; al = 1
+        elif result == 'D':
+            hd = 1; ad = 1
+        elif result == 'A':
+            hl = 1; aw = 1
+        records.append({'Team': home, 'GF': hg, 'GA': ag, 'W': hw, 'D': hd, 'L': hl,
+                        'IsHome': 1, 'MatchDate': row['MatchDate']})
+        records.append({'Team': away, 'GF': ag, 'GA': hg, 'W': aw, 'D': ad, 'L': al,
+                        'IsHome': 0, 'MatchDate': row['MatchDate']})
+
+    mdf = pd.DataFrame(records)
+    standings = mdf.groupby('Team').agg(
+        Played=('GF', 'count'),
+        Win=('W', 'sum'),
+        Draw=('D', 'sum'),
+        Lose=('L', 'sum'),
+        GoalsFor=('GF', 'sum'),
+        GoalsAgainst=('GA', 'sum'),
+    ).reset_index()
+    standings['GoalDifference'] = standings['GoalsFor'] - standings['GoalsAgainst']
+    standings['Points'] = standings['Win'] * 3 + standings['Draw']
+    standings = standings.sort_values(
+        ['Points', 'GoalDifference', 'GoalsFor'], ascending=False
+    ).reset_index(drop=True)
+    standings['Rank'] = standings.index + 1
+
+    def _form(team):
+        rows = mdf[mdf['Team'] == team].sort_values('MatchDate').tail(5)
+        return ''.join('W' if r['W'] else ('D' if r['D'] else 'L') for _, r in rows.iterrows())
+
+    standings['Form'] = standings['Team'].apply(_form)
+    return standings[['Rank', 'Team', 'Played', 'Win', 'Draw', 'Lose',
+                       'GoalsFor', 'GoalsAgainst', 'GoalDifference', 'Points', 'Form']]
+
+
+@st.cache_data(ttl=3600)  # Cache for 1 hour
+def compute_current_team_stats(csv_path):
+    """Compute per-team stats for the current 2025-26 season from match data."""
+    _df = pd.read_csv(csv_path, sep='\t')
+    _df['MatchDate'] = pd.to_datetime(_df['MatchDate'])
+    current = _df[_df['MatchDate'] >= '2025-07-01'].copy()
+    if current.empty:
+        return pd.DataFrame()
+
+    records = []
+    for _, row in current.iterrows():
+        home, away = row['HomeTeam'], row['AwayTeam']
+        hg = int(row['FullTimeHomeGoals']) if pd.notna(row['FullTimeHomeGoals']) else 0
+        ag = int(row['FullTimeAwayGoals']) if pd.notna(row['FullTimeAwayGoals']) else 0
+        result = row['FullTimeResult']
+        hw = hd = hl = aw = ad = al = 0
+        if result == 'H':
+            hw = 1; al = 1
+        elif result == 'D':
+            hd = 1; ad = 1
+        elif result == 'A':
+            hl = 1; aw = 1
+        records.append({'Team': home, 'GF': hg, 'GA': ag, 'W': hw, 'D': hd, 'L': hl,
+                        'IsHome': 1, 'CleanSheet': int(ag == 0), 'FTS': int(hg == 0)})
+        records.append({'Team': away, 'GF': ag, 'GA': hg, 'W': aw, 'D': ad, 'L': al,
+                        'IsHome': 0, 'CleanSheet': int(hg == 0), 'FTS': int(ag == 0)})
+
+    mdf = pd.DataFrame(records)
+    overall = mdf.groupby('Team').agg(
+        TotalPlayed=('GF', 'count'),
+        TotalWins=('W', 'sum'),
+        TotalDraws=('D', 'sum'),
+        TotalLosses=('L', 'sum'),
+        GoalsForTotal=('GF', 'sum'),
+        GoalsAgainstTotal=('GA', 'sum'),
+        CleanSheetTotal=('CleanSheet', 'sum'),
+        FailedToScoreTotal=('FTS', 'sum'),
+    ).reset_index()
+    home_stats = mdf[mdf['IsHome'] == 1].groupby('Team').agg(
+        HomeWins=('W', 'sum'),
+        HomeDraws=('D', 'sum'),
+        HomeLosses=('L', 'sum'),
+        HomeGF=('GF', 'sum'),
+        HomeGA=('GA', 'sum'),
+        CleanSheetHome=('CleanSheet', 'sum'),
+        FailedToScoreHome=('FTS', 'sum'),
+        HomePlayed=('GF', 'count'),
+    ).reset_index()
+    away_stats = mdf[mdf['IsHome'] == 0].groupby('Team').agg(
+        AwayWins=('W', 'sum'),
+        AwayDraws=('D', 'sum'),
+        AwayLosses=('L', 'sum'),
+        AwayGF=('GF', 'sum'),
+        AwayGA=('GA', 'sum'),
+        CleanSheetAway=('CleanSheet', 'sum'),
+        FailedToScoreAway=('FTS', 'sum'),
+        AwayPlayed=('GF', 'count'),
+    ).reset_index()
+    stats = overall.merge(home_stats, on='Team', how='left').merge(away_stats, on='Team', how='left')
+    stats['GoalDifference'] = stats['GoalsForTotal'] - stats['GoalsAgainstTotal']
+    stats['Points'] = stats['TotalWins'] * 3 + stats['TotalDraws']
+    stats['GoalsForAvgHome'] = (stats['HomeGF'] / stats['HomePlayed'].clip(lower=1)).round(2)
+    stats['GoalsAgainstAvgHome'] = (stats['HomeGA'] / stats['HomePlayed'].clip(lower=1)).round(2)
+    stats['GoalsForAvgAway'] = (stats['AwayGF'] / stats['AwayPlayed'].clip(lower=1)).round(2)
+    stats['GoalsAgainstAvgAway'] = (stats['AwayGA'] / stats['AwayPlayed'].clip(lower=1)).round(2)
+    return stats
+
+
 @st.cache_data(ttl=3600)  # Cache for 1 hour
 def load_precomputed_data():
     """
@@ -429,20 +550,71 @@ acc = ensemble_acc
 model_trained = True
 
 # Create tabs for different sections
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["Upcoming Matches", "Predictive Data", "Upcoming Predictions", "Statistics", "Raw Data"])
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Upcoming Matches", "Predictive Data", "Upcoming Predictions", "Statistics", "Raw Data", "Team Deep Dive"])
 
 with tab1:
-    # Load upcoming fixtures
+    # ── Live Standings (computed from current season match data) ───────────
+    live_standings = compute_live_standings(csv_path)
+    if not live_standings.empty:
+        st.subheader("📊 Current Premier League Standings (2025-26)")
+        st.dataframe(live_standings, height=get_dataframe_height(live_standings),
+                     hide_index=True, use_container_width=True)
+        st.divider()
+
+    # ── Upcoming Fixtures ──────────────────────────────────────────────────
     upcoming_csv = path.join(DATA_DIR, 'upcoming_fixtures.csv')
     if not path.exists(upcoming_csv):
         st.warning(f"No upcoming fixtures file found at `{upcoming_csv}`. Please run `python fetch_upcoming_fixtures.py` to get upcoming matches.")
     else:
-        upcoming_df = pd.read_csv(upcoming_csv)
-        st.subheader("Upcoming Premier League Matches")
-        st.write(f"Found {len(upcoming_df)} upcoming matches")
-        st.write("*Times shown in Eastern Time (ET)*")
-        st.dataframe(upcoming_df, height=get_dataframe_height(upcoming_df), width=600, hide_index=True)
-    
+        upcoming_df_raw = pd.read_csv(upcoming_csv)
+
+        # ── 7e. Match Preview Cards ────────────────────────────────────────
+        # Enrich with current season standings
+        if not live_standings.empty:
+            standings_lookup = live_standings.set_index('Team')
+
+            def _get_standing(team, col, default='—'):
+                try:
+                    return standings_lookup.loc[team, col]
+                except (KeyError, TypeError):
+                    return default
+
+            st.subheader("🗓️ Upcoming Premier League Fixtures")
+            st.write("*Times shown in Eastern Time (ET)*")
+            for _, fixture in upcoming_df_raw.iterrows():
+                home = fixture.get('HomeTeam', '?')
+                away = fixture.get('AwayTeam', '?')
+                date_str = fixture.get('Date', '')
+                time_str = fixture.get('Time', '')
+
+                home_rank = _get_standing(home, 'Rank')
+                away_rank = _get_standing(away, 'Rank')
+                home_pts  = _get_standing(home, 'Points')
+                away_pts  = _get_standing(away, 'Points')
+                home_form = _get_standing(home, 'Form')
+                away_form = _get_standing(away, 'Form')
+                home_gd   = _get_standing(home, 'GoalDifference')
+                away_gd   = _get_standing(away, 'GoalDifference')
+
+                with st.expander(f"**{home}** vs **{away}**  —  {date_str} {time_str}", expanded=False):
+                    c1, c2, c3 = st.columns([2, 1, 2])
+                    with c1:
+                        st.markdown(f"**🏠 {home}**")
+                        st.markdown(f"Rank: **#{home_rank}** | Pts: **{home_pts}** | GD: {home_gd}")
+                        st.markdown(f"Form (last 5): `{home_form}`")
+                    with c2:
+                        st.markdown("### VS")
+                    with c3:
+                        st.markdown(f"**✈️ {away}**")
+                        st.markdown(f"Rank: **#{away_rank}** | Pts: **{away_pts}** | GD: {away_gd}")
+                        st.markdown(f"Form (last 5): `{away_form}`")
+        else:
+            st.subheader("Upcoming Premier League Matches")
+            st.write(f"Found {len(upcoming_df_raw)} upcoming matches")
+            st.write("*Times shown in Eastern Time (ET)*")
+            st.dataframe(upcoming_df_raw, height=get_dataframe_height(upcoming_df_raw),
+                         width=600, hide_index=True)
+
     add_betting_oracle_footer()
 
 with tab2:
@@ -1401,7 +1573,37 @@ with tab3:
             'Risk Score': '{:.2f}'
         })
         st.dataframe(styled_df, width='stretch', hide_index=True, height=get_dataframe_height(filtered_df))
-        
+
+        # ── 7c. Injury Intelligence Panel ─────────────────────────────────
+        injuries_file = path.join(DATA_DIR, 'api_injuries.csv')
+        if path.exists(injuries_file):
+            st.markdown("---")
+            st.subheader("🏥 Injury Intelligence (2024-25 Season)")
+            st.caption("Source: API-Football v3 — 2024 season injury records")
+            inj_df = pd.read_csv(injuries_file, sep='\t')
+            if not inj_df.empty:
+                inj_counts = inj_df.groupby('Team').size().reset_index(name='TotalInjuries')
+                inj_types = inj_df.groupby(['Team', 'Type']).size().reset_index(name='Count')
+                inj_display = inj_counts.sort_values('TotalInjuries', ascending=False)
+                col_inj1, col_inj2 = st.columns([1, 2])
+                with col_inj1:
+                    st.markdown("**Team Injury Counts (2024-25)**")
+                    st.dataframe(inj_display, hide_index=True,
+                                 height=get_dataframe_height(inj_display, max_height=400))
+                with col_inj2:
+                    selected_team = st.selectbox(
+                        "View injury details for team:",
+                        options=['— Select —'] + sorted(inj_display['Team'].tolist()),
+                        key='injury_team_select'
+                    )
+                    if selected_team != '— Select —':
+                        team_inj = inj_df[inj_df['Team'] == selected_team][
+                            ['PlayerName', 'Type', 'Reason', 'FixtureDate']
+                        ].drop_duplicates().sort_values('FixtureDate', ascending=False)
+                        st.markdown(f"**{selected_team} injury records ({len(team_inj)})**")
+                        st.dataframe(team_inj, hide_index=True,
+                                     height=get_dataframe_height(team_inj, max_height=350))
+
         # Add prediction logging functionality
         st.markdown("---")
         col1, col2 = st.columns([1, 1])
@@ -1453,7 +1655,44 @@ with tab3:
 with tab4:
     st.subheader("📊 Team Form Guide")
     st.write("Recent performance analysis for all Premier League teams (last 5 matches)")
-    
+
+    # ── Live Standings (2025-26) & Top Players ────────────────────────────
+    top_players_file = path.join(DATA_DIR, 'api_top_players.csv')
+    _tab4_standings = compute_live_standings(csv_path)
+    if not _tab4_standings.empty:
+        with st.expander("📋 Current League Table (2025-26 Season)", expanded=False):
+            # Home vs Away splits from current season stats
+            _cs = compute_current_team_stats(csv_path)
+            st.dataframe(_tab4_standings, hide_index=True, use_container_width=True,
+                         height=get_dataframe_height(_tab4_standings, max_height=500))
+            if not _cs.empty and 'HomeWins' in _cs.columns:
+                st.markdown("**Home vs Away breakdown (2025-26):**")
+                split_cols_data = _cs[['Team', 'HomeWins', 'HomeDraws', 'HomeLosses',
+                                       'AwayWins', 'AwayDraws', 'AwayLosses']].copy()
+                split_cols_data.columns = ['Team', 'Home W', 'Home D', 'Home L',
+                                           'Away W', 'Away D', 'Away L']
+                merged_splits = _tab4_standings[['Rank', 'Team']].merge(split_cols_data, on='Team', how='left')
+                st.dataframe(merged_splits.sort_values('Rank'), hide_index=True, use_container_width=True)
+
+    if path.exists(top_players_file):
+        with st.expander("⭐ Top Players (2024-25 Season — API Data)", expanded=False):
+            tp_df = pd.read_csv(top_players_file, sep='\t')
+            scorers = tp_df[tp_df['Category'] == 'TopScorer'][
+                ['PlayerName', 'Team', 'Position', 'Appearances', 'Goals', 'Assists', 'Rating']
+            ].drop_duplicates().sort_values('Goals', ascending=False)
+            assists = tp_df[tp_df['Category'] == 'TopAssist'][
+                ['PlayerName', 'Team', 'Position', 'Appearances', 'Goals', 'Assists', 'Rating']
+            ].drop_duplicates().sort_values('Assists', ascending=False)
+            c_sc, c_as = st.columns(2)
+            with c_sc:
+                st.markdown("**Top Scorers**")
+                st.dataframe(scorers, hide_index=True,
+                             height=get_dataframe_height(scorers, max_height=400))
+            with c_as:
+                st.markdown("**Top Assists**")
+                st.dataframe(assists, hide_index=True,
+                             height=get_dataframe_height(assists, max_height=400))
+
     from analyze_team_form import get_team_form_stats
     
     teams = sorted(df['HomeTeam'].unique())
@@ -1861,5 +2100,168 @@ with tab5:
     df_sorted = df.sort_values(by=['MatchDate', 'KickoffTime'], ascending=[False, False])
     st.dataframe(df_sorted, height=get_dataframe_height(df_sorted), width='stretch', hide_index=True)
     
+    add_betting_oracle_footer()
+
+# ── Tab 6: Team Deep Dive (Enhancement 7a) ────────────────────────────────────
+with tab6:
+    st.subheader("🔬 Team Deep Dive")
+    st.write("Detailed season statistics and performance breakdowns for the current 2025-26 season.")
+
+    top_players_file_t6 = path.join(DATA_DIR, 'api_top_players.csv')
+    injuries_file_t6 = path.join(DATA_DIR, 'api_injuries.csv')
+    team_stats_file = path.join(DATA_DIR, 'api_team_statistics.csv')  # 2024-25 supplemental data
+
+    _t6_stats = compute_current_team_stats(csv_path)
+    available_teams = sorted(_t6_stats['Team'].dropna().unique().tolist()) if not _t6_stats.empty else []
+
+    selected_team_dive = st.selectbox("Select a team:", available_teams, key='team_deep_dive')
+
+    if selected_team_dive and not _t6_stats.empty:
+        team_row = _t6_stats[_t6_stats['Team'] == selected_team_dive]
+        if team_row.empty:
+            st.warning(f"No 2025-26 data found for {selected_team_dive}")
+        else:
+            team_row = team_row.iloc[0]
+            played = max(int(team_row.get('TotalPlayed', 1)), 1)
+            wins = int(team_row.get('TotalWins', 0))
+            cs = int(team_row.get('CleanSheetTotal', 0))
+            gf = int(team_row.get('GoalsForTotal', 0))
+            ga = int(team_row.get('GoalsAgainstTotal', 0))
+            pts = int(team_row.get('Points', 0))
+
+            # ── Season overview KPIs ─────────────────────────────────────
+            st.markdown(f"### {selected_team_dive} — 2025-26 Season Statistics")
+            k1, k2, k3, k4, k5 = st.columns(5)
+            with k1:
+                st.metric("Matches Played", played)
+            with k2:
+                st.metric("Points", pts)
+            with k3:
+                st.metric("Win Rate", f"{wins / played:.0%}")
+            with k4:
+                st.metric("Clean Sheets", cs, f"{cs / played:.0%}")
+            with k5:
+                st.metric("Goals For / Against", f"{gf} / {ga}", f"GD: {gf - ga:+d}")
+
+            st.divider()
+            col_a, col_b = st.columns(2)
+
+            # ── Home vs Away stats ────────────────────────────────────────
+            with col_a:
+                st.markdown("**Home vs Away Performance (2025-26)**")
+                ha_data = {
+                    'Metric': ['Played', 'Wins', 'Goals Scored (avg)', 'Goals Conceded (avg)',
+                               'Clean Sheets', 'Failed to Score'],
+                    'Home': [
+                        int(team_row.get('HomePlayed', 0)),
+                        int(team_row.get('HomeWins', 0)),
+                        round(float(team_row.get('GoalsForAvgHome', 0)), 2),
+                        round(float(team_row.get('GoalsAgainstAvgHome', 0)), 2),
+                        int(team_row.get('CleanSheetHome', 0)),
+                        int(team_row.get('FailedToScoreHome', 0)),
+                    ],
+                    'Away': [
+                        int(team_row.get('AwayPlayed', 0)),
+                        int(team_row.get('AwayWins', 0)),
+                        round(float(team_row.get('GoalsForAvgAway', 0)), 2),
+                        round(float(team_row.get('GoalsAgainstAvgAway', 0)), 2),
+                        int(team_row.get('CleanSheetAway', 0)),
+                        int(team_row.get('FailedToScoreAway', 0)),
+                    ],
+                }
+                st.dataframe(pd.DataFrame(ha_data), hide_index=True, use_container_width=True)
+
+            # ── Supplemental 2024-25 detail (goals by minute, penalties, streaks) ──
+            with col_b:
+                if path.exists(team_stats_file):
+                    ts_df = pd.read_csv(team_stats_file, sep='\t')
+                    ts_row_data = ts_df[ts_df['Team'] == selected_team_dive]
+                    if not ts_row_data.empty:
+                        ts_row = ts_row_data.iloc[0]
+                        st.markdown("**Goals Scored by Time Period** *(2024-25 API data)*")
+                        period_cols = {
+                            '0–15': 'GoalsFor_0_15', '16–30': 'GoalsFor_16_30',
+                            '31–45': 'GoalsFor_31_45', '46–60': 'GoalsFor_46_60',
+                            '61–75': 'GoalsFor_61_75', '76–90': 'GoalsFor_76_90',
+                            '91+': 'GoalsFor_91_105',
+                        }
+                        period_data = [
+                            {'Period': lbl, 'Goals': int(ts_row.get(col, 0))}
+                            for lbl, col in period_cols.items()
+                            if ts_row.get(col) is not None and not pd.isna(ts_row.get(col, None))
+                        ]
+                        if period_data:
+                            st.bar_chart(pd.DataFrame(period_data).set_index('Period')['Goals'])
+                        formation = ts_row.get('MostUsedFormation', '—')
+                        pen_scored = ts_row.get('PenaltyScored', 0)
+                        pen_missed = ts_row.get('PenaltyMissed', 0)
+                        pen_total = (pen_scored or 0) + (pen_missed or 0)
+                        pen_rate = (pen_scored or 0) / max(pen_total, 1) if pen_total else 0
+                        st.markdown(f"**Preferred Formation (2024-25):** {formation}")
+                        if pen_total:
+                            st.markdown(
+                                f"**Penalties (2024-25):** {int(pen_scored or 0)} scored / "
+                                f"{int(pen_missed or 0)} missed — {pen_rate:.0%} conversion"
+                            )
+                        st.markdown(
+                            f"**Best Streaks (2024-25):** "
+                            f"Wins: {int(ts_row.get('BiggestStreakWins', 0))}, "
+                            f"Draws: {int(ts_row.get('BiggestStreakDraws', 0))}, "
+                            f"Losses: {int(ts_row.get('BiggestStreakLoses', 0))}"
+                        )
+                    else:
+                        st.info("No supplemental 2024-25 details available for this team.")
+                else:
+                    st.info("Run `python fetch_api_football.py --weekly-mon` to load supplemental stats.")
+
+            st.divider()
+
+            # ── Top players for this team ─────────────────────────────────
+            if path.exists(top_players_file_t6):
+                tp_t6 = pd.read_csv(top_players_file_t6, sep='\t')
+                team_players = tp_t6[tp_t6['Team'] == selected_team_dive][
+                    ['PlayerName', 'Category', 'Position', 'Appearances', 'Goals', 'Assists', 'Rating']
+                ].drop_duplicates()
+                if not team_players.empty:
+                    st.markdown("**Key Players — 2024-25 API Data** *(top-scorer & top-assist lists)*")
+                    st.dataframe(team_players.sort_values('Goals', ascending=False),
+                                 hide_index=True, use_container_width=True)
+
+            # ── Current injuries ──────────────────────────────────────
+            if path.exists(injuries_file_t6):
+                inj_t6 = pd.read_csv(injuries_file_t6, sep='\t')
+                team_inj = inj_t6[inj_t6['Team'] == selected_team_dive][
+                    ['PlayerName', 'Type', 'Reason', 'FixtureDate']
+                ].drop_duplicates().sort_values('FixtureDate', ascending=False)
+                if not team_inj.empty:
+                    st.markdown(f"**Injury Records — 2024-25 API Data ({len(team_inj)} records)**")
+                    with st.expander(f"View all {selected_team_dive} injury records", expanded=False):
+                        st.dataframe(team_inj, hide_index=True, use_container_width=True,
+                                     height=get_dataframe_height(team_inj, max_height=350))
+
+            # ── Historical form from existing data ───────────────────
+            st.markdown("**Historical Performance (all seasons in dataset)**")
+            team_home_matches = df[df['HomeTeam'] == selected_team_dive].copy()
+            team_away_matches = df[df['AwayTeam'] == selected_team_dive].copy()
+            total_played = len(team_home_matches) + len(team_away_matches)
+            if total_played > 0:
+                home_wins = (team_home_matches['FullTimeResult'] == 'H').sum()
+                away_wins = (team_away_matches['FullTimeResult'] == 'A').sum()
+                draws_h = (team_home_matches['FullTimeResult'] == 'D').sum()
+                draws_a = (team_away_matches['FullTimeResult'] == 'D').sum()
+                total_wins = home_wins + away_wins
+                total_draws = draws_h + draws_a
+                hk1, hk2, hk3, hk4 = st.columns(4)
+                with hk1:
+                    st.metric("Total Matches", total_played)
+                with hk2:
+                    st.metric("All-Time Win Rate", f"{total_wins / total_played:.1%}")
+                with hk3:
+                    st.metric("All-Time Draw Rate", f"{total_draws / total_played:.1%}")
+                with hk4:
+                    avg_gf = (team_home_matches['FullTimeHomeGoals'].sum()
+                              + team_away_matches['FullTimeAwayGoals'].sum()) / total_played
+                    st.metric("Avg Goals / Match", f"{avg_gf:.2f}")
+
     add_betting_oracle_footer()
 

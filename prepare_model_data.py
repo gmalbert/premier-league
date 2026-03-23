@@ -724,6 +724,275 @@ historical_data_with_calculations = calculate_referee_statistics(historical_data
 # Add manager features
 historical_data_with_calculations = add_manager_features(historical_data_with_calculations)
 
+
+# ---------------------------------------------------------------------------
+# NEW FEATURES: League Position, Clean Sheets, Home/Away Form, API Data
+# (Enhancements 3, 4, 6, 7 from api-football-integration-guide.md)
+# ---------------------------------------------------------------------------
+
+def calculate_league_position_features(df):
+    """
+    Enhancement 4: League position and points-per-game features.
+    Computes PPG, z-score strength, and GD per season without expensive per-row ranking.
+    """
+    print("Calculating league position features...")
+    df = df.sort_values(['Season', 'MatchDate']).reset_index(drop=True)
+
+    # Match number within season (for PPG denominator)
+    df['_HomeMatchNum'] = df.groupby(['Season', 'HomeTeam']).cumcount()
+    df['_AwayMatchNum'] = df.groupby(['Season', 'AwayTeam']).cumcount()
+
+    # Points per game up to (but not including) this match
+    df['HomePointsPerGame'] = (
+        df['HomeTeamCumulativePoints'] / (df['_HomeMatchNum'] + 1).clip(lower=1)
+    )
+    df['AwayPointsPerGame'] = (
+        df['AwayTeamCumulativePoints'] / (df['_AwayMatchNum'] + 1).clip(lower=1)
+    )
+    df['PointsPerGameDiff'] = df['HomePointsPerGame'] - df['AwayPointsPerGame']
+
+    # Season-normalised strength (z-score within season)
+    df['HomePointsZScore'] = df.groupby('Season')['HomeTeamCumulativePoints'].transform(
+        lambda x: (x - x.mean()) / (x.std() + 1e-9)
+    )
+    df['AwayPointsZScore'] = df.groupby('Season')['AwayTeamCumulativePoints'].transform(
+        lambda x: (x - x.mean()) / (x.std() + 1e-9)
+    )
+    df['PointsZScoreDiff'] = df['HomePointsZScore'] - df['AwayPointsZScore']
+
+    # Cumulative goal difference (home perspective, home matches only — fast proxy)
+    home_gd = (
+        df.groupby(['Season', 'HomeTeam'])['FullTimeHomeGoals'].shift(1).cumsum()
+        - df.groupby(['Season', 'HomeTeam'])['FullTimeAwayGoals'].shift(1).cumsum()
+    )
+    away_gd = (
+        df.groupby(['Season', 'AwayTeam'])['FullTimeAwayGoals'].shift(1).cumsum()
+        - df.groupby(['Season', 'AwayTeam'])['FullTimeHomeGoals'].shift(1).cumsum()
+    )
+    df['HomeGoalDiffSeason'] = home_gd.fillna(0)
+    df['AwayGoalDiffSeason'] = away_gd.fillna(0)
+
+    # Fill edge-case NaNs
+    for col in ['HomePointsPerGame', 'AwayPointsPerGame', 'PointsPerGameDiff',
+                'HomePointsZScore', 'AwayPointsZScore', 'PointsZScoreDiff',
+                'HomeGoalDiffSeason', 'AwayGoalDiffSeason']:
+        df[col] = df[col].fillna(0.0)
+
+    df.drop(columns=['_HomeMatchNum', '_AwayMatchNum'], inplace=True)
+    print(f"  Added league position features (PPG, z-score, season GD)")
+    return df
+
+
+def calculate_clean_sheet_features(df):
+    """
+    Enhancement 3: Clean-sheet % and failed-to-score % over last 10 home/away matches.
+    Uses shift(1) so no data leakage.
+    """
+    print("Calculating clean sheet and scoring features...")
+    df = df.sort_values('MatchDate').reset_index(drop=True)
+
+    # Binary flags for current match (will be shifted away before rolling)
+    df['_HomeCS']  = (df['FullTimeAwayGoals'] == 0).astype(int)  # home kept clean sheet
+    df['_AwayCS']  = (df['FullTimeHomeGoals'] == 0).astype(int)  # away kept clean sheet
+    df['_HomeFTS'] = (df['FullTimeHomeGoals'] == 0).astype(int)  # home failed to score
+    df['_AwayFTS'] = (df['FullTimeAwayGoals'] == 0).astype(int)  # away failed to score
+
+    df['HomeCleanSheetPct_L10'] = (
+        df.groupby('HomeTeam')['_HomeCS']
+        .shift(1).rolling(10, min_periods=1).mean()
+        .reset_index(level=0, drop=True)
+        .fillna(0.30)
+    )
+    df['AwayCleanSheetPct_L10'] = (
+        df.groupby('AwayTeam')['_AwayCS']
+        .shift(1).rolling(10, min_periods=1).mean()
+        .reset_index(level=0, drop=True)
+        .fillna(0.30)
+    )
+    df['HomeFailedToScorePct_L10'] = (
+        df.groupby('HomeTeam')['_HomeFTS']
+        .shift(1).rolling(10, min_periods=1).mean()
+        .reset_index(level=0, drop=True)
+        .fillna(0.20)
+    )
+    df['AwayFailedToScorePct_L10'] = (
+        df.groupby('AwayTeam')['_AwayFTS']
+        .shift(1).rolling(10, min_periods=1).mean()
+        .reset_index(level=0, drop=True)
+        .fillna(0.20)
+    )
+
+    # Derived: defensive vs offensive matchup tension
+    df['HomeDefVsAwayAttack'] = df['HomeCleanSheetPct_L10'] - (1 - df['AwayFailedToScorePct_L10'])
+    df['AwayDefVsHomeAttack'] = df['AwayCleanSheetPct_L10'] - (1 - df['HomeFailedToScorePct_L10'])
+
+    df.drop(columns=['_HomeCS', '_AwayCS', '_HomeFTS', '_AwayFTS'], inplace=True)
+    print(f"  Added clean-sheet and scoring features (8 columns)")
+    return df
+
+
+def calculate_home_away_split_form(df):
+    """
+    Enhancement 3: Form computed separately for home games (home team) and
+    away games (away team) — more predictive than combined form for venue-specific analysis.
+    """
+    print("Calculating home/away split form...")
+    df = df.sort_values('MatchDate').reset_index(drop=True)
+
+    # Home team's form in their last 5 HOME games
+    df['HomeTeamPointsLast5_HomeOnly'] = (
+        df.groupby('HomeTeam')['HomePoints']
+        .shift(1).rolling(5, min_periods=1).sum()
+        .reset_index(level=0, drop=True)
+        .fillna(5.0)
+    )
+
+    # Away team's form in their last 5 AWAY games
+    df['AwayTeamPointsLast5_AwayOnly'] = (
+        df.groupby('AwayTeam')['AwayPoints']
+        .shift(1).rolling(5, min_periods=1).sum()
+        .reset_index(level=0, drop=True)
+        .fillna(5.0)
+    )
+
+    # Venue-adjusted form advantage
+    df['VenueAdjustedFormDiff'] = (
+        df['HomeTeamPointsLast5_HomeOnly'] - df['AwayTeamPointsLast5_AwayOnly']
+    )
+
+    # Recent wins streak (last 5 home matches for home, away for away)
+    df['_HomeWin'] = (df['FullTimeResult'] == 'H').astype(int)
+    df['_AwayWin'] = (df['FullTimeResult'] == 'A').astype(int)
+
+    df['HomeWinStreakHome_L5'] = (
+        df.groupby('HomeTeam')['_HomeWin']
+        .shift(1).rolling(5, min_periods=1).sum()
+        .reset_index(level=0, drop=True)
+        .fillna(1.5)
+    )
+    df['AwayWinStreakAway_L5'] = (
+        df.groupby('AwayTeam')['_AwayWin']
+        .shift(1).rolling(5, min_periods=1).sum()
+        .reset_index(level=0, drop=True)
+        .fillna(1.0)
+    )
+    df.drop(columns=['_HomeWin', '_AwayWin'], inplace=True)
+
+    print(f"  Added home/away split form features (5 columns)")
+    return df
+
+
+def merge_api_team_stats(df):
+    """
+    Enhancement 3/6: Merge API-derived season statistics when available.
+    Adds clean-sheet counts, formations, goals-by-minute from api_team_statistics.csv.
+    Gracefully skips if file is absent (e.g., first run before API fetch).
+    """
+    stats_file = path.join(DATA_DIR, 'api_team_statistics.csv')
+    if not path.exists(stats_file):
+        print("  api_team_statistics.csv not found — skipping API team stats merge")
+        return df
+
+    print("Merging API team statistics...")
+    api_stats = pd.read_csv(stats_file, sep='\t')
+
+    # Select the most useful columns for the model
+    cols = [
+        'Team', 'MostUsedFormation',
+        'CleanSheetTotal', 'FailedToScoreHome', 'FailedToScoreAway',
+        'PenaltyScored', 'PenaltyMissed',
+        'GoalsForAvgHome', 'GoalsForAvgAway',
+        'GoalsAgainstAvgHome', 'GoalsAgainstAvgAway',
+        'BiggestStreakWins', 'BiggestStreakLoses',
+        'GoalsFor_0_15', 'GoalsFor_76_90',
+    ]
+    cols = [c for c in cols if c in api_stats.columns]
+    api_stats_slim = api_stats[cols].copy()
+
+    # Encode formation categorically
+    if 'MostUsedFormation' in api_stats_slim.columns:
+        formation_map = {f: i for i, f in enumerate(api_stats_slim['MostUsedFormation'].unique())}
+        api_stats_slim['MostUsedFormation_Enc'] = api_stats_slim['MostUsedFormation'].map(formation_map).fillna(-1)
+        api_stats_slim.drop(columns=['MostUsedFormation'], inplace=True)
+
+    # Compute penalty conversion rate
+    if 'PenaltyScored' in api_stats_slim.columns and 'PenaltyMissed' in api_stats_slim.columns:
+        total_pen = api_stats_slim['PenaltyScored'] + api_stats_slim['PenaltyMissed']
+        api_stats_slim['PenaltyConversionRate'] = (
+            api_stats_slim['PenaltyScored'] / total_pen.replace(0, np.nan)
+        ).fillna(0.75)
+        api_stats_slim.drop(columns=['PenaltyScored', 'PenaltyMissed'], inplace=True)
+
+    # Rename with prefix for home merge, then merge
+    home_api = api_stats_slim.rename(columns={c: f'API_Home_{c}' for c in api_stats_slim.columns if c != 'Team'})
+    away_api = api_stats_slim.rename(columns={c: f'API_Away_{c}' for c in api_stats_slim.columns if c != 'Team'})
+
+    df = df.merge(home_api, left_on='HomeTeam', right_on='Team', how='left').drop(columns=['Team'], errors='ignore')
+    df = df.merge(away_api, left_on='AwayTeam', right_on='Team', how='left').drop(columns=['Team'], errors='ignore')
+
+    # Fill missing (teams not in 2024 season API data)
+    api_new_cols = [c for c in df.columns if c.startswith('API_Home_') or c.startswith('API_Away_')]
+    for col in api_new_cols:
+        if df[col].dtype in [np.float64, np.int64, 'float64', 'int64']:
+            df[col] = df[col].fillna(df[col].median())
+        else:
+            df[col] = df[col].fillna(0)
+
+    print(f"  Merged {len(api_new_cols)} API team statistics columns")
+    return df
+
+
+def merge_api_standings(df):
+    """
+    Enhancement 4: Merge live standings data as a static team-strength prior.
+    Uses api_standings.csv to add current-season rank as a season-end strength signal.
+    Gracefully skips if file is absent.
+    """
+    standings_file = path.join(DATA_DIR, 'api_standings.csv')
+    if not path.exists(standings_file):
+        print("  api_standings.csv not found — skipping standings merge")
+        return df
+
+    print("Merging API standings data...")
+    standings = pd.read_csv(standings_file, sep='\t')
+
+    standing_cols = ['Team', 'Rank', 'Points', 'Win', 'Draw', 'Lose',
+                     'GoalsFor', 'GoalsAgainst', 'GoalDifference']
+    standing_cols = [c for c in standing_cols if c in standings.columns]
+    standings_slim = standings[standing_cols].copy()
+
+    # These are 2024-season final standings — useful as team strength prior
+    home_st = standings_slim.rename(columns={c: f'API_Home_Standing_{c}'
+                                              for c in standing_cols if c != 'Team'})
+    away_st = standings_slim.rename(columns={c: f'API_Away_Standing_{c}'
+                                              for c in standing_cols if c != 'Team'})
+
+    df = df.merge(home_st, left_on='HomeTeam', right_on='Team', how='left').drop(columns=['Team'], errors='ignore')
+    df = df.merge(away_st, left_on='AwayTeam', right_on='Team', how='left').drop(columns=['Team'], errors='ignore')
+
+    # Position difference (lower rank number = stronger team)
+    if 'API_Home_Standing_Rank' in df.columns and 'API_Away_Standing_Rank' in df.columns:
+        df['API_StandingsRankDiff'] = (
+            df['API_Away_Standing_Rank'] - df['API_Home_Standing_Rank']
+        )
+
+    st_new_cols = [c for c in df.columns if c.startswith('API_Home_Standing_') or c.startswith('API_Away_Standing_') or c == 'API_StandingsRankDiff']
+    for col in st_new_cols:
+        if df[col].dtype in [np.float64, np.int64, 'float64', 'int64']:
+            df[col] = df[col].fillna(df[col].median())
+
+    print(f"  Merged {len(st_new_cols)} API standings columns")
+    return df
+
+
+# Apply new feature engineering
+print("\nApplying new feature engineering (Enhancements 3, 4)...")
+historical_data_with_calculations = calculate_league_position_features(historical_data_with_calculations)
+historical_data_with_calculations = calculate_clean_sheet_features(historical_data_with_calculations)
+historical_data_with_calculations = calculate_home_away_split_form(historical_data_with_calculations)
+historical_data_with_calculations = merge_api_team_stats(historical_data_with_calculations)
+historical_data_with_calculations = merge_api_standings(historical_data_with_calculations)
+
 historical_data_with_calculations.to_csv(
     path.join(DATA_DIR, 'combined_historical_data_with_calculations_new.csv'),
     sep='\t',

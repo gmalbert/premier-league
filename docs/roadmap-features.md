@@ -7,6 +7,8 @@
 **Effort:** Medium  
 **Impact:** High
 
+**Status:** ✅ Draft implementation available in roadmap; not yet fully launched in main app (live scoreboard is a planned enhancement).
+
 Fetch and display live match scores during game time.
 
 ```python
@@ -61,6 +63,8 @@ if st.checkbox("Show Live Matches"):
 **Effort:** Low  
 **Impact:** Medium
 
+**Status:** ✅ Implemented in the codebase via probability spread calculation and confidence labeling in predictive outputs.
+
 Add confidence indicators for predictions based on probability spread.
 
 ```python
@@ -94,7 +98,7 @@ st.dataframe(upcoming_df[[
 
 ### 3. Team Form Tracker ✅ IMPLEMENTED
 
-**Status:** ✅ IMPLEMENTED - Advanced team form analysis with visual indicators and detailed statistics in Statistics tab
+**Status:** ✅ IMPLEMENTED (complete) - Advanced team form analysis with visual indicators and detailed statistics in Statistics tab
 
 **Implementation:** `analyze_team_form.py` + UI integration in Statistics tab of `premier-league-predictions.py`
 
@@ -170,7 +174,7 @@ summary_stats = {
 
 ### 4. Head-to-Head History ✅ IMPLEMENTED
 
-**Status:** ✅ IMPLEMENTED - Interactive head-to-head analyzer with historical match results and statistics
+**Status:** ✅ IMPLEMENTED (complete) - Interactive head-to-head analyzer with historical match results and statistics
 
 **Implementation:** UI integration in Statistics tab of `premier-league-predictions.py`
 
@@ -219,7 +223,7 @@ if st.button("🔍 Analyze Head-to-Head History"):
 
 ### 5. Prediction Performance Tracker ✅ IMPLEMENTED
 
-**Status:** ✅ IMPLEMENTED - Prediction logging and validation system integrated into Streamlit app + Automated daily validation
+**Status:** ✅ IMPLEMENTED (complete) - Prediction logging and validation system integrated into Streamlit app + Automated daily validation
 
 **Implementation:** `track_predictions.py` + UI integration in `premier-league-predictions.py` + Automated validation in GitHub Actions
 
