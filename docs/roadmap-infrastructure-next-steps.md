@@ -1,5 +1,11 @@
 # Infrastructure Improvements - Next Steps
 
+## Status Update (2026-03-28)
+- ✅ CSV-based prototype deployed
+- ⚪ SQLite migration: pending
+- ⚪ API development: pending
+- ⚪ Automated pipeline scheduling: pending
+
 Building on the current CSV-based architecture with Streamlit deployment, here are the next actionable steps to improve scalability, reliability, and maintainability.
 
 ---

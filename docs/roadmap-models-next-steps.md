@@ -1,5 +1,13 @@
 # Model Improvements - Next Steps
 
+## Status Update (2026-03-28)
+- ✅ Ensemble/NN/Poisson/LSTM/hyperparameter optimization: completed
+- ✅ Comprehensive Model Comparison Dashboard — plotly charts in tab2, all models compared
+- ✅ Gradient Boosting Variants — `models/gradient_boosting_variants.py` (LightGBM + CatBoost + ensemble)
+- ✅ Confidence Calibration — Platt Scaling via `CalibratedClassifierCV` in tab2
+- ✅ SHAP Feature Analysis — `models/feature_analysis.py`, TreeExplainer charts in tab2
+- ✅ Time-Based Cross-Validation — `TimeSeriesSplit` 5-fold button in tab2
+
 Building on the successfully implemented ensemble, neural network, Poisson, LSTM, and hyperparameter optimization models, here are the next actionable steps to further enhance prediction accuracy and capabilities.
 
 ---

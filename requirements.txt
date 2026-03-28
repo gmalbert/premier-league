@@ -17,3 +17,10 @@ reportlab
 seaborn
 pytest
 altair
+schedule
+mlflow
+redis
+
+lightgbm
+catboost
+shap

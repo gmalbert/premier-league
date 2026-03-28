@@ -74,3 +74,4 @@ copilot-instructions.md
 
 tmp_playwright_test/*
 pr_body.txt
+cache/*
