@@ -237,6 +237,18 @@ def load_precomputed_data():
 
     return None
 
+
+def is_feature_shape_compatible(model, X):
+    """Check if model input feature dimension matches X matrix."""
+    try:
+        expected_features = getattr(model, 'n_features_in_', None)
+        if expected_features is None:
+            return True
+        return expected_features == X.shape[1]
+    except Exception:
+        return False
+
+
 @st.cache_resource  # Cache models in memory (they're not serializable)
 def load_pretrained_models():
     """
@@ -440,12 +452,6 @@ def load_and_process_data(csv_path):
     if isinstance(X, pd.DataFrame):
         # Reset column names to generic names to avoid XGBoost issues
         X.columns = [f'feature_{i}' for i in range(X.shape[1])]
-        # Add dummy features to match expected 255
-        current_features = X.shape[1]
-        if current_features < 255:
-            dummy_cols = {f'feature_{i}': 0 for i in range(current_features, 255)}
-            dummy_df = pd.DataFrame(dummy_cols, index=X.index)
-            X = pd.concat([X, dummy_df], axis=1)
         feature_names = X.columns.tolist()  # Store feature names for later use
 
     # Convert to numpy array to ensure compatibility with XGBoost
@@ -472,6 +478,7 @@ y = np.concatenate([y_train, y_test])
 # --- Load Pre-trained Models or Train Fresh ---
 print("Loading pre-trained models...")
 pretrained_models = load_pretrained_models()
+use_pretrained = False
 
 if pretrained_models:
     # Use pre-trained models
@@ -482,6 +489,17 @@ if pretrained_models:
     optimized_xgb_model = pretrained_models['optimized_xgb_model']
     performance = pretrained_models['performance']
 
+    # Validate feature shape compatibility before using pre-trained models
+    if not is_feature_shape_compatible(xgb_model, X_test) or not is_feature_shape_compatible(ensemble_model, X_test):
+        st.warning(
+            f"Feature shape mismatch: model expects {getattr(xgb_model, 'n_features_in_', '?')} and data has {X_test.shape[1]}. "
+            "Re-training models from scratch now."
+        )
+        pretrained_models = None
+    else:
+        use_pretrained = True
+
+if use_pretrained:
     # Get performance metrics
     xgb_acc = performance.get('xgb_baseline', {}).get('accuracy', 0)
     xgb_mae = performance.get('xgb_baseline', {}).get('mae', 0)
@@ -558,7 +576,7 @@ with tab1:
     if not live_standings.empty:
         st.subheader("📊 Current Premier League Standings (2025-26)")
         st.dataframe(live_standings, height=get_dataframe_height(live_standings),
-                     hide_index=True, use_container_width=True)
+                     hide_index=True, width='stretch')
         st.divider()
 
     # ── Upcoming Fixtures ──────────────────────────────────────────────────
@@ -1160,12 +1178,15 @@ with tab3:
     if isinstance(X_upcoming, pd.DataFrame):
         # Reset column names to generic names to match training
         X_upcoming.columns = [f'feature_{i}' for i in range(X_upcoming.shape[1])]
-        # Add dummy features to match expected 255
+        # Pad or truncate to match the trained model's feature count
+        expected_features = X_train.shape[1]
         current_features = X_upcoming.shape[1]
-        if current_features < 255:
-            dummy_cols = {f'feature_{i}': 0 for i in range(current_features, 255)}
+        if current_features < expected_features:
+            dummy_cols = {f'feature_{i}': 0 for i in range(current_features, expected_features)}
             dummy_df = pd.DataFrame(dummy_cols, index=X_upcoming.index)
             X_upcoming = pd.concat([X_upcoming, dummy_df], axis=1)
+        elif current_features > expected_features:
+            X_upcoming = X_upcoming.iloc[:, :expected_features]
     
     # Convert to numpy array to ensure compatibility with XGBoost
     X_upcoming = X_upcoming.values
@@ -1442,22 +1463,22 @@ with tab3:
     col1, col2, col3, col4, col5 = st.columns(5)
 
     with col1:
-        show_all = st.button("📊 All Matches", use_container_width=True, type="secondary")
+        show_all = st.button("📊 All Matches", width='stretch', type="secondary")
 
     with col2:
-        show_low = st.button("🟢 Low Risk", use_container_width=True,
+        show_low = st.button("🟢 Low Risk", width='stretch',
                            help="Risk score ≤30: Relatively more confident predictions")
 
     with col3:
-        show_moderate = st.button("🟡 Moderate Risk", use_container_width=True,
+        show_moderate = st.button("🟡 Moderate Risk", width='stretch',
                                 help="Risk score 31-40: Moderate confidence predictions")
 
     with col4:
-        show_high = st.button("🔴 High Risk", use_container_width=True,
+        show_high = st.button("🔴 High Risk", width='stretch',
                             help="Risk score 41-47: Lower confidence predictions")
 
     with col5:
-        show_critical = st.button("🚨 Critical Risk", use_container_width=True,
+        show_critical = st.button("🚨 Critical Risk", width='stretch',
                                 help="Risk score >47: Very low confidence predictions")
 
     # Determine which filter is active - only one can be true at a time
@@ -1663,7 +1684,7 @@ with tab4:
         with st.expander("📋 Current League Table (2025-26 Season)", expanded=False):
             # Home vs Away splits from current season stats
             _cs = compute_current_team_stats(csv_path)
-            st.dataframe(_tab4_standings, hide_index=True, use_container_width=True,
+            st.dataframe(_tab4_standings, hide_index=True, width='stretch',
                          height=get_dataframe_height(_tab4_standings, max_height=500))
             if not _cs.empty and 'HomeWins' in _cs.columns:
                 st.markdown("**Home vs Away breakdown (2025-26):**")
@@ -1672,7 +1693,7 @@ with tab4:
                 split_cols_data.columns = ['Team', 'Home W', 'Home D', 'Home L',
                                            'Away W', 'Away D', 'Away L']
                 merged_splits = _tab4_standings[['Rank', 'Team']].merge(split_cols_data, on='Team', how='left')
-                st.dataframe(merged_splits.sort_values('Rank'), hide_index=True, use_container_width=True)
+                st.dataframe(merged_splits.sort_values('Rank'), hide_index=True, width='stretch')
 
     if path.exists(top_players_file):
         with st.expander("⭐ Top Players (2024-25 Season — API Data)", expanded=False):
@@ -2169,7 +2190,7 @@ with tab6:
                         int(team_row.get('FailedToScoreAway', 0)),
                     ],
                 }
-                st.dataframe(pd.DataFrame(ha_data), hide_index=True, use_container_width=True)
+                st.dataframe(pd.DataFrame(ha_data), hide_index=True, width='stretch')
 
             # ── Supplemental 2024-25 detail (goals by minute, penalties, streaks) ──
             with col_b:
@@ -2225,7 +2246,7 @@ with tab6:
                 if not team_players.empty:
                     st.markdown("**Key Players — 2024-25 API Data** *(top-scorer & top-assist lists)*")
                     st.dataframe(team_players.sort_values('Goals', ascending=False),
-                                 hide_index=True, use_container_width=True)
+                                 hide_index=True, width='stretch')
 
             # ── Current injuries ──────────────────────────────────────
             if path.exists(injuries_file_t6):
@@ -2236,7 +2257,7 @@ with tab6:
                 if not team_inj.empty:
                     st.markdown(f"**Injury Records — 2024-25 API Data ({len(team_inj)} records)**")
                     with st.expander(f"View all {selected_team_dive} injury records", expanded=False):
-                        st.dataframe(team_inj, hide_index=True, use_container_width=True,
+                        st.dataframe(team_inj, hide_index=True, width='stretch',
                                      height=get_dataframe_height(team_inj, max_height=350))
 
             # ── Historical form from existing data ───────────────────

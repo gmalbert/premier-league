@@ -89,17 +89,9 @@ def precompute_data():
     X = pd.concat([X_numeric, X_categorical], axis=1)
     X = X.fillna(X.mean())
     
-    # Ensure consistent feature count (match app expectations)
+    # Ensure consistent feature names
     if isinstance(X, pd.DataFrame):
         X.columns = [f'feature_{i}' for i in range(X.shape[1])]
-        current_features = X.shape[1]
-        
-        if current_features < 255:
-            print(f"   Padding features from {current_features} to 255...")
-            dummy_cols = {f'feature_{i}': 0 for i in range(current_features, 255)}
-            dummy_df = pd.DataFrame(dummy_cols, index=X.index)
-            X = pd.concat([X, dummy_df], axis=1)
-        
         feature_names = X.columns.tolist()
     
     X_processed = X.values
