@@ -1,5 +1,14 @@
 # Model Improvements Roadmap
 
+## Status Update (2026-03-28)
+- ✅ XGBoost baseline implemented
+- ✅ Ensemble model implemented
+- ✅ Neural network implemented
+- ✅ Poisson model implemented
+- ✅ LSTM model implemented
+- ✅ Hyperparameter tuning implemented
+- ⚪ Ongoing evaluation/productionization
+
 ## Current Model: XGBoost Classifier
 - **Type:** Gradient Boosting Decision Tree
 - **Target:** 3-class (Home Win, Draw, Away Win)

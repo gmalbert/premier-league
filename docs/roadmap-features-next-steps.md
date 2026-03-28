@@ -1,5 +1,12 @@
 # Feature Development - Next Steps
 
+## Status Update (2026-03-28)
+- ✅ Team form/h2h/prediction tracker: completed
+- ⚪ Live match tracker: pending
+- ⚪ Odds comparison tool: pending
+- ⚪ Interactive commentary generator: pending
+- ⚪ PDF report export: pending
+
 Building on successfully implemented features (Team Form Tracker, Head-to-Head History, Prediction Performance Tracker), here are the next actionable enhancements to improve user experience and functionality.
 
 ---

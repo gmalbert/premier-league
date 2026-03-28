@@ -1,5 +1,9 @@
 # Feature Roadmap - Premier League Predictor
 
+## Status Update (2026-03-28)
+- ✅ Live score integration: draft available
+- ⚪ Feature completion and app integration: pending
+
 ## High Priority Features
 
 ### 1. Live Score Integration

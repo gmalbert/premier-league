@@ -1,5 +1,13 @@
 # Technical Infrastructure Roadmap
 
+## Status Update (2026-03-28)
+- ✅ CSV-based architecture working
+- ⚪ DB migration (SQLite/PostgreSQL) pending
+- ⚪ API layer pending
+- ✅ Automated Pipeline — `automation/scheduler.py` created (schedule-based nightly runs)
+- ✅ Model Versioning — `models/train_with_mlflow.py` created (MLflow experiment tracking)
+- ✅ Caching Layer — `cache/redis_cache.py` created (Redis + in-memory fallback)
+
 ## Current Architecture
 - **Framework:** Streamlit
 - **ML:** XGBoost, scikit-learn

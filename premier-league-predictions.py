@@ -22,6 +22,13 @@ from models.ensemble_predictor import create_ensemble_model, create_simple_ensem
 from models.neural_predictor import train_neural_model, predict_neural
 from models.poisson_predictor import predict_match_poisson
 from models.poisson_evaluation import evaluate_poisson_file
+from sklearn.calibration import CalibratedClassifierCV, calibration_curve
+from sklearn.model_selection import TimeSeriesSplit
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 
 # cache the expensive historical evaluation so Streamlit doesn't recompute on every interaction
 @st.cache_data
@@ -1013,7 +1020,234 @@ with tab2:
                 st.info("No predictions have been validated yet. Predictions will be validated after match results are available.")
         else:
             st.info("No prediction history found. Start making predictions to track performance over time.")
-    
+
+    # --- Comprehensive Model Comparison Dashboard ---
+    st.markdown("---")
+    st.subheader("📊 Comprehensive Model Comparison Dashboard")
+
+    if st.button("Generate Visual Model Comparison", key="visual_comparison"):
+        with st.spinner("Building comparison charts..."):
+            # Collect per-class accuracy for available models
+            comparison_rows = []
+            available_models = [
+                ('XGBoost Baseline', xgb_model, None),
+                ('Ensemble', ensemble_model, None),
+            ]
+            if optimized_available and optimized_xgb_model is not None:
+                available_models.append(('Optimized XGBoost', optimized_xgb_model, None))
+            if neural_available and neural_model is not None:
+                available_models.append(('Neural Network', neural_model, neural_scaler))
+
+            for mname, m, scaler in available_models:
+                try:
+                    if scaler is not None:
+                        Xs = scaler.transform(X_test)
+                        proba = predict_neural(m, scaler, X_test)
+                        pred = np.argmax(proba, axis=1)
+                    else:
+                        pred = m.predict(X_test)
+                    row = {
+                        'Model': mname,
+                        'Accuracy': accuracy_score(y_test, pred),
+                        'MAE': mean_absolute_error(y_test, pred),
+                    }
+                    for cls, label in [(0, 'Home Win Acc'), (1, 'Draw Acc'), (2, 'Away Win Acc')]:
+                        mask = y_test == cls
+                        row[label] = accuracy_score(y_test[mask], pred[mask]) if mask.sum() > 0 else 0.0
+                    comparison_rows.append(row)
+                except Exception:
+                    pass
+
+            if comparison_rows:
+                comp_df = pd.DataFrame(comparison_rows)
+
+                fig = make_subplots(
+                    rows=2, cols=2,
+                    subplot_titles=(
+                        'Overall Accuracy', 'MAE (lower is better)',
+                        'Per-Class Accuracy', 'Prediction Distribution'
+                    )
+                )
+
+                fig.add_trace(
+                    go.Bar(x=comp_df['Model'], y=comp_df['Accuracy'],
+                           name='Accuracy', marker_color='steelblue', showlegend=False),
+                    row=1, col=1
+                )
+                fig.add_trace(
+                    go.Bar(x=comp_df['Model'], y=comp_df['MAE'],
+                           name='MAE', marker_color='salmon', showlegend=False),
+                    row=1, col=2
+                )
+                for cls_col, color in [('Home Win Acc', 'green'), ('Draw Acc', 'gold'), ('Away Win Acc', 'red')]:
+                    fig.add_trace(
+                        go.Bar(x=comp_df['Model'], y=comp_df[cls_col],
+                               name=cls_col, marker_color=color),
+                        row=2, col=1
+                    )
+                for _, row_data in comp_df.iterrows():
+                    fig.add_trace(
+                        go.Bar(
+                            x=['Home Win Acc', 'Draw Acc', 'Away Win Acc'],
+                            y=[row_data['Home Win Acc'], row_data['Draw Acc'], row_data['Away Win Acc']],
+                            name=row_data['Model']
+                        ),
+                        row=2, col=2
+                    )
+
+                fig.update_layout(height=700, title_text='Model Performance Dashboard', barmode='group')
+                st.plotly_chart(fig, use_container_width=True)
+                st.dataframe(
+                    comp_df.style.format({
+                        'Accuracy': '{:.3f}', 'MAE': '{:.3f}',
+                        'Home Win Acc': '{:.3f}', 'Draw Acc': '{:.3f}', 'Away Win Acc': '{:.3f}'
+                    }),
+                    hide_index=True, width='stretch'
+                )
+            else:
+                st.warning("No models available for comparison.")
+
+    # --- Gradient Boosting Variants ---
+    st.markdown("---")
+    st.subheader("🚀 Gradient Boosting Variants (LightGBM + CatBoost)")
+
+    if st.button("Train Gradient Boosting Variants", key="train_gb_variants"):
+        with st.spinner("Training LightGBM, CatBoost and combined ensemble..."):
+            try:
+                from models.gradient_boosting_variants import train_gradient_boosting_variants, LIGHTGBM_AVAILABLE, CATBOOST_AVAILABLE
+                if not LIGHTGBM_AVAILABLE or not CATBOOST_AVAILABLE:
+                    st.error("LightGBM and/or CatBoost not installed. Run: pip install lightgbm catboost")
+                else:
+                    gb_results = train_gradient_boosting_variants(X_train, y_train, X_test, y_test)
+                    st.session_state['gb_results'] = {k: {'accuracy': v['accuracy'], 'mae': v['mae']} for k, v in gb_results.items()}
+                    rows = [
+                        {'Model': k, 'Accuracy': v['accuracy'], 'MAE': v['mae']}
+                        for k, v in gb_results.items()
+                    ]
+                    gb_df = pd.DataFrame(rows)
+                    best_acc = gb_df['Accuracy'].max()
+                    delta = best_acc - acc
+                    st.success(f"✅ Training complete! Best GB accuracy: {best_acc:.3f} ({delta:+.3f} vs ensemble)")
+                    st.dataframe(gb_df.style.format({'Accuracy': '{:.3f}', 'MAE': '{:.3f}'}), hide_index=True)
+            except Exception as e:
+                st.error(f"Training failed: {e}")
+    elif 'gb_results' in st.session_state:
+        rows = [{'Model': k, **v} for k, v in st.session_state['gb_results'].items()]
+        st.dataframe(pd.DataFrame(rows).style.format({'accuracy': '{:.3f}', 'mae': '{:.3f}'}), hide_index=True)
+
+    # --- Confidence Calibration ---
+    st.markdown("---")
+    st.subheader("🎯 Confidence Calibration (Platt Scaling)")
+
+    if st.checkbox("Show Calibrated Probability Analysis", key="show_calibration"):
+        with st.spinner("Calibrating model probabilities..."):
+            try:
+                calibrated_model = CalibratedClassifierCV(ensemble_model, method='sigmoid', cv='prefit')
+                calibrated_model.fit(X_train, y_train)
+                uncal_proba = ensemble_model.predict_proba(X_test)
+                cal_proba = calibrated_model.predict_proba(X_test)
+
+                cal_pred = np.argmax(cal_proba, axis=1)
+                uncal_pred = np.argmax(uncal_proba, axis=1)
+                cal_acc = accuracy_score(y_test, cal_pred)
+                uncal_acc = accuracy_score(y_test, uncal_pred)
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    st.metric("Uncalibrated Accuracy", f"{uncal_acc:.3f}")
+                with col2:
+                    st.metric("Calibrated Accuracy", f"{cal_acc:.3f}", f"{cal_acc - uncal_acc:+.3f}")
+
+                fig_cal, axes = plt.subplots(1, 3, figsize=(15, 5))
+                class_labels = ['Home Win', 'Draw', 'Away Win']
+                for cls in range(3):
+                    try:
+                        fop_u, mpv_u = calibration_curve(y_test == cls, uncal_proba[:, cls], n_bins=10)
+                        fop_c, mpv_c = calibration_curve(y_test == cls, cal_proba[:, cls], n_bins=10)
+                        axes[cls].plot(mpv_u, fop_u, 's-', label='Uncalibrated')
+                        axes[cls].plot(mpv_c, fop_c, 'o-', label='Calibrated')
+                        axes[cls].plot([0, 1], [0, 1], 'k--', label='Perfect')
+                        axes[cls].set_title(class_labels[cls])
+                        axes[cls].legend(fontsize=8)
+                        axes[cls].set_xlabel('Mean predicted probability')
+                        axes[cls].set_ylabel('Fraction of positives')
+                    except Exception:
+                        axes[cls].set_title(f'{class_labels[cls]} (insufficient data)')
+                plt.suptitle('Calibration Curves: Ensemble Model')
+                plt.tight_layout()
+                st.pyplot(fig_cal)
+                plt.close(fig_cal)
+            except Exception as e:
+                st.error(f"Calibration failed: {e}")
+
+    # --- SHAP Feature Analysis ---
+    st.markdown("---")
+    st.subheader("🔍 SHAP Feature Analysis")
+
+    if st.checkbox("Show SHAP Feature Analysis", key="show_shap"):
+        with st.spinner("Generating SHAP explanations (this may take a moment)..."):
+            try:
+                from models.feature_analysis import analyze_feature_importance_shap, SHAP_AVAILABLE
+                if not SHAP_AVAILABLE:
+                    st.error("shap is not installed. Run: pip install shap")
+                else:
+                    bar_fig, class_figs, _, shap_imp_df = analyze_feature_importance_shap(
+                        xgb_model, X_test, feature_names, max_display=20
+                    )
+                    st.subheader("Overall Feature Importance (SHAP)")
+                    st.pyplot(bar_fig)
+                    plt.close(bar_fig)
+
+                    shap_tabs = st.tabs(['Home Win', 'Draw', 'Away Win'])
+                    for i, stab in enumerate(shap_tabs):
+                        with stab:
+                            if i < len(class_figs):
+                                st.pyplot(class_figs[i])
+                                plt.close(class_figs[i])
+
+                    st.dataframe(
+                        shap_imp_df.head(20).style.format({'Mean_SHAP': '{:.4f}'}),
+                        hide_index=True, width='stretch'
+                    )
+            except Exception as e:
+                st.error(f"SHAP analysis failed: {e}")
+
+    # --- Time-Based Cross-Validation ---
+    st.markdown("---")
+    st.subheader("⏱️ Time-Series Cross-Validation")
+
+    if st.button("Run Time-Based Cross-Validation", key="run_tscv"):
+        with st.spinner("Running 5-fold time-series cross-validation..."):
+            try:
+                tscv = TimeSeriesSplit(n_splits=5)
+                cv_rows = []
+                xgb_cv = XGBClassifier(eval_metric='mlogloss', random_state=42)
+                for fold, (train_idx, test_idx) in enumerate(tscv.split(X)):
+                    X_tr = X[train_idx]
+                    X_te = X[test_idx]
+                    y_tr = y[train_idx]
+                    y_te = y[test_idx]
+                    xgb_cv.fit(X_tr, y_tr)
+                    pred_cv = xgb_cv.predict(X_te)
+                    cv_rows.append({
+                        'Fold': fold + 1,
+                        'Train Size': len(train_idx),
+                        'Test Size': len(test_idx),
+                        'Accuracy': accuracy_score(y_te, pred_cv),
+                        'MAE': mean_absolute_error(y_te, pred_cv),
+                    })
+                cv_df = pd.DataFrame(cv_rows)
+                st.dataframe(cv_df.style.format({'Accuracy': '{:.3f}', 'MAE': '{:.3f}'}), hide_index=True)
+                col1, col2 = st.columns(2)
+                with col1:
+                    st.metric("Mean CV Accuracy", f"{cv_df['Accuracy'].mean():.3f}",
+                              f"±{cv_df['Accuracy'].std():.3f}")
+                with col2:
+                    st.metric("Mean CV MAE", f"{cv_df['MAE'].mean():.3f}",
+                              f"±{cv_df['MAE'].std():.3f}")
+            except Exception as e:
+                st.error(f"Cross-validation failed: {e}")
+
     add_betting_oracle_footer()
 
 with tab3:

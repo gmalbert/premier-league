@@ -1,5 +1,11 @@
 # Data Enhancement - Next Steps
 
+## Status Update (2026-03-28)
+- ✅ Injury/weather/referee/manager/KNN baseline implemented (from prior roadmap)
+- ⚪ Social media sentiment: pending
+- ⚪ Transfer market activity: pending
+- ⚪ Enhanced historical odds coverage: pending
+
 Building on the successful implementations of player injuries, weather data, referee statistics, manager data, and KNN imputation, here are the next actionable steps to enhance data quality and coverage.
 
 ---
