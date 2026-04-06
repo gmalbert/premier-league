@@ -45,6 +45,52 @@ def get_poisson_metrics(csv_path: str = 'data_files/combined_historical_data_wit
             cleaned[k] = v
     return cleaned
 
+
+@st.cache_data(ttl=120)
+def _get_bzzoiro_data(days_ahead: int = 14):
+    """
+    Fetch upcoming Bzzoiro odds + CatBoost predictions, cached for 2 minutes.
+    Returns (odds_lookup, pred_lookup) keyed by (home_team, away_team)
+    using short names compatible with upcoming_fixtures.csv.
+    """
+    try:
+        from bzzoiro_football_api import (
+            get_pl_events, get_event_detail, get_pl_predictions,
+            normalize_bzzoiro_team,
+        )
+        from datetime import date as _d, timedelta as _td
+        today = _d.today().isoformat()
+        d_to  = (_d.today() + _td(days=days_ahead)).isoformat()
+
+        events = get_pl_events(date_from=today, date_to=d_to, status="notstarted")
+        odds_lookup = {}
+        for ev in events:
+            home = normalize_bzzoiro_team(ev.get("home_team", ""))
+            away = normalize_bzzoiro_team(ev.get("away_team", ""))
+            detail = get_event_detail(ev["id"])
+            odds_lookup[(home, away)] = {
+                "odds_home":     detail.get("odds_home"),
+                "odds_draw":     detail.get("odds_draw"),
+                "odds_away":     detail.get("odds_away"),
+                "odds_over_25":  detail.get("odds_over_25"),
+                "odds_under_25": detail.get("odds_under_25"),
+                "odds_btts_yes": detail.get("odds_btts_yes"),
+                "odds_btts_no":  detail.get("odds_btts_no"),
+            }
+
+        preds = get_pl_predictions(date_from=today, date_to=d_to, upcoming_only=True)
+        pred_lookup = {}
+        for p in preds:
+            ev2 = p.get("event") or {}
+            ph = normalize_bzzoiro_team(ev2.get("home_team", ""))
+            pa = normalize_bzzoiro_team(ev2.get("away_team", ""))
+            pred_lookup[(ph, pa)] = p
+
+        return odds_lookup, pred_lookup
+    except Exception:
+        return {}, {}
+
+
 from models.lstm_predictor import predict_match_lstm
 from optimize_model import optimize_xgboost
 from footer import add_betting_oracle_footer
@@ -575,7 +621,7 @@ acc = ensemble_acc
 model_trained = True
 
 # Create tabs for different sections
-tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Upcoming Matches", "Predictive Data", "Upcoming Predictions", "Statistics", "Raw Data", "Team Deep Dive"])
+tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(["Upcoming Matches", "Predictive Data", "Upcoming Predictions", "Statistics", "Raw Data", "Team Deep Dive", "🔴 Live Scores"])
 
 with tab1:
     # ── Live Standings (computed from current season match data) ───────────
@@ -633,6 +679,31 @@ with tab1:
                         st.markdown(f"**✈️ {away}**")
                         st.markdown(f"Rank: **#{away_rank}** | Pts: **{away_pts}** | GD: {away_gd}")
                         st.markdown(f"Form (last 5): `{away_form}`")
+                    # ── Bzzoiro market odds + model prediction ─────────────────────
+                    _bzz_odds, _bzz_preds = _get_bzzoiro_data()
+                    _odds = _bzz_odds.get((home, away)) or {}
+                    _pred = _bzz_preds.get((home, away)) or {}
+                    if _odds.get("odds_home") or _pred:
+                        st.divider()
+                    if _odds.get("odds_home"):
+                        oc1, oc2, oc3, oc4, oc5 = st.columns(5)
+                        oc1.metric("🏠 Home", str(_odds["odds_home"]))
+                        oc2.metric("🤝 Draw", str(_odds["odds_draw"]))
+                        oc3.metric("✈️ Away", str(_odds["odds_away"]))
+                        oc4.metric("⚽ O2.5", str(_odds.get("odds_over_25") or "—"))
+                        oc5.metric("🎯 BTTS", str(_odds.get("odds_btts_yes") or "—"))
+                        st.caption("📊 Market odds · Source: Bzzoiro")
+                    if _pred:
+                        _ph = _pred.get("prob_home_win") or 0
+                        _pd = _pred.get("prob_draw") or 0
+                        _pa = _pred.get("prob_away_win") or 0
+                        _sc = _pred.get("most_likely_score") or "?"
+                        _xh = _pred.get("expected_home_goals") or "?"
+                        _xa = _pred.get("expected_away_goals") or "?"
+                        st.caption(
+                            f"🤖 **Bzzoiro model**: H {_ph:.0f}% · D {_pd:.0f}% · A {_pa:.0f}% · "
+                            f"Most likely: **{_sc}** · xG {_xh}–{_xa}"
+                        )
         else:
             st.subheader("Upcoming Premier League Matches")
             st.write(f"Found {len(upcoming_df_raw)} upcoming matches")
@@ -1829,6 +1900,37 @@ with tab3:
         })
         st.dataframe(styled_df, width='stretch', hide_index=True, height=get_dataframe_height(filtered_df))
 
+        # ── Bzzoiro Second Opinion ──────────────────────────────────────────
+        with st.expander("🔮 Bzzoiro Second Opinion  (H/D/A · xG · BTTS · O2.5)", expanded=False):
+            _bzz_odds2, _bzz_preds2 = _get_bzzoiro_data()
+            if not _bzz_preds2 and not _bzz_odds2:
+                st.info("Bzzoiro predictions not available. Ensure BZZOIRO_KEY is set in your .env file.")
+            else:
+                _rows2 = []
+                for _, _urow in upcoming_df.iterrows():
+                    _ht = _urow["HomeTeam"]
+                    _at = _urow["AwayTeam"]
+                    _p  = _bzz_preds2.get((_ht, _at)) or {}
+                    _o  = _bzz_odds2.get((_ht, _at)) or {}
+                    _rows2.append({
+                        "Home Team":  _ht,
+                        "Away Team":  _at,
+                        "Bzz H %":    _p.get("prob_home_win") or "—",
+                        "Bzz D %":    _p.get("prob_draw") or "—",
+                        "Bzz A %":    _p.get("prob_away_win") or "—",
+                        "xG Home":    _p.get("expected_home_goals") or "—",
+                        "xG Away":    _p.get("expected_away_goals") or "—",
+                        "Score":      _p.get("most_likely_score") or "—",
+                        "O2.5 %":     _p.get("prob_over_25") or "—",
+                        "BTTS %":     _p.get("prob_btts_yes") or "—",
+                        "Odds (H/D/A)": f"{_o.get('odds_home','—')}/{_o.get('odds_draw','—')}/{_o.get('odds_away','—')}",
+                    })
+                if _rows2:
+                    st.dataframe(pd.DataFrame(_rows2), hide_index=True, width='stretch')
+                    st.caption("Source: Bzzoiro CatBoost model · probabilities in % · decimal market odds")
+                else:
+                    st.info("No Bzzoiro predictions found for the upcoming fixtures.")
+
         # ── 7c. Injury Intelligence Panel ─────────────────────────────────
         injuries_file = path.join(DATA_DIR, 'api_injuries.csv')
         if path.exists(injuries_file):
@@ -2520,3 +2622,42 @@ with tab6:
 
     add_betting_oracle_footer()
 
+# ── Tab 7: Live Scores ────────────────────────────────────────────────────────
+with tab7:
+    st.subheader("🔴 Live Premier League Scores")
+    st.caption("Powered by Bzzoiro Sports API · Reload the page to refresh scores")
+
+    try:
+        from bzzoiro_football_api import get_live_matches as _get_live
+        _live = _get_live()
+    except Exception as _e:
+        _live = []
+        st.error(f"Could not fetch live data: {_e}")
+
+    if not _live:
+        st.info(
+            "No Premier League matches are currently live. "
+            "Check back during match windows — fixtures typically kick off at "
+            "7:30 AM, 10:00 AM or 12:30 PM ET on weekends."
+        )
+    else:
+        st.write(f"**{len(_live)} match(es) in progress**")
+        for _m in _live:
+            _mh  = _m.get("home_team", "?")
+            _ma  = _m.get("away_team", "?")
+            _mhs = _m.get("home_score") if _m.get("home_score") is not None else "–"
+            _mas = _m.get("away_score") if _m.get("away_score") is not None else "–"
+            _min = _m.get("minute") or _m.get("time_elapsed") or ""
+            _sta = _m.get("status", "")
+            with st.container():
+                lc1, lc2, lc3 = st.columns([3, 2, 3])
+                with lc1:
+                    st.markdown(f"### 🏠 {_mh}")
+                with lc2:
+                    st.markdown(f"## {_mhs} – {_mas}")
+                    st.caption(f"{_min}' · {_sta}" if _min else _sta)
+                with lc3:
+                    st.markdown(f"### ✈️ {_ma}")
+                st.divider()
+
+    add_betting_oracle_footer()
