@@ -17,6 +17,7 @@ from sklearn.preprocessing import LabelEncoder
 from models.ensemble_predictor import create_simple_ensemble
 from models.neural_predictor import train_neural_model, predict_neural
 from models.poisson_evaluation import evaluate_poisson_file
+from models.lstm_predictor import train_lstm_model
 from optimize_model import optimize_xgboost
 
 DATA_DIR = 'data_files/'
@@ -202,6 +203,16 @@ def train_and_save_models():
             hist_df.to_csv(hist_path, index=False)
     except Exception as e:
         print(f"⚠️  Poisson evaluation failed: {e}")
+
+    # Train and save LSTM model
+    try:
+        print("\nTraining LSTM time series model...")
+        lstm_start = time.time()
+        lstm_predictor = train_lstm_model(df, sequence_length=5, epochs=30)
+        lstm_predictor.save_model(path.join(MODELS_DIR, 'lstm_predictor.pkl'))
+        print(f"✅ LSTM model trained and saved in {time.time() - lstm_start:.1f}s")
+    except Exception as e:
+        print(f"⚠️  LSTM training failed: {e}")
 
     with open(path.join(MODELS_DIR, 'model_performance.pkl'), 'wb') as f:
         pickle.dump(performance, f)

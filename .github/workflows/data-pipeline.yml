@@ -64,6 +64,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements-ci.txt
+      - name: Fetch upcoming fixtures
+        run: python fetch_upcoming_fixtures.py
+
       - name: Run tests
         run: |
           echo "Running basic tests..."

@@ -240,9 +240,10 @@ class LSTMPredictor:
         X_train_scaled = self.scaler.fit_transform(X_train)
 
         # Reshape for LSTM: (batch_size, sequence_length, input_size)
-        # Assuming each match has 18 features (from extract_match_features)
-        input_size = 18  # Features per match
+        # Derive input_size from data to avoid hardcoding mismatch
         sequence_length = self.sequence_length
+        input_size = X_train.shape[1] // sequence_length
+        self.input_size = input_size  # persist for predict_proba and save/load
 
         X_train_reshaped = X_train_scaled.reshape(-1, sequence_length, input_size)
 
@@ -353,7 +354,7 @@ class LSTMPredictor:
 
         # Scale and reshape
         sequences_scaled = self.scaler.transform(sequences)
-        input_size = 18
+        input_size = getattr(self, 'input_size', sequences.shape[1] // self.sequence_length)
         sequence_length = self.sequence_length
         sequences_reshaped = sequences_scaled.reshape(-1, sequence_length, input_size)
 
@@ -437,7 +438,8 @@ class LSTMPredictor:
             'hidden_size': self.hidden_size,
             'num_layers': self.num_layers,
             'learning_rate': self.learning_rate,
-            'is_trained': self.is_trained
+            'is_trained': self.is_trained,
+            'input_size': getattr(self, 'input_size', 17)
         }
 
         with open(filepath, 'wb') as f:
@@ -460,7 +462,8 @@ class LSTMPredictor:
         predictor.is_trained = model_data['is_trained']
 
         if model_data['model_state_dict']:
-            input_size = 18  # Should match the saved model's input size
+            input_size = model_data.get('input_size', 17)
+            predictor.input_size = input_size
             predictor.model = FootballLSTM(input_size, predictor.hidden_size, predictor.num_layers)
             predictor.model.load_state_dict(model_data['model_state_dict'])
             predictor.model.to(predictor.device)
@@ -501,6 +504,8 @@ def train_lstm_model(historical_df, sequence_length=5, epochs=50):
     return predictor
 
 
+DEFAULT_MODEL_PATH = path.join(path.dirname(__file__), 'lstm_predictor.pkl')
+
 def predict_match_lstm(home_team, away_team, historical_df, model_path=None):
     """
     Convenience function for single match prediction
@@ -509,16 +514,21 @@ def predict_match_lstm(home_team, away_team, historical_df, model_path=None):
         home_team: Home team name
         away_team: Away team name
         historical_df: DataFrame with historical match data
-        model_path: Path to saved model (optional)
+        model_path: Path to saved model (optional, defaults to models/lstm_predictor.pkl)
 
     Returns:
         dict: Prediction results
     """
-    if model_path and path.exists(model_path):
+    if model_path is None:
+        model_path = DEFAULT_MODEL_PATH
+
+    if path.exists(model_path):
         predictor = LSTMPredictor.load_model(model_path)
     else:
-        # Create untrained predictor (will return default probabilities)
-        predictor = LSTMPredictor()
+        # Train on historical data and save for future use
+        print(f"No saved LSTM model found at {model_path}. Training on historical data...")
+        predictor = train_lstm_model(historical_df, sequence_length=5, epochs=30)
+        predictor.save_model(model_path)
 
     return predictor.predict_match(home_team, away_team, historical_df)
 

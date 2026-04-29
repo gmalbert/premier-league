@@ -1,91 +1,42 @@
 Date,Time,HomeTeam,AwayTeam
-2026-01-17,07:30,Man United,Man City
-2026-01-17,10:00,Chelsea,Brentford
-2026-01-17,10:00,Leeds,Fulham
-2026-01-17,10:00,Liverpool,Burnley
-2026-01-17,10:00,Sunderland,Crystal Palace
-2026-01-17,10:00,Tottenham,West Ham
-2026-01-17,12:30,Nott'm Forest,Arsenal
-2026-01-18,09:00,Wolves,Newcastle
-2026-01-18,11:30,Aston Villa,Everton
-2026-01-19,15:00,Brighton,Bournemouth
-2026-01-24,12:30,Bournemouth,Liverpool
-2026-01-24,10:00,Man City,Wolves
-2026-01-24,07:30,West Ham,Sunderland
-2026-01-24,10:00,Burnley,Tottenham
-2026-01-24,10:00,Fulham,Brighton
-2026-01-25,09:00,Brentford,Nott'm Forest
-2026-01-25,09:00,Crystal Palace,Chelsea
-2026-01-25,09:00,Newcastle,Aston Villa
-2026-01-25,11:30,Arsenal,Man United
-2026-01-26,15:00,Everton,Leeds
-2026-01-31,15:00,Liverpool,Newcastle
-2026-01-31,12:30,Chelsea,West Ham
-2026-01-31,10:00,Wolves,Bournemouth
-2026-01-31,10:00,Leeds,Arsenal
-2026-01-31,10:00,Brighton,Everton
-2026-02-01,09:00,Aston Villa,Brentford
-2026-02-01,09:00,Man United,Fulham
-2026-02-01,09:00,Nott'm Forest,Crystal Palace
-2026-02-01,11:30,Tottenham,Man City
-2026-02-02,15:00,Sunderland,Burnley
-2026-02-06,15:00,Leeds,Nott'm Forest
-2026-02-07,12:30,Newcastle,Brentford
-2026-02-07,10:00,Wolves,Chelsea
-2026-02-07,10:00,Fulham,Everton
-2026-02-07,10:00,Burnley,West Ham
-2026-02-07,10:00,Arsenal,Sunderland
-2026-02-07,10:00,Bournemouth,Aston Villa
-2026-02-07,07:30,Man United,Tottenham
-2026-02-08,09:00,Brighton,Crystal Palace
-2026-02-08,11:30,Liverpool,Man City
-2026-02-10,14:30,Chelsea,Leeds
-2026-02-10,14:30,Everton,Bournemouth
-2026-02-10,14:30,Tottenham,Newcastle
-2026-02-10,15:15,West Ham,Man United
-2026-02-11,15:15,Sunderland,Liverpool
-2026-02-11,14:30,Nott'm Forest,Wolves
-2026-02-11,14:30,Aston Villa,Brighton
-2026-02-11,14:30,Crystal Palace,Burnley
-2026-02-11,14:30,Man City,Fulham
-2026-02-12,15:00,Brentford,Arsenal
-2026-02-21,07:30,Man City,Newcastle
-2026-02-21,10:00,Aston Villa,Leeds
-2026-02-21,10:00,Brentford,Brighton
-2026-02-21,10:00,Chelsea,Burnley
-2026-02-21,10:00,Crystal Palace,Wolves
-2026-02-21,10:00,Nott'm Forest,Liverpool
-2026-02-21,12:30,West Ham,Bournemouth
-2026-02-22,11:30,Tottenham,Arsenal
-2026-02-22,09:00,Sunderland,Fulham
-2026-02-23,15:00,Everton,Man United
-2026-02-27,15:00,Wolves,Aston Villa
-2026-02-28,07:30,Bournemouth,Sunderland
-2026-02-28,10:00,Brighton,Nott'm Forest
-2026-02-28,10:00,Burnley,Brentford
-2026-02-28,10:00,Liverpool,West Ham
-2026-02-28,10:00,Man United,Crystal Palace
-2026-02-28,10:00,Newcastle,Everton
-2026-02-28,12:30,Leeds,Man City
-2026-03-01,11:30,Arsenal,Chelsea
-2026-03-01,09:00,Fulham,Tottenham
-2026-03-04,15:00,Bournemouth,Brentford
-2026-03-04,15:00,Tottenham,Crystal Palace
-2026-03-04,15:00,Newcastle,Man United
-2026-03-04,15:00,Man City,Nott'm Forest
-2026-03-04,15:00,Leeds,Sunderland
-2026-03-04,15:00,Wolves,Liverpool
-2026-03-04,15:00,Everton,Burnley
-2026-03-04,15:00,Brighton,Arsenal
-2026-03-04,15:00,Aston Villa,Chelsea
-2026-03-04,15:00,Fulham,West Ham
-2026-03-14,11:00,Sunderland,Brighton
-2026-03-14,11:00,Arsenal,Everton
-2026-03-14,11:00,Brentford,Wolves
-2026-03-14,11:00,Burnley,Bournemouth
-2026-03-14,11:00,Chelsea,Newcastle
-2026-03-14,11:00,Crystal Palace,Leeds
-2026-03-14,11:00,Liverpool,Tottenham
-2026-03-14,11:00,Man United,Aston Villa
-2026-03-14,11:00,Nott'm Forest,Fulham
-2026-03-14,11:00,West Ham,Man City
+2026-05-01,15:00,Leeds,Burnley
+2026-05-02,10:00,Brentford,West Ham
+2026-05-02,10:00,Newcastle,Brighton
+2026-05-02,10:00,Wolves,Sunderland
+2026-05-02,12:30,Arsenal,Fulham
+2026-05-03,09:00,Bournemouth,Crystal Palace
+2026-05-03,10:30,Man United,Liverpool
+2026-05-03,14:00,Aston Villa,Tottenham
+2026-05-04,15:00,Everton,Man City
+2026-05-04,10:00,Chelsea,Nott'm Forest
+2026-05-09,07:30,Liverpool,Chelsea
+2026-05-09,10:00,Brighton,Wolves
+2026-05-09,10:00,Fulham,Bournemouth
+2026-05-09,10:00,Sunderland,Man United
+2026-05-09,12:30,Man City,Brentford
+2026-05-10,11:30,West Ham,Arsenal
+2026-05-10,09:00,Burnley,Aston Villa
+2026-05-10,09:00,Crystal Palace,Everton
+2026-05-10,09:00,Nott'm Forest,Newcastle
+2026-05-11,15:00,Tottenham,Leeds
+2026-05-13,15:00,Man City,Crystal Palace
+2026-05-17,07:30,Aston Villa,Liverpool
+2026-05-17,07:30,Man United,Nott'm Forest
+2026-05-17,10:00,Brentford,Crystal Palace
+2026-05-17,10:00,Everton,Sunderland
+2026-05-17,10:00,Leeds,Brighton
+2026-05-17,10:00,Wolves,Fulham
+2026-05-17,12:30,Newcastle,West Ham
+2026-05-18,15:00,Arsenal,Burnley
+2026-05-19,15:15,Chelsea,Tottenham
+2026-05-19,14:30,Bournemouth,Man City
+2026-05-24,11:00,Tottenham,Everton
+2026-05-24,11:00,Brighton,Man United
+2026-05-24,11:00,Burnley,Wolves
+2026-05-24,11:00,Crystal Palace,Arsenal
+2026-05-24,11:00,Fulham,Newcastle
+2026-05-24,11:00,Liverpool,Brentford
+2026-05-24,11:00,Man City,Aston Villa
+2026-05-24,11:00,Nott'm Forest,Bournemouth
+2026-05-24,11:00,Sunderland,Chelsea
+2026-05-24,11:00,West Ham,Leeds
