@@ -91,7 +91,7 @@ def _get_bzzoiro_data(days_ahead: int = 14):
         return {}, {}
 
 
-from models.lstm_predictor import predict_match_lstm
+from models.lstm_predictor import predict_match_lstm, LSTMPredictor, train_lstm_model
 from optimize_model import optimize_xgboost
 from footer import add_betting_oracle_footer
 
@@ -1593,22 +1593,34 @@ with tab3:
     elif selected_model == "LSTM Time Series":
         # Use LSTM time series model for predictions
         st.info("🧠 Using LSTM deep learning model for temporal momentum analysis...")
-        
+
         # Initialize prediction arrays
         home_win_probs = []
         draw_probs = []
         away_win_probs = []
-        
+
         # Load historical data for LSTM predictions
         historical_df = df.copy()  # Use the main historical dataframe
-        
+
+        LSTM_MODEL_PATH = 'models/lstm_predictor.pkl'
+
+        # Load pre-trained model if available, otherwise train once and save
+        import os as _os
+        if _os.path.exists(LSTM_MODEL_PATH):
+            with st.spinner("Loading LSTM model..."):
+                lstm_predictor = LSTMPredictor.load_model(LSTM_MODEL_PATH)
+        else:
+            with st.spinner("Training LSTM model on historical data (this takes ~1-2 minutes and is saved for future use)..."):
+                lstm_predictor = train_lstm_model(historical_df, sequence_length=5, epochs=30)
+                lstm_predictor.save_model(LSTM_MODEL_PATH)
+
         for idx, match in upcoming_df.iterrows():
             home_team = match['HomeTeam']
             away_team = match['AwayTeam']
-            
-            # Get LSTM predictions (currently uses home team momentum)
-            lstm_result = predict_match_lstm(home_team, away_team, historical_df)
-            
+
+            # Get LSTM predictions using the trained predictor
+            lstm_result = lstm_predictor.predict_match(home_team, away_team, historical_df)
+
             home_win_probs.append(lstm_result['HomeWinProb'])
             draw_probs.append(lstm_result['DrawProb'])
             away_win_probs.append(lstm_result['AwayWinProb'])

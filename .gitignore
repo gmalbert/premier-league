@@ -1,5 +1,6 @@
 .venv/
 venv/
+venv_mac/
 env/
 venv.bak/
 
