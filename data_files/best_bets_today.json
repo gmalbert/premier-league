@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "sport": "EPL",
+    "generated_at": "2026-04-30T02:04:45.261118+00:00",
+    "model_version": "1.0.0",
+    "season": "2026"
+  },
+  "bets": [
+    {
+      "game_date": "2026-04-29",
+      "game_time": null,
+      "game": "Chelsea @ Arsenal",
+      "home_team": "Arsenal",
+      "away_team": "Chelsea",
+      "bet_type": "Match Result",
+      "pick": "Home Win",
+      "confidence": 0.58,
+      "edge": 0.1038,
+      "tier": "Elite",
+      "odds": 110,
+      "line": null,
+      "league": "Premier League"
+    }
+  ]
+}

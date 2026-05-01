@@ -138,6 +138,19 @@ jobs:
             done
           fi
 
+      - name: Export best bets for Sports Picks Grid
+        run: python scripts/export_best_bets.py
+        continue-on-error: true
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+
+      - name: Commit best_bets_today.json
+        run: |
+          git add data_files/best_bets_today.json
+          git diff --staged --quiet || git commit -m "chore: update best_bets_today [skip ci]"
+          git push origin main
+        continue-on-error: true
+
       - name: Notification on failure
         if: failure()
         run: |
