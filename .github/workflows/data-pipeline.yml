@@ -197,8 +197,10 @@ jobs:
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
 
-          # Check if predictions log has changes
-          if git diff --quiet data_files/predictions_log.csv 2>/dev/null; then
+          # Check if predictions log exists and has changes
+          if [ ! -f data_files/predictions_log.csv ]; then
+            echo "No prediction log file found, skipping commit"
+          elif git diff --quiet data_files/predictions_log.csv 2>/dev/null && git diff --cached --quiet data_files/predictions_log.csv 2>/dev/null; then
             echo "No prediction validation updates to commit"
           else
             echo "Committing prediction validation updates..."
