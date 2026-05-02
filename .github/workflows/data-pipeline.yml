@@ -67,6 +67,16 @@ jobs:
       - name: Fetch upcoming fixtures
         run: python fetch_upcoming_fixtures.py
 
+      - name: Fetch ClubElo ratings
+        run: |
+          echo "Fetching ClubElo Elo ratings and upcoming fixture probabilities..."
+          python fetch_clubelo.py
+
+      - name: Fetch Understat xG data
+        run: |
+          echo "Fetching Understat expected-goals data for EPL..."
+          python fetch_understat_xg.py
+
       - name: Run tests
         run: |
           echo "Running basic tests..."

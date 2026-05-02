@@ -24,3 +24,5 @@ redis
 lightgbm
 catboost
 shap
+kloppy
+statsbombpy

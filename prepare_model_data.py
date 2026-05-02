@@ -993,6 +993,160 @@ historical_data_with_calculations = calculate_home_away_split_form(historical_da
 historical_data_with_calculations = merge_api_team_stats(historical_data_with_calculations)
 historical_data_with_calculations = merge_api_standings(historical_data_with_calculations)
 
+
+# ---------------------------------------------------------------------------
+# NEW FEATURES: ClubElo ratings and Understat xG
+# Run fetch_clubelo.py and fetch_understat_xg.py to generate the source files.
+# Both functions degrade gracefully (no-op) when source files are absent.
+# ---------------------------------------------------------------------------
+
+def merge_clubelo_features(df):
+    """
+    Add ClubElo Elo ratings as features: HomeElo, AwayElo, EloDiff.
+    Elo is a date-ranged rating — uses merge_asof to find the rating valid
+    on each match date. Source: http://clubelo.com/API
+    Requires: data_files/clubelo_ratings.csv (run fetch_clubelo.py first).
+    """
+    elo_file = path.join(DATA_DIR, 'clubelo_ratings.csv')
+    if not path.exists(elo_file):
+        print('  clubelo_ratings.csv not found — skipping ClubElo merge (run fetch_clubelo.py)')
+        return df
+
+    print('Merging ClubElo Elo ratings...')
+    elo_df = pd.read_csv(elo_file, sep='\t')
+    elo_df['From'] = pd.to_datetime(elo_df['From'], errors='coerce')
+    elo_df['Elo'] = pd.to_numeric(elo_df['Elo'], errors='coerce')
+    elo_df = elo_df.dropna(subset=['From', 'Elo', 'HistTeam'])
+    elo_df = elo_df.sort_values(['HistTeam', 'From']).reset_index(drop=True)
+
+    # Preserve original index so we can map results back after merge_asof
+    df = df.copy()
+    df['_orig_idx'] = np.arange(len(df))
+    df_sorted = df[['_orig_idx', 'MatchDate', 'HomeTeam', 'AwayTeam']].sort_values('MatchDate')
+
+    # Home Elo: look up the most recent Elo entry at or before MatchDate
+    home_elo_ref = elo_df[['From', 'HistTeam', 'Elo']].rename(
+        columns={'From': 'MatchDate', 'HistTeam': 'HomeTeam', 'Elo': 'HomeElo'}
+    ).sort_values('MatchDate')
+
+    away_elo_ref = elo_df[['From', 'HistTeam', 'Elo']].rename(
+        columns={'From': 'MatchDate', 'HistTeam': 'AwayTeam', 'Elo': 'AwayElo'}
+    ).sort_values('MatchDate')
+
+    home_merged = pd.merge_asof(
+        df_sorted[['_orig_idx', 'MatchDate', 'HomeTeam']],
+        home_elo_ref,
+        on='MatchDate',
+        by='HomeTeam',
+        direction='backward'
+    ).set_index('_orig_idx')['HomeElo']
+
+    away_merged = pd.merge_asof(
+        df_sorted[['_orig_idx', 'MatchDate', 'AwayTeam']],
+        away_elo_ref,
+        on='MatchDate',
+        by='AwayTeam',
+        direction='backward'
+    ).set_index('_orig_idx')['AwayElo']
+
+    df['HomeElo'] = df['_orig_idx'].map(home_merged)
+    df['AwayElo'] = df['_orig_idx'].map(away_merged)
+    df['EloDiff'] = df['HomeElo'] - df['AwayElo']
+
+    avg_elo = elo_df['Elo'].mean()
+    df['HomeElo'] = df['HomeElo'].fillna(avg_elo)
+    df['AwayElo'] = df['AwayElo'].fillna(avg_elo)
+    df['EloDiff'] = df['EloDiff'].fillna(0.0)
+    df.drop(columns=['_orig_idx'], inplace=True)
+
+    matched = (df['HomeElo'] != avg_elo).sum()
+    print(f'  Added ClubElo features: HomeElo, AwayElo, EloDiff ({matched} matches with Elo data)')
+    return df
+
+
+def merge_understat_xg_features(df):
+    """
+    Add Understat xG rolling averages:
+      HomeXG_Understat_L5   — home team's avg xG (attacking) over last 5 home matches
+      AwayXG_Understat_L5   — away team's avg xG (attacking) over last 5 away matches
+      HomeXGA_Understat_L5  — home team's avg xG conceded over last 5 home matches
+      AwayXGA_Understat_L5  — away team's avg xG conceded over last 5 away matches
+
+    Uses shift(1) before rolling to prevent data leakage.
+    Falls back to shot-based proxy (HomexG_Avg_L5) for pre-2014/15 rows.
+    Source: https://understat.com/
+    Requires: data_files/understat_xg.csv (run fetch_understat_xg.py first).
+    """
+    xg_file = path.join(DATA_DIR, 'understat_xg.csv')
+    if not path.exists(xg_file):
+        print('  understat_xg.csv not found — skipping Understat xG merge (run fetch_understat_xg.py)')
+        return df
+
+    print('Merging Understat xG data...')
+    xg_df = pd.read_csv(xg_file, sep='\t')
+    xg_df['MatchDate'] = pd.to_datetime(xg_df['MatchDate'], errors='coerce').dt.normalize()
+    xg_df = xg_df.dropna(subset=['MatchDate', 'HomeTeam', 'AwayTeam'])
+
+    df = df.copy()
+    df['_MatchDateOnly'] = df['MatchDate'].dt.normalize()
+
+    df = df.merge(
+        xg_df[['MatchDate', 'HomeTeam', 'AwayTeam', 'HomeXG_Understat', 'AwayXG_Understat']].rename(
+            columns={'MatchDate': '_MatchDateOnly'}
+        ),
+        on=['_MatchDateOnly', 'HomeTeam', 'AwayTeam'],
+        how='left'
+    )
+    df.drop(columns=['_MatchDateOnly'], inplace=True)
+
+    # Compute rolling 5-match averages from past matches only (shift avoids leakage)
+    df = df.sort_values('MatchDate').reset_index(drop=True)
+
+    df['HomeXG_Understat_L5'] = (
+        df.groupby('HomeTeam')['HomeXG_Understat']
+        .shift(1).rolling(5, min_periods=1).mean()
+        .reset_index(level=0, drop=True)
+    )
+    df['AwayXG_Understat_L5'] = (
+        df.groupby('AwayTeam')['AwayXG_Understat']
+        .shift(1).rolling(5, min_periods=1).mean()
+        .reset_index(level=0, drop=True)
+    )
+    # xG conceded: away xG scored against the home team, and vice versa
+    df['HomeXGA_Understat_L5'] = (
+        df.groupby('HomeTeam')['AwayXG_Understat']
+        .shift(1).rolling(5, min_periods=1).mean()
+        .reset_index(level=0, drop=True)
+    )
+    df['AwayXGA_Understat_L5'] = (
+        df.groupby('AwayTeam')['HomeXG_Understat']
+        .shift(1).rolling(5, min_periods=1).mean()
+        .reset_index(level=0, drop=True)
+    )
+
+    # Fill NaNs: prefer existing shot-based proxy; fall back to league default
+    default_xg = 1.5
+    proxy_home = df.get('HomexG_Avg_L5', pd.Series(dtype=float))
+    proxy_away = df.get('AwayxG_Avg_L5', pd.Series(dtype=float))
+    df['HomeXG_Understat_L5'] = df['HomeXG_Understat_L5'].fillna(proxy_home).fillna(default_xg)
+    df['AwayXG_Understat_L5'] = df['AwayXG_Understat_L5'].fillna(proxy_away).fillna(default_xg)
+    df['HomeXGA_Understat_L5'] = df['HomeXGA_Understat_L5'].fillna(default_xg)
+    df['AwayXGA_Understat_L5'] = df['AwayXGA_Understat_L5'].fillna(default_xg)
+
+    # Drop per-match raw columns — only rolling averages used as features
+    df.drop(columns=['HomeXG_Understat', 'AwayXG_Understat'], inplace=True, errors='ignore')
+
+    matched = df['HomeXG_Understat_L5'].notna().sum()
+    print(f'  Added Understat xG features: HomeXG_Understat_L5, AwayXG_Understat_L5, '
+          f'HomeXGA_Understat_L5, AwayXGA_Understat_L5 ({matched} rows)')
+    return df
+
+
+# Apply ClubElo and Understat xG feature engineering
+print('\nApplying ClubElo and Understat xG feature engineering...')
+historical_data_with_calculations = merge_clubelo_features(historical_data_with_calculations)
+historical_data_with_calculations = merge_understat_xg_features(historical_data_with_calculations)
+
 historical_data_with_calculations.to_csv(
     path.join(DATA_DIR, 'combined_historical_data_with_calculations_new.csv'),
     sep='\t',
