@@ -247,7 +247,7 @@ def add_weather_features(df, api_key=None, cache_file='weather_cache.csv'):
         stadium = match['Stadium']
         match_date = match['MatchDate']
         if pd.notna(stadium):
-            cache_key = f"{match['HomeTeam']}_{match_date}"
+            cache_key = f"{match['HomeTeam']}_{pd.Timestamp(match_date).strftime('%Y-%m-%d')}"
             # Check if we already have this in cache
             if cached_weather.empty or cache_key not in cached_weather['cache_key'].values:
                 weather_requests.append({
@@ -320,7 +320,7 @@ def add_weather_features(df, api_key=None, cache_file='weather_cache.csv'):
         # Create weather features dataframe
         weather_features = []
         for idx, match in df.iterrows():
-            cache_key = f"{match['HomeTeam']}_{match['MatchDate']}"
+            cache_key = f"{match['HomeTeam']}_{pd.Timestamp(match['MatchDate']).strftime('%Y-%m-%d')}"
             weather_row = all_weather[all_weather['cache_key'] == cache_key]
 
             if not weather_row.empty:

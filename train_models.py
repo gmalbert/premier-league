@@ -208,7 +208,8 @@ def train_and_save_models():
     try:
         print("\nTraining LSTM time series model...")
         lstm_start = time.time()
-        lstm_predictor = train_lstm_model(df, sequence_length=5, epochs=30)
+        raw_df = pd.read_csv(path.join(DATA_DIR, 'combined_historical_data_with_calculations_new.csv'), sep='\t')
+        lstm_predictor = train_lstm_model(raw_df, sequence_length=5, epochs=30)
         lstm_predictor.save_model(path.join(MODELS_DIR, 'lstm_predictor.pkl'))
         print(f"✅ LSTM model trained and saved in {time.time() - lstm_start:.1f}s")
     except Exception as e:

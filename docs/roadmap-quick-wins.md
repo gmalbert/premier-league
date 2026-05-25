@@ -2,11 +2,15 @@
 
 ## Status Update (2026-03-28)
 - ✅ Last update timestamp: completed
-- ⚪ Add match commentary: pending
-- ⚪ Color-code confidence: pending
-- ⚪ Sorting in tables: pending
-- ⚪ Export CSV: pending
-- ⚪ Top features chart: pending
+- ✅ Add match commentary: completed
+- ✅ Color-code confidence: completed (via row-level risk coloring on probability columns)
+- ✅ Sorting in tables: completed (Streamlit dataframes are sortable by default)
+- ✅ Export CSV: completed
+- ✅ Top features chart: completed
+- ✅ Team filter: completed
+- ✅ Refresh data button: completed
+- ✅ Match countdown: completed
+- ✅ Improve page layout (tabs): completed
 
 Easy-to-implement enhancements that provide immediate value with minimal effort.
 
@@ -104,7 +108,7 @@ Allow users to sort predictions by different columns.
 st.dataframe(
     upcoming_df,
     height=get_dataframe_height(upcoming_df),
-    use_container_width=True,
+    width='stretch',
     hide_index=True,
     column_config={
         "HomeWin_Prob": st.column_config.ProgressColumn(
@@ -235,7 +239,7 @@ if st.checkbox("Show Predictive Data"):
     )
     
     fig.update_layout(yaxis={'categoryorder': 'total ascending'})
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width='stretch')
 ```
 
 **Add to requirements.txt:**
@@ -412,16 +416,16 @@ if countdown:
 
 ## Implementation Checklist
 
-- [ ] Add match commentary (5 min)
-- [ ] Color-code confidence (3 min)
-- [ ] Export CSV button (3 min)
+- [x] Add match commentary (5 min)
+- [x] Color-code confidence (3 min)
+- [x] Export CSV button (3 min)
 - [x] Last update timestamp (2 min)
 - [x] Model accuracy widget (2 min)
-- [ ] Top features chart (5 min)
-- [ ] Team filter (3 min)
-- [ ] Improve layout with tabs (5 min)
-- [ ] Refresh data button (3 min)
-- [ ] Match countdown (5 min)
+- [x] Top features chart (5 min)
+- [x] Team filter (3 min)
+- [x] Improve layout with tabs (5 min)
+- [x] Refresh data button (3 min)
+- [x] Match countdown (5 min)
 
 **Total implementation time: ~35 minutes**  
 **Combined impact: Very High**

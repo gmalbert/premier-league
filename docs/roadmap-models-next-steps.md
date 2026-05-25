@@ -146,7 +146,7 @@ if st.button("Generate Comprehensive Model Comparison"):
             X_test, y_test, models_to_compare
         )
         
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
         st.dataframe(comparison_df, hide_index=True)
 ```
 
