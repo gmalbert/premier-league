@@ -25,7 +25,9 @@ from models.poisson_evaluation import evaluate_poisson_file
 from sklearn.calibration import CalibratedClassifierCV, calibration_curve
 from sklearn.model_selection import TimeSeriesSplit
 import plotly.graph_objects as go
+import plotly.express as px
 from plotly.subplots import make_subplots
+import subprocess
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -146,6 +148,61 @@ def get_dataframe_height(df, row_height=35, header_height=38, padding=2, max_hei
     if max_height is not None:
         return min(calculated_height, max_height)
     return calculated_height
+
+
+def generate_match_commentary(home_team, away_team, home_prob, draw_prob, away_prob):
+    """Generate natural language prediction commentary."""
+    probs = [('Home Win', home_prob), ('Draw', draw_prob), ('Away Win', away_prob)]
+    prediction, confidence = max(probs, key=lambda x: x[1])
+    if confidence > 0.6:
+        strength = "highly likely"
+    elif confidence > 0.45:
+        strength = "likely"
+    else:
+        strength = "possible"
+    if prediction == 'Home Win':
+        return f"**{home_team}** {strength} to win ({confidence:.1%} confidence)"
+    elif prediction == 'Draw':
+        return f"Match {strength} to end in a **draw** ({confidence:.1%} confidence)"
+    else:
+        return f"**{away_team}** {strength} to win ({confidence:.1%} confidence)"
+
+
+@st.cache_data
+def convert_df_to_csv(df):
+    """Convert dataframe to UTF-8 encoded CSV bytes for download."""
+    return df.to_csv(index=False).encode('utf-8')
+
+
+def get_next_match_countdown(upcoming_csv_path):
+    """Return countdown info for the next upcoming fixture."""
+    if not path.exists(upcoming_csv_path):
+        return None
+    try:
+        _upcoming = pd.read_csv(upcoming_csv_path)
+        if _upcoming.empty:
+            return None
+        _upcoming['DateTime'] = pd.to_datetime(
+            _upcoming['Date'].astype(str) + ' ' + _upcoming['Time'].astype(str),
+            errors='coerce'
+        )
+        _upcoming = _upcoming.dropna(subset=['DateTime'])
+        if _upcoming.empty:
+            return None
+        next_match = _upcoming.sort_values('DateTime').iloc[0]
+        time_until = next_match['DateTime'] - datetime.now()
+        if time_until.total_seconds() > 0:
+            days = time_until.days
+            hours = time_until.seconds // 3600
+            minutes = (time_until.seconds % 3600) // 60
+            return {
+                'match': f"{next_match.get('HomeTeam', '?')} vs {next_match.get('AwayTeam', '?')}",
+                'time': f"{days}d {hours}h {minutes}m",
+                'date': next_match['DateTime'].strftime('%a %d %b, %I:%M %p ET'),
+            }
+    except Exception:
+        pass
+    return None
 
 
 @st.cache_data(ttl=3600)  # Cache for 1 hour
@@ -621,16 +678,11 @@ acc = ensemble_acc
 model_trained = True
 
 # Create tabs for different sections
-tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(["Upcoming Matches", "Predictive Data", "Upcoming Predictions", "Statistics", "Raw Data", "Team Deep Dive", "🔴 Live Scores"])
+tab1, tab_standings, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(["Upcoming Matches", "Standings", "Predictive Data", "Upcoming Predictions", "Statistics", "Raw Data", "Team Deep Dive", "🔴 Live Scores"])
 
 with tab1:
-    # ── Live Standings (computed from current season match data) ───────────
+    # ── Live Standings (loaded for fixture cards; displayed in Standings tab) ─
     live_standings = compute_live_standings(csv_path)
-    if not live_standings.empty:
-        st.subheader("📊 Current Premier League Standings (2025-26)")
-        st.dataframe(live_standings, height=get_dataframe_height(live_standings),
-                     hide_index=True, width='stretch')
-        st.divider()
 
     # ── Upcoming Fixtures ──────────────────────────────────────────────────
     upcoming_csv = path.join(DATA_DIR, 'upcoming_fixtures.csv')
@@ -638,6 +690,14 @@ with tab1:
         st.warning(f"No upcoming fixtures file found at `{upcoming_csv}`. Please run `python fetch_upcoming_fixtures.py` to get upcoming matches.")
     else:
         upcoming_df_raw = pd.read_csv(upcoming_csv)
+        # Filter to today and future matches only, sorted chronologically
+        upcoming_df_raw['_dt'] = pd.to_datetime(
+            upcoming_df_raw['Date'].astype(str) + ' ' + upcoming_df_raw['Time'].astype(str),
+            errors='coerce'
+        )
+        _today_start = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+        upcoming_df_raw = upcoming_df_raw[upcoming_df_raw['_dt'] >= _today_start]
+        upcoming_df_raw = upcoming_df_raw.sort_values('_dt').drop(columns=['_dt']).reset_index(drop=True)
 
         # ── 7e. Match Preview Cards ────────────────────────────────────────
         # Enrich with current season standings
@@ -652,6 +712,20 @@ with tab1:
 
             st.subheader("🗓️ Upcoming Premier League Fixtures")
             st.write("*Times shown in Eastern Time (ET)*")
+            if st.button("🔄 Refresh Upcoming Fixtures", use_container_width=False):
+                with st.spinner("Fetching latest fixtures..."):
+                    result = subprocess.run(
+                        ['python', 'fetch_upcoming_fixtures.py'],
+                        capture_output=True, text=True, encoding='utf-8',
+                        env={**os.environ, 'PYTHONIOENCODING': 'utf-8'}
+                    )
+                    if result.returncode == 0:
+                        st.success("✅ Fixtures updated!")
+                        st.rerun()
+                    else:
+                        st.error(f"❌ Update failed: {result.stderr[:200]}")
+            if upcoming_df_raw.empty:
+                st.info("No upcoming fixtures found. The season may be on a break — try refreshing or check back later.")
             for _, fixture in upcoming_df_raw.iterrows():
                 home = fixture.get('HomeTeam', '?')
                 away = fixture.get('AwayTeam', '?')
@@ -712,6 +786,15 @@ with tab1:
                          width=600, hide_index=True)
 
     add_betting_oracle_footer()
+
+with tab_standings:
+    st.subheader("📊 Current Premier League Standings (2025-26)")
+    _standings = compute_live_standings(csv_path)
+    if not _standings.empty:
+        st.dataframe(_standings, height=get_dataframe_height(_standings),
+                     hide_index=True, width='stretch')
+    else:
+        st.info("No current season match data found yet. Standings will appear once 2025-26 matches are available.")
 
 with tab2:
     st.subheader("Model Performance Comparison")
@@ -986,6 +1069,22 @@ with tab2:
             cat_df = cat_df.sort_values('Total Importance', ascending=False)
             cat_df['Significance Rate'] = (cat_df['Significance Rate'] * 100).round(1).astype(str) + '%'
             st.dataframe(cat_df, hide_index=True)
+
+        # ── Top 10 Features Bar Chart ──────────────────────────────────────
+        st.subheader("📊 Top 10 Most Important Features")
+        top10 = importance_df.head(10).copy()
+        fig_features = px.bar(
+            top10,
+            x='Importance %',
+            y='Feature',
+            orientation='h',
+            title='Feature Importance Rankings (Top 10)',
+            color='Importance %',
+            color_continuous_scale='Viridis',
+            labels={'Importance %': 'Mean Importance (%)'}
+        )
+        fig_features.update_layout(yaxis={'categoryorder': 'total ascending'}, coloraxis_showscale=False)
+        st.plotly_chart(fig_features, use_container_width=True)
         
         # PDF Export Section
         st.markdown("---")
@@ -1167,7 +1266,7 @@ with tab2:
                     )
 
                 fig.update_layout(height=700, title_text='Model Performance Dashboard', barmode='group')
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width='stretch')
                 st.dataframe(
                     comp_df.style.format({
                         'Accuracy': '{:.3f}', 'MAE': '{:.3f}',
@@ -1393,108 +1492,83 @@ with tab3:
             if col in upcoming_df.columns:
                 upcoming_df[col] = upcoming_df[col].fillna(df[col].mean())
     
-    # Ensure upcoming_df has all the columns that the training data has
-    # Get the expected columns from training data processing
-    expected_columns = [
-        'HomeShots', 'AwayShots', 'HomeShotsOnTarget', 'AwayShotsOnTarget', 'HomeFouls', 'AwayFouls', 
-        'HomeCorners', 'AwayCorners', 'HomeYellowCards', 'AwayYellowCards', 'HomeRedCards', 'AwayRedCards', 
-        'Bet365_HomeWinOdds', 'Bet365_DrawOdds', 'Bet365_AwayWinOdds', 'BetWin_HomeWinOdds', 'BetWin_DrawOdds', 
-        'BetWin_AwayWinOdds', 'Interwetten_HomeWinOdds', 'Interwetten_DrawOdds', 'Interwetten_AwayWinOdds', 
-        'Pinnacle_HomeWinOdds', 'Pinnacle_DrawOdds', 'Pinnacle_AwayWinOdds', 'WilliamHill_HomeWinOdds', 
-        'WilliamHill_DrawOdds', 'WilliamHill_AwayWinOdds', 'VCBet_HomeWinOdds', 'VCBet_DrawOdds', 'VCBet_AwayWinOdds', 
-        'Max_HomeWinOdds', 'Max_DrawOdds', 'Max_AwayWinOdds', 'Avg_HomeWinOdds', 'Avg_DrawOdds', 'Avg_AwayWinOdds', 
-        'Bet365_Over2_5GoalsOdds', 'Bet365_Under2_5GoalsOdds', 'P>2.5', 'P<2.5', 'Max>2.5', 'Max<2.5', 'Avg>2.5', 
-        'Avg<2.5', 'AHh', 'Bet365_AH_HomeOdds', 'Bet365_AH_AwayOdds', 'PAHH', 'PAHA', 'MaxAHH', 'MaxAHA', 'AvgAHH', 
-        'AvgAHA', 'Bet365_ClosingHomeOdds', 'Bet365_ClosingDrawOdds', 'Bet365_ClosingAwayOdds', 'BWCH', 'BWCD', 
-        'BWCA', 'IWCH', 'IWCD', 'IWCA', 'Pinnacle_ClosingHomeOdds', 'Pinnacle_ClosingDrawOdds', 
-        'Pinnacle_ClosingAwayOdds', 'WHCH', 'WHCD', 'WHCA', 'VCCH', 'VCCD', 'VCCA', 'MaxCH', 'MaxCD', 'MaxCA', 
-        'AvgCH', 'AvgCD', 'AvgCA', 'B365C>2.5', 'B365C<2.5', 'PC>2.5', 'PC<2.5', 'MaxC>2.5', 'MaxC<2.5', 
-        'AvgC>2.5', 'AvgC<2.5', 'AHCh', 'B365CAHH', 'B365CAHA', 'PCAHH', 'PCAHA', 'MaxCAHH', 'MaxCAHA', 'AvgCAHH', 
-        'AvgCAHA', 'BFH', 'BFD', 'BFA', '1XBH', '1XBD', '1XBA', 'BFEH', 'BFED', 'BFEA', 'BFE>2.5', 'BFE<2.5', 
-        'BFEAHH', 'BFEAHA', 'BFCH', 'BFCD', 'BFCA', '1XBCH', '1XBCD', '1XBCA', 'BFECH', 'BFECD', 'BFECA', 
-        'BFEC>2.5', 'BFEC<2.5', 'BFECAHH', 'BFECAHA', 'BFDH', 'BFDD', 'BFDA', 'BMGMH', 'BMGMD', 'BMGMA', 'BVH', 
-        'BVD', 'BVA', 'CLH', 'CLD', 'CLA', 'Ladbrokes_HomeWinOdds', 'Ladbrokes_DrawOdds', 'Ladbrokes_AwayWinOdds', 
-        'BFDCH', 'BFDCD', 'BFDCA', 'BMGMCH', 'BMGMCD', 'BMGMCA', 'BVCH', 'BVCD', 'BVCA', 'CLCH', 'CLCD', 'CLCA', 
-        'LBCH', 'LBCD', 'LBCA', 'HalfTimeHomeWin', 'HalfTimeAwayWin', 'HalfTimeDraw', 'HomeTeamPointsLast5', 
-        'AwayTeamPointsLast5', 'HomeH2HWinLast5', 'AwayH2HWinLast5', 'H2HDrawLast5', 'HomeRestDays', 'AwayRestDays', 
-        'HomeGoalsAve', 'HomeGoalsTotal', 'HomeGoalsHalfAve', 'HomeGoalsHalfTotal', 'HomeShotsAve', 'HomeShotsTotal', 
-        'HomeShotsOnTargetAve', 'HomeFirstHalfDifferentialAve', 'HomeGameDifferentialAve', 
-        'HomeFirstToSecondHalfGoalRatioAve', 'AwayGoalsAve', 'AwayGoalsTotal', 'AwayGoalsHalfAve', 'AwayGoalsHalfTotal', 
-        'AwayShotsAve', 'AwayShotsTotal', 'AwayShotsOnTargetAve', 'AwayFirstHalfDifferentialAve', 
-        'AwayGameDifferentialAve', 'AwayFirstToSecondHalfGoalRatioAve', 'ImpliedProb_HomeWin', 'ImpliedProb_Draw', 
-        'ImpliedProb_AwayWin', 'ImpliedProb_HomeWin_Norm', 'ImpliedProb_Draw_Norm', 'ImpliedProb_AwayWin_Norm', 
-        'Bet365_MarketMargin', 'OddsMovement_Home', 'OddsMovement_Away', 'OddsMovement_Draw', 'Bet365_Value_Home', 
-        'Bet365_Value_Away', 'Bet365_Value_Draw', 'Bet365_HomeVsDraw_Ratio', 'Bet365_AwayVsDraw_Ratio', 
-        'Bet365_HomeVsAway_Ratio', 'Bet365_OverUnder_Margin', 'Bet365_ExpectedTotalGoals', 'Bet365_AH_Margin', 
-        'HomeInjuryCount', 'AwayInjuryCount', 'InjuryAdvantage', 'Temperature', 'Humidity', 'WindSpeed', 
-        'Precipitation', 'HomexG_Avg_L5', 'HomeShootingEff_Avg_L5', 'HomeMomentum_L3', 'HomeGoalDiff_Avg_L5', 
-        'AwayxG_Avg_L5', 'AwayShootingEff_Avg_L5', 'AwayMomentum_L3', 'AwayGoalDiff_Avg_L5', 'TeamId', 
-        'WeatherCondition', 'WeatherDescription', 'WeatherImpact'
+    # Build feature matrix for upcoming matches aligned to training feature order.
+    # The model was trained on df's numeric columns in a specific order. We must reproduce
+    # that exact order here, substituting each team's rolling average for in-match stats
+    # that aren't available before a game is played.
+
+    _drop_cols = [
+        'FullTimeResult', 'FullTimeHomeGoals', 'FullTimeAwayGoals',
+        'HalfTimeResult', 'HalfTimeHomeGoals', 'HalfTimeAwayGoals',
+        'HomeWin', 'AwayWin', 'Draw', 'WinningTeam',
+        'HomePoints', 'AwayPoints', 'HomeTeamCumulativePoints', 'AwayTeamCumulativePoints',
+        'MatchDate', 'KickoffTime', 'Season', 'Round', 'Venue', 'Referee',
+        'HomeTeam', 'AwayTeam', 'Division', 'target'
     ]
-    
-    # Add missing columns with default values
-    missing_cols = [col for col in expected_columns if col not in upcoming_df.columns]
-    if missing_cols:
-        default_values = {}
-        for col in missing_cols:
-            if col in df.columns and df[col].dtype in ['int64', 'float64']:
-                # Use mean from historical data for numeric columns
-                default_values[col] = df[col].mean()
-            elif 'Odds' in col or 'Prob' in col or 'Margin' in col or 'Value' in col or 'Ratio' in col:
-                # For betting-related columns, use neutral values
-                if 'HomeWin' in col or 'AwayWin' in col:
-                    default_values[col] = 2.0
-                elif 'Draw' in col:
-                    default_values[col] = 3.5
-                else:
-                    default_values[col] = 2.0
-            elif 'Weather' in col or 'Description' in col:
-                # For weather, use a default string
-                default_values[col] = 'Clear'
+    _X_for_cols = df.drop(columns=[c for c in _drop_cols if c in df.columns], errors='ignore')
+    _train_num_cols = list(
+        _X_for_cols.select_dtypes(include=[np.number])
+                   .drop(columns=_drop_cols, errors='ignore')
+                   .columns
+    )
+    _train_cat_cols = [
+        c for c in _X_for_cols.select_dtypes(include=['object']).columns
+        if c not in _drop_cols
+    ]
+
+    # Compute per-team rolling averages from their last 10 home / away games
+    _df_s = df.copy()
+    if 'MatchDate' in _df_s.columns:
+        _df_s = _df_s.sort_values('MatchDate')
+
+    _home_avgs = {}
+    for _team in _df_s['HomeTeam'].unique():
+        _tm = _df_s[_df_s['HomeTeam'] == _team].tail(10)
+        _home_avgs[_team] = {
+            c: float(_tm[c].mean()) for c in _train_num_cols
+            if c in _tm.columns and pd.notna(_tm[c].mean())
+        }
+
+    _away_avgs = {}
+    for _team in _df_s['AwayTeam'].unique():
+        _tm = _df_s[_df_s['AwayTeam'] == _team].tail(10)
+        _away_avgs[_team] = {
+            c: float(_tm[c].mean()) for c in _train_num_cols
+            if c in _tm.columns and pd.notna(_tm[c].mean())
+        }
+
+    # Global means as a fallback for features that aren't team-prefixed
+    _global_means = {c: float(df[c].mean()) for c in _train_num_cols if c in df.columns}
+
+    # Build one row per upcoming match in training feature order
+    _upcoming_rows = []
+    for _, _match in upcoming_df.iterrows():
+        _home = _match['HomeTeam']
+        _away = _match['AwayTeam']
+        _row = []
+        for c in _train_num_cols:
+            if c.startswith('Home') and _home in _home_avgs and c in _home_avgs[_home]:
+                _row.append(_home_avgs[_home][c])
+            elif c.startswith('Away') and _away in _away_avgs and c in _away_avgs[_away]:
+                _row.append(_away_avgs[_away][c])
             else:
-                # For other missing columns, use 0
-                default_values[col] = 0
-        
-        # Add all missing columns at once to avoid fragmentation
-        new_df = pd.DataFrame(default_values, index=upcoming_df.index)
-        upcoming_df = pd.concat([upcoming_df, new_df], axis=1)
-    
-    # Prepare features for prediction model
-    X_upcoming = upcoming_df.drop(columns=['Date', 'Time', 'HomeTeam', 'AwayTeam'], errors='ignore')
-    
-    # Apply the same data processing as training
-    # Get numeric features only
-    X_upcoming_numeric = X_upcoming.select_dtypes(include=[np.number])
-    
-    # Handle categorical columns by encoding them
-    cat_cols = X_upcoming.select_dtypes(include=['object']).columns
-    X_upcoming_categorical = pd.DataFrame()
-    for col in cat_cols:
-        le = LabelEncoder()
-        X_upcoming_categorical[col] = le.fit_transform(X_upcoming[col].astype(str))
-    
-    # Combine numeric and categorical features
-    X_upcoming = pd.concat([X_upcoming_numeric, X_upcoming_categorical], axis=1)
-    
-    # Fill any remaining NaN values
-    X_upcoming = X_upcoming.fillna(X_upcoming.mean())
-    
-    # Ensure X is a DataFrame with clean column names
-    if isinstance(X_upcoming, pd.DataFrame):
-        # Reset column names to generic names to match training
-        X_upcoming.columns = [f'feature_{i}' for i in range(X_upcoming.shape[1])]
-        # Pad or truncate to match the trained model's feature count
-        expected_features = X_train.shape[1]
-        current_features = X_upcoming.shape[1]
-        if current_features < expected_features:
-            dummy_cols = {f'feature_{i}': 0 for i in range(current_features, expected_features)}
-            dummy_df = pd.DataFrame(dummy_cols, index=X_upcoming.index)
-            X_upcoming = pd.concat([X_upcoming, dummy_df], axis=1)
-        elif current_features > expected_features:
-            X_upcoming = X_upcoming.iloc[:, :expected_features]
-    
-    # Convert to numpy array to ensure compatibility with XGBoost
-    X_upcoming = X_upcoming.values
+                _row.append(_global_means.get(c, 0.0))
+        # Categorical features encoded as 0 (minor impact; keeps feature count aligned)
+        for _ in _train_cat_cols:
+            _row.append(0)
+        _upcoming_rows.append(_row)
+
+    X_upcoming = np.array(_upcoming_rows, dtype=np.float32)
+
+    # Pad or truncate to exactly match the trained model's feature count
+    _expected_features = X_train.shape[1]
+    if X_upcoming.shape[1] < _expected_features:
+        X_upcoming = np.hstack([
+            X_upcoming,
+            np.zeros((len(X_upcoming), _expected_features - X_upcoming.shape[1]), dtype=np.float32)
+        ])
+    elif X_upcoming.shape[1] > _expected_features:
+        X_upcoming = X_upcoming[:, :_expected_features]
     
     # Model Selection
     st.subheader("🤖 Choose Prediction Model")
@@ -1775,6 +1849,21 @@ with tab3:
     if 'Referee' in upcoming_df.columns:
         st.write("✅ **Referee data integrated** - Predictions now include referee statistics from historical matches")
 
+    # Team filter
+    _all_match_teams = sorted(
+        set(display_df['Home Team'].unique()) | set(display_df['Away Team'].unique())
+    )
+    selected_team_filter = st.selectbox(
+        "🔍 Filter by team (optional):",
+        options=['All Teams'] + _all_match_teams,
+        key='team_filter_select'
+    )
+    if selected_team_filter != 'All Teams':
+        display_df = display_df[
+            (display_df['Home Team'] == selected_team_filter) |
+            (display_df['Away Team'] == selected_team_filter)
+        ].copy()
+
     # Risk level filter
     st.subheader("🔍 Filter by Risk Level")
     col1, col2, col3, col4, col5 = st.columns(5)
@@ -1911,6 +2000,38 @@ with tab3:
             'Risk Score': '{:.2f}'
         })
         st.dataframe(styled_df, width='stretch', hide_index=True, height=get_dataframe_height(filtered_df))
+
+        # ── CSV Download ──────────────────────────────────────────────────
+        csv_bytes = convert_df_to_csv(filtered_df)
+        st.download_button(
+            label="📥 Download Predictions as CSV",
+            data=csv_bytes,
+            file_name=f"pl_predictions_{datetime.now().strftime('%Y%m%d')}.csv",
+            mime='text/csv',
+            key='download_predictions_csv'
+        )
+
+        # ── Match Commentary ──────────────────────────────────────────────
+        st.subheader("🎤 Match Commentary")
+        _filtered_upcoming = upcoming_df.loc[upcoming_df.index.isin(filtered_df.index)]
+        for _, _match in _filtered_upcoming.iterrows():
+            _home = _match['HomeTeam']
+            _away = _match['AwayTeam']
+            _date = _match.get('Date', '')
+            _time = _match.get('Time', '')
+            _hw = _match['HomeWin_Prob']
+            _dw = _match['Draw_Prob']
+            _aw = _match['AwayWin_Prob']
+            _commentary = generate_match_commentary(_home, _away, _hw, _dw, _aw)
+            with st.expander(f"{_home} vs {_away}  —  {_date} {_time}", expanded=False):
+                st.write(_commentary)
+                _c1, _c2, _c3 = st.columns(3)
+                with _c1:
+                    st.metric("Home Win", f"{_hw:.1%}")
+                with _c2:
+                    st.metric("Draw", f"{_dw:.1%}")
+                with _c3:
+                    st.metric("Away Win", f"{_aw:.1%}")
 
         # ── Bzzoiro Second Opinion ──────────────────────────────────────────
         with st.expander("🔮 Bzzoiro Second Opinion  (H/D/A · xG · BTTS · O2.5)", expanded=False):

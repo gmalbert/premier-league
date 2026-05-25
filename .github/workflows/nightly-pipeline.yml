@@ -74,7 +74,7 @@ jobs:
           python -m pytest test_poisson_evaluation.py
 
       - name: Run data pipeline
-        timeout-minutes: 15  # 15 minutes for data processing
+        timeout-minutes: 30  # 30 minutes for data processing (includes weather/injury API calls)
         run: |
           echo "Running data pipeline..."
           python combine_raw_data.py

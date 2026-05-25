@@ -2,10 +2,10 @@
 
 ## Status Update (2026-03-28)
 - ✅ Team form/h2h/prediction tracker: completed
-- ⚪ Live match tracker: pending
-- ⚪ Odds comparison tool: pending
-- ⚪ Interactive commentary generator: pending
-- ⚪ PDF report export: pending
+- ✅ Live match tracker: completed
+- ✅ Odds comparison tool: completed
+- ✅ Interactive commentary generator: completed
+- ✅ PDF report export: completed
 
 Building on successfully implemented features (Team Form Tracker, Head-to-Head History, Prediction Performance Tracker), here are the next actionable enhancements to improve user experience and functionality.
 
@@ -191,7 +191,7 @@ def display_live_matches_tab():
                         match['AwayTeam']: [stats['away'].get(s, 'N/A') for s in stat_names]
                     })
                     
-                    st.dataframe(stat_df, hide_index=True, use_container_width=True)
+                    st.dataframe(stat_df, hide_index=True, width='stretch')
     
     # Auto-refresh logic
     if auto_refresh:
@@ -515,7 +515,7 @@ if st.button("Find Value Bets"):
                     'Recommended_Stake': '{:.1%}'
                 }).background_gradient(subset=['Expected_Value'], cmap='RdYlGn')
                 
-                st.dataframe(styled_df, hide_index=True, use_container_width=True)
+                st.dataframe(styled_df, hide_index=True, width='stretch')
                 
                 st.warning("⚠️ Betting involves risk. Only bet what you can afford to lose.")
             else:
