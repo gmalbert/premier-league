@@ -21,9 +21,20 @@ A friendly app and data pipeline for predicting English Premier League match out
 
 ## What this project does (for fans)
 
-This project predicts the likely outcome of upcoming Premier League matches (home win, draw, or away win) using historical match data and machine learning. It also shows upcoming fixtures, kickoff times (in Eastern Time), and simple explanations of the model's predictions so fans can quickly understand which team is favored. Additionally, it provides detailed referee statistics, manager performance metrics, and team form analysis to help fans understand how different referees, managers, and recent performance might influence match outcomes.
+This project predicts the likely outcome of upcoming Premier League matches (home win, draw, or away win) using historical match data and machine learning. It also shows upcoming fixtures, kickoff times, live standings, and explanatory analytics so fans can quickly understand which team is favored.
 
-**Latest Enhancement:** Live 2025-26 Premier League standings and current-season team stats are now computed from the historical match dataset, and the UI now routes standings/prediction outputs to 2025-26 context while still offering 2024-25 API insights as supplemental analytics. The prediction model now uses an ensemble approach combining multiple machine learning algorithms, resulting in **3.5% higher accuracy** compared to the previous XGBoost-only model. Neural network and LSTM time series support have also been added for advanced deep learning predictions.
+The app now includes:
+- A dedicated **Standings** tab with current Premier League table computation from the historical dataset.
+- A **Upcoming Matches** tab with fixtures filtered to include today and sorted chronologically.
+- A **Upcoming Predictions** tab with matchup probabilities, model selection, and improved feature alignment for more realistic predictions.
+- A **Statistics** tab with referee analytics, team form, manager statistics, and league-level performance metrics.
+- A **Raw Data** tab for instant access to the underlying processed dataset.
+
+The prediction engine now supports:
+- **Ensemble modeling** combining XGBoost, Random Forest, Gradient Boosting, and Logistic Regression for stronger outcome forecasts.
+- **Neural network prediction** for non-linear patterns.
+- **LSTM time series prediction** for momentum and seasonal dynamics.
+- **Poisson regression diagnostics** for goal-based forecasts and MAE/RMSE performance tracking.
 
 [Back to top](#premier-league-predictor)
 
@@ -33,21 +44,21 @@ This project predicts the likely outcome of upcoming Premier League matches (hom
 
 - A data pipeline that combines historical match CSVs into a processed dataset.
 - A Streamlit app (`premier-league-predictions.py`) that:
-	- Displays historical match data and model metrics
-	- **NEW: Trains an ensemble model** combining XGBoost, Random Forest, Gradient Boosting, and Logistic Regression for improved accuracy (+3.5% vs XGBoost alone)
-	- **NEW: Neural network support** using PyTorch for deep learning predictions (+4.9% vs XGBoost baseline)
-	- **NEW: LSTM time series model** for capturing team momentum and temporal patterns in performance
-	- Shows upcoming fixtures and predicted probabilities with risk assessment
-	- Displays kickoff times converted to Eastern Time (ET)
-	- **NEW: Statistics tab** with referee performance metrics, manager statistics, team form analysis, and league-wide averages
-- **NEW: Poisson regression diagnostics** include a live display of goal‑prediction MAE/RMSE and a historical chart of those metrics over time (visible when selecting Poisson model)
-	- **NEW: Model comparison** showing performance improvements between baseline XGBoost, ensemble, neural network, and LSTM time series models
-- An ESPN-based fixture fetcher (`fetch_upcoming_fixtures.py`) that pulls upcoming matches from ESPN's API and saves them to `data_files/upcoming_fixtures.csv`.
-- Referee data integration: Scrapes referee assignments from Playmaker Stats and calculates historical referee statistics (disciplinary tendencies, win rates, home advantage bias).
-- Team form tracking: Analyzes recent performance for all Premier League teams with visual indicators.
-- Several helper scripts and data files in `data_files/` such as `combined_historical_data_with_calculations.csv` and `all_teams.csv`.
-
-If you'd like a quick view, open the Streamlit app and check the "Show Upcoming Matches", "Show Upcoming Predictions", and "Statistics" sections.
+	- Displays upcoming fixtures, home/away teams, kickoff times, and match countdowns.
+	- Uses a dedicated **Standings** tab for current table display.
+	- Uses a dedicated **Statistics** tab for referees, team form, manager data, and league analytics.
+	- Supports **model comparison** across ensemble, Poisson, neural network, and LSTM models.
+	- Includes an **Upcoming Predictions** tab with probabilities calculated from aligned training features.
+	- Shows a placeholder message when no upcoming fixtures are available.
+	- Places the fixture refresh button directly below the upcoming fixtures heading.
+- A fit-for-purpose model workflow that includes:
+	- **Ensemble modeling** for better accuracy and robustness.
+	- **Neural network support** for deep learning predictions.
+	- **LSTM time series modeling** for momentum-aware forecasts.
+- An ESPN-based fixture fetcher (`fetch_upcoming_fixtures.py`) that pulls upcoming matches and saves them to `data_files/upcoming_fixtures.csv`.
+- Referee data integration: Scrapes referee assignments and merges referee stats from Playmaker Stats.
+- Team form and performance tracking using rolling averages and historical match statistics.
+- GitHub Actions pipeline updates to support longer pipeline execution time.
 
 [Back to top](#premier-league-predictor)
 
@@ -110,10 +121,13 @@ streamlit run premier-league-predictions.py
 
 Notes for developers
 
-- The Streamlit UI has tabs for: Upcoming Matches, Predictive Data, Upcoming Predictions, Statistics, and Raw Data.
+- The Streamlit UI has tabs for: Upcoming Matches, Standings, Predictive Data, Upcoming Predictions, Statistics, and Raw Data.
+- Upcoming matches are filtered to include today and are sorted chronologically.
+- The fixture refresh button is shown under the Upcoming Fixtures heading rather than in the sidebar.
 - The Statistics tab displays referee performance metrics, manager statistics, team form analysis, and league-wide averages.
 - **NEW: Ensemble model** combines XGBoost, Random Forest, Gradient Boosting, and Logistic Regression using soft voting for improved accuracy.
 - **NEW: Neural network support** using PyTorch with 3-layer architecture, batch normalization, and dropout regularization.
+- **NEW: LSTM time series support** for momentum-aware forecasts.
 - Models are trained in-memory when you open the 'Predictive Data' section; for production you may want to train offline and load a saved model.
 - If you add third-party APIs (e.g., weather, injuries), add keys to a local `.env` and do not commit them.
 
