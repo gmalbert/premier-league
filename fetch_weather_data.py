@@ -232,7 +232,7 @@ def add_weather_features(df, api_key=None, cache_file='weather_cache.csv'):
         try:
             cached_weather = pd.read_csv(cache_path)
             print(f"Loaded {len(cached_weather)} cached weather records")
-        except:
+        except Exception:
             cached_weather = pd.DataFrame()
     else:
         cached_weather = pd.DataFrame()
