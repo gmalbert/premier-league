@@ -1,10 +1,10 @@
-git+https://github.com/gmalbert/pitch-oracle-core.git@v1.0.0
+git+https://github.com/gmalbert/pitch-oracle-core.git@v1.1.0
 beautifulsoup4
 numpy
 pandas
 python-dotenv
 requests
-scikit-learn
+scikit-learn==1.8.0
 streamlit>=1.51
 xgboost
 plotly
