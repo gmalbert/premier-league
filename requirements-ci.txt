@@ -2,7 +2,7 @@ beautifulsoup4
 numpy
 pandas
 requests
-scikit-learn
+scikit-learn==1.8.0
 scipy
 xgboost
 torch
@@ -12,4 +12,4 @@ requests-cache
 retry-requests
 kloppy
 statsbombpy
-git+https://github.com/gmalbert/pitch-oracle-core.git@v1.0.0
+git+https://github.com/gmalbert/pitch-oracle-core.git@v1.1.0
