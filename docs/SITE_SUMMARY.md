@@ -22,7 +22,7 @@ python fetch_upcoming_fixtures.py   # ESPN API → upcoming_fixtures.csv
 python scrape_referees.py           # Playmaker Stats → scraped_referees_test.csv
 
 # 4. Run the app
-streamlit run premier-league-predictions.py
+streamlit run predictions.py
 ```
 
 ## Tech Stack
@@ -40,7 +40,7 @@ streamlit run premier-league-predictions.py
 
 | File | Purpose |
 |---|---|
-| `premier-league-predictions.py` | Main Streamlit app — model training, evaluation, referee dashboard, predictions |
+| `predictions.py` | Main Streamlit entry page using the shared-core app factory |
 | `combine_raw_data.py` | Downloads and concatenates yearly `E0.csv` from football-data.co.uk |
 | `prepare_model_data.py` | Feature engineering: column renaming, rolling form, H2H stats, rest days, referee stats |
 | `fetch_upcoming_fixtures.py` | Fetches next 30 days of EPL fixtures from ESPN API |

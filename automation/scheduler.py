@@ -41,11 +41,11 @@ log = logging.getLogger('scheduler')
 
 # ── Pipeline steps ────────────────────────────────────────────────────────────
 
-def _run(script: str, label: str) -> bool:
-    """Run a Python script and return True on success."""
+def _run(module: str, label: str) -> bool:
+    """Run an installed core module and return True on success."""
     log.info(f"Starting: {label}")
     result = subprocess.run(
-        [sys.executable, script],
+        [sys.executable, '-m', module],
         capture_output=True,
         text=True,
     )
@@ -59,9 +59,9 @@ def _run(script: str, label: str) -> bool:
 def update_historical_data():
     """Download raw CSVs and regenerate processed feature data."""
     log.info("=== Historical data update started ===")
-    if not _run('combine_raw_data.py', 'combine_raw_data'):
+    if not _run('combine_raw_data', 'combine_raw_data'):
         return
-    if not _run('prepare_model_data.py', 'prepare_model_data'):
+    if not _run('prepare_model_data', 'prepare_model_data'):
         return
     log.info("=== Historical data update complete ===")
 
@@ -69,26 +69,26 @@ def update_historical_data():
 def retrain_models():
     """Re-train and save all ML models."""
     log.info("=== Model training started ===")
-    _run('train_models.py', 'train_models')
+    _run('train_models', 'train_models')
     log.info("=== Model training complete ===")
 
 
 def update_fixtures():
     """Fetch upcoming Premier League fixtures from ESPN API."""
     log.info("Updating upcoming fixtures...")
-    _run('fetch_upcoming_fixtures.py', 'fetch_upcoming_fixtures')
+    _run('fetch_upcoming_fixtures', 'fetch_upcoming_fixtures')
 
 
 def scrape_referees():
     """Scrape latest referee assignments from Playmaker Stats."""
     log.info("Scraping referee assignments...")
-    _run('scrape_referees.py', 'scrape_referees')
+    _run('scrape_referees', 'scrape_referees')
 
 
 def precompute_database():
     """Precompute processed data for fast app startup."""
     log.info("Precomputing database...")
-    _run('precompute_database.py', 'precompute_database')
+    _run('precompute_database', 'precompute_database')
 
 
 def full_nightly_pipeline():
