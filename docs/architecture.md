@@ -17,7 +17,7 @@ data_files/combined_historical_data_with_calculations.csv
 scrape_referees.py → data_files/scraped_referees_test.csv (Playmaker Stats)
 fetch_upcoming_fixtures.py → data_files/upcoming_fixtures.csv (ESPN API)
         ↓
-premier-league-predictions.py (Streamlit entry)
+predictions.py (Streamlit entry)
     → XGBoost H/D/A classifier
     → Model metrics, permutation feature importance, referee stats
 ```
@@ -41,7 +41,7 @@ premier-league-predictions.py (Streamlit entry)
 - `prepare_model_data.py` — column renaming (`FTHG` → `FullTimeHomeGoals`), team stats, rolling windows, referee stats
 - `fetch_upcoming_fixtures.py` — ESPN API for next 30 days of PL matches
 - `scrape_referees.py` — scrapes referee assignments from Playmaker Stats
-- `premier-league-predictions.py` — Streamlit entry + model training + UI
+- `predictions.py` — Streamlit entry + shared-core app factory
 - `team_name_mapping.py` — normalises team names across data sources
 
 ## Feature Engineering Patterns
@@ -66,5 +66,5 @@ python combine_raw_data.py        # refresh historical data
 python prepare_model_data.py      # regenerate processed CSVs
 python fetch_upcoming_fixtures.py # get next 30 days of fixtures
 python scrape_referees.py         # get referee assignments
-streamlit run premier-league-predictions.py
+streamlit run predictions.py
 ```

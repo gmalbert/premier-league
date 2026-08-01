@@ -5,6 +5,13 @@ on:
     - cron: '0 7 * * *'  # 2 AM ET (7 AM UTC) daily
   workflow_dispatch:  # Allow manual triggering
 
+  workflow_call:
+    inputs:
+      core_ref:
+        required: false
+        type: string
+        default: "v1.1.0"
+
 permissions:
   contents: write  # Allow the workflow to commit and push changes
 
@@ -27,14 +34,15 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements-ci.txt
+          python -m pip install "pitch-oracle-core @ git+https://github.com/gmalbert/pitch-oracle-core.git@${{ inputs.core_ref || 'v1.1.0' }}"
 
       - name: Fetch upcoming fixtures
-        run: python fetch_upcoming_fixtures.py
+        run: python -m fetch_upcoming_fixtures
 
       - name: Check for tomorrow's matches
         id: check
         run: |
-          if python check_tomorrow_matches.py; then
+          if python -m check_tomorrow_matches; then
             echo "has-matches=true" >> $GITHUB_OUTPUT
             echo "Matches found for tomorrow - proceeding with data update"
           else
@@ -65,35 +73,35 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements-ci.txt
       - name: Fetch upcoming fixtures
-        run: python fetch_upcoming_fixtures.py
+        run: python -m fetch_upcoming_fixtures
 
       - name: Run tests
         run: |
           echo "Running basic tests..."
           # use module invocation to ensure pytest is available
-          python -m pytest test_poisson_evaluation.py
+          python -m pytest tests/test_poisson_evaluation.py
 
       - name: Run data pipeline
         timeout-minutes: 30  # 30 minutes for data processing (includes weather/injury API calls)
         run: |
           echo "Running data pipeline..."
-          python combine_raw_data.py
-          python prepare_model_data.py
+          python -m combine_raw_data
+          python -m prepare_model_data
 
       - name: Train ML models
         timeout-minutes: 30  # 30 minutes for model training
         run: |
           echo "Training ML models..."
-          python train_models.py
+          python -m train_models
 
       - name: Validate models
         run: |
           echo "Validating trained models..."
-          python validate_models.py
+          python -m validate_models
       - name: Evaluate Poisson metrics
         run: |
           echo "Running Poisson evaluation script..."
-          python evaluate_poisson.py
+          python -m evaluate_poisson
       - name: Validate data
         run: |
           echo "Validating updated data..."
@@ -110,6 +118,15 @@ jobs:
               raise FileNotFoundError('Data file not found after pipeline')
           "
 
+      - name: Precompute runtime data
+        run: python -m precompute_database
+
+      - name: Precompute upcoming predictions
+        run: python scripts/precompute_predictions.py
+
+      - name: Build and validate runtime cache manifest
+        run: python -m build_cache_manifest
+
       - name: Commit and push changes
         run: |
           echo "Checking for changes..."
@@ -122,7 +139,7 @@ jobs:
           else
             echo "Committing data and model updates..."
             git add data_files/
-            git add models/
+            git add models/ precomputed/
             git commit -m "Nightly update - $(date +'%Y-%m-%d') - Data + Models" || echo "No changes to commit"
             
             # Pull any remote changes and push in a loop with retries

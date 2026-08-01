@@ -15,6 +15,13 @@ on:
       - 'data_files/combined_historical_data_with_calculations_new.csv'
       - 'models/*.pkl'
 
+  workflow_call:
+    inputs:
+      core_ref:
+        required: false
+        type: string
+        default: "v1.1.0"
+
 env:
   PYTHON_VERSION: '3.11'
 
@@ -47,9 +54,16 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          python -m pip install "pitch-oracle-core @ git+https://github.com/gmalbert/pitch-oracle-core.git@${{ inputs.core_ref || 'v1.1.0' }}"
 
       - name: Precompute app data
-        run: python precompute_database.py
+        run: python -m precompute_database
+
+      - name: Precompute upcoming predictions
+        run: python scripts/precompute_predictions.py
+
+      - name: Build and validate cache manifest
+        run: python -m build_cache_manifest
 
       - name: Commit precomputed data
         run: |
