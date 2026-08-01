@@ -13,4 +13,4 @@ requests-cache
 retry-requests
 kloppy
 statsbombpy
-git+https://github.com/gmalbert/pitch-oracle-core.git@v1.1.0
+git+https://github.com/gmalbert/pitch-oracle-core.git@v1.2.0
