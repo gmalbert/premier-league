@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "league": null,
+  "created_at": "2026-08-01T00:35:27.050105+00:00",
+  "artifacts": {
+    "preprocessed_data": {
+      "path": "precomputed/preprocessed_data.pkl",
+      "bytes": 7621780,
+      "sha256": "ffc479db84d6912df550408d5e698c0320303b5d482d1de05c831b838a619476"
+    },
+    "xgb_baseline": {
+      "path": "models/xgb_baseline.pkl",
+      "bytes": 637152,
+      "sha256": "f6abfd4725a2d4414fc2aa9ea817531d69880455f16a5ddaeadb584db45597c4"
+    },
+    "ensemble": {
+      "path": "models/ensemble_model.pkl",
+      "bytes": 1338339,
+      "sha256": "38ff9336b991c20bb4ae5ec0222b54f50e34eee6b5ec75c93c4f6625d555070a"
+    },
+    "optimized_xgb": {
+      "path": "models/optimized_xgb.pkl",
+      "bytes": 1805811,
+      "sha256": "5460b5395d62720759883324864be127cebedf2cb250392d19005721fe2421f6"
+    },
+    "performance": {
+      "path": "models/model_performance.pkl",
+      "bytes": 507,
+      "sha256": "41c8d30f173eca438314c1c607425b00936aa147d3076a619b8a3c8e61280294"
+    },
+    "upcoming_fixtures": {
+      "path": "data_files/upcoming_fixtures.csv",
+      "bytes": 2821,
+      "sha256": "1da5f5fd29a96b824a2689222488a1a94b9fea831be3c1b73786f8612923a6ea"
+    },
+    "upcoming_predictions": {
+      "path": "data_files/upcoming_predictions.csv",
+      "bytes": 7852,
+      "sha256": "5f856fed03da70ce2cad2ec58ac29a016fde93bf3980d8df19976f2917ce70dc"
+    }
+  }
+}
