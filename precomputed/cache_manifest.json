@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "league": null,
-  "created_at": "2026-08-01T03:02:22.252866+00:00",
+  "created_at": "2026-08-02T15:25:23.404142+00:00",
   "artifacts": {
     "preprocessed_data": {
       "path": "precomputed/preprocessed_data.pkl",
       "bytes": 7621780,
-      "sha256": "aee5fc47cd4e2b1f60b76cf77df17e21a35b4d1f2e470ca740ceedd1414f40ca"
+      "sha256": "ddf702e2f2b0dd257ab690a9d6f50c2ab9569470163e92a85de2ec1b311cee3b"
     },
     "xgb_baseline": {
       "path": "models/xgb_baseline.pkl",
@@ -36,7 +36,7 @@
     "upcoming_predictions": {
       "path": "data_files/upcoming_predictions.csv",
       "bytes": 7801,
-      "sha256": "6ff9684d45f3bcf278f64af45a6d608b899e324fd330c6f94c76e7c242ebcc5d"
+      "sha256": "2f28ca5714c3cb057bccb86ce1084199b8103fd8f712210248042911d6e01ab6"
     }
   }
 }
