@@ -23,7 +23,7 @@ on:
         default: "v1.1.0"
 
 env:
-  PYTHON_VERSION: '3.11'
+  PYTHON_VERSION: '3.12'
 
 permissions:
   contents: write  # Allow workflow to commit and push changes
