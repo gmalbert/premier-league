@@ -1,14 +1,14 @@
 {
   "schema_version": 2,
-  "core_version": "1.3.0",
+  "core_version": "1.3.1",
   "feature_policy_version": 2,
   "league": "epl",
-  "created_at": "2026-08-02T16:57:58.891530+00:00",
+  "created_at": "2026-08-02T17:27:05.203361+00:00",
   "artifacts": {
     "preprocessed_data": {
       "path": "precomputed/preprocessed_data.pkl",
       "bytes": 6079086,
-      "sha256": "21677ead4aee66ee7521f8917dbd8944df563ea72343eaffd2f12e93e59ec0c5"
+      "sha256": "e0537b707fd22a83aab1f78a9535d72b4a4ed8958d0f5872e900c0e4fcbf9a4c"
     },
     "xgb_baseline": {
       "path": "models/xgb_baseline.pkl",
@@ -38,7 +38,7 @@
     "upcoming_predictions": {
       "path": "data_files/upcoming_predictions.csv",
       "bytes": 11172,
-      "sha256": "5e296507ae31b41d808d71c0c1b9787ad67eb5c9bcb9b597a7994044cd6b7032"
+      "sha256": "24e2f4a78bfc1282b2a4861d91871ebed0918fba046b0e85cb0ed8344131cf12"
     }
   }
 }
