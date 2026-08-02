@@ -14,7 +14,7 @@ concurrency:
 
 env:
   PYTHON_VERSION: "3.12"
-  CORE_REF: "v1.3.1"
+  CORE_REF: "v1.3.2"
   PITCH_ORACLE_LEAGUE: "epl"
   PITCH_ORACLE_DATA_DIR: "data_files"
   PITCH_ORACLE_MODELS_DIR: "models"
