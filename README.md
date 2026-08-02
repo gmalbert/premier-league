@@ -1,8 +1,9 @@
 # Premier League Consumer
 
-This is the thin EPL deployment for Pitch Oracle. Shared prediction, data pipeline,
-reporting, provider adapters, and Streamlit shell code are installed from the pinned
-`pitch-oracle-core` release in `requirements.txt`.
+This is the thin EPL deployment for Pitch Oracle. Shared prediction, data
+preparation, training, artifact validation, provider adapters, and Streamlit pages
+are installed from the single pinned `pitch-oracle-core` release in
+`requirements.txt`.
 
 The consumer owns only:
 
@@ -22,3 +23,7 @@ Verify shared-core parity with:
 ```bash
 python scripts/verify_parity.py
 ```
+
+The sole scheduled writer is `.github/workflows/nightly-pipeline.yml`. It builds
+data, models, predictions, diagnostics, and the league-bound manifest as one
+coherent artifact set before running the full consumer test and quality gates.

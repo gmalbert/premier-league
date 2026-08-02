@@ -74,5 +74,7 @@ premier-league.code-workspace
 copilot-instructions.md
 
 tmp_playwright_test/*
+.playwright-cli/
+output/
 pr_body.txt
 cache/*

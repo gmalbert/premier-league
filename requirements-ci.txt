@@ -1,16 +1,2 @@
-beautifulsoup4
-numpy
-pandas
-requests
-scikit-learn==1.8.0; python_version >= "3.11"
-scikit-learn==1.7.2; python_version < "3.11"
-scipy
-xgboost
-torch
-pytest
-openmeteo-requests
-requests-cache
-retry-requests
-kloppy
-statsbombpy
-git+https://github.com/gmalbert/pitch-oracle-core.git@v1.2.0
+pytest>=8
+pandas>=2.1
