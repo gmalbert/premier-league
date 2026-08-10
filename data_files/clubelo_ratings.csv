@@ -5947,7 +5947,7 @@ Rank	Club	Country	Level	Elo	From	To	HistTeam
 51.0	Wolves	ENG	1	1712.7668457	2026-03-04	2026-03-06	Wolverhampton Wanderers
 52.0	Wolves	ENG	1	1712.7668457	2026-03-07	2026-03-08	Wolverhampton Wanderers
 51.0	Wolves	ENG	1	1712.7668457	2026-03-09	2026-03-10	Wolverhampton Wanderers
-53.0	Wolves	ENG	1	1708.50195312	2026-03-11	2026-03-11	Wolverhampton Wanderers
+53.0	Wolves	ENG	1	1708.5020752	2026-03-11	2026-03-11	Wolverhampton Wanderers
 55.0	Wolves	ENG	1	1700.99169922	2026-03-12	2026-03-12	Wolverhampton Wanderers
 56.0	Wolves	ENG	1	1698.38562012	2026-03-13	2026-03-14	Wolverhampton Wanderers
 54.0	Wolves	ENG	1	1698.38562012	2026-03-15	2026-03-16	Wolverhampton Wanderers
@@ -5957,12 +5957,12 @@ Rank	Club	Country	Level	Elo	From	To	HistTeam
 57.0	Wolves	ENG	1	1701.37670898	2026-03-20	2026-04-04	Wolverhampton Wanderers
 56.0	Wolves	ENG	1	1701.37670898	2026-04-05	2026-04-05	Wolverhampton Wanderers
 57.0	Wolves	ENG	1	1701.37670898	2026-04-06	2026-04-07	Wolverhampton Wanderers
-57.0	Wolves	ENG	1	1702.26306152	2026-04-08	2026-04-08	Wolverhampton Wanderers
+57.0	Wolves	ENG	1	1702.26318359	2026-04-08	2026-04-08	Wolverhampton Wanderers
 58.0	Wolves	ENG	1	1700.28393555	2026-04-09	2026-04-09	Wolverhampton Wanderers
 59.0	Wolves	ENG	1	1704.16516113	2026-04-10	2026-04-10	Wolverhampton Wanderers
-62.0	Wolves	ENG	1	1691.85009766	2026-04-11	2026-04-11	Wolverhampton Wanderers
-63.0	Wolves	ENG	1	1691.85009766	2026-04-12	2026-04-14	Wolverhampton Wanderers
-63.0	Wolves	ENG	1	1688.89746094	2026-04-15	2026-04-15	Wolverhampton Wanderers
+62.0	Wolves	ENG	1	1691.85021973	2026-04-11	2026-04-11	Wolverhampton Wanderers
+63.0	Wolves	ENG	1	1691.85021973	2026-04-12	2026-04-14	Wolverhampton Wanderers
+63.0	Wolves	ENG	1	1688.89758301	2026-04-15	2026-04-15	Wolverhampton Wanderers
 63.0	Wolves	ENG	1	1689.05712891	2026-04-16	2026-04-16	Wolverhampton Wanderers
 58.0	Wolves	ENG	1	1692.96472168	2026-04-17	2026-04-18	Wolverhampton Wanderers
 60.0	Wolves	ENG	1	1684.17114258	2026-04-19	2026-04-20	Wolverhampton Wanderers
@@ -5971,11 +5971,11 @@ Rank	Club	Country	Level	Elo	From	To	HistTeam
 63.0	Wolves	ENG	1	1677.07373047	2026-04-26	2026-04-29	Wolverhampton Wanderers
 63.0	Wolves	ENG	1	1677.25744629	2026-04-30	2026-04-30	Wolverhampton Wanderers
 61.0	Wolves	ENG	1	1678.33203125	2026-05-01	2026-05-02	Wolverhampton Wanderers
-61.0	Wolves	ENG	1	1677.89733887	2026-05-03	2026-05-03	Wolverhampton Wanderers
-63.0	Wolves	ENG	1	1677.89733887	2026-05-04	2026-05-04	Wolverhampton Wanderers
-62.0	Wolves	ENG	1	1677.89733887	2026-05-05	2026-05-05	Wolverhampton Wanderers
-62.0	Wolves	ENG	1	1678.63098145	2026-05-06	2026-05-06	Wolverhampton Wanderers
-61.0	Wolves	ENG	1	1678.63098145	2026-05-07	2026-05-07	Wolverhampton Wanderers
+61.0	Wolves	ENG	1	1677.89746094	2026-05-03	2026-05-03	Wolverhampton Wanderers
+63.0	Wolves	ENG	1	1677.89746094	2026-05-04	2026-05-04	Wolverhampton Wanderers
+62.0	Wolves	ENG	1	1677.89746094	2026-05-05	2026-05-05	Wolverhampton Wanderers
+62.0	Wolves	ENG	1	1678.63110352	2026-05-06	2026-05-06	Wolverhampton Wanderers
+61.0	Wolves	ENG	1	1678.63110352	2026-05-07	2026-05-07	Wolverhampton Wanderers
 63.0	Wolves	ENG	1	1679.11462402	2026-05-08	2026-05-08	Wolverhampton Wanderers
 62.0	Wolves	ENG	1	1679.11462402	2026-05-09	2026-05-09	Wolverhampton Wanderers
 63.0	Wolves	ENG	1	1673.53808594	2026-05-10	2026-05-10	Wolverhampton Wanderers
@@ -5985,13 +5985,12 @@ Rank	Club	Country	Level	Elo	From	To	HistTeam
 63.0	Wolves	ENG	1	1673.53808594	2026-05-17	2026-05-17	Wolverhampton Wanderers
 62.0	Wolves	ENG	1	1675.9831543	2026-05-18	2026-05-20	Wolverhampton Wanderers
 62.0	Wolves	ENG	1	1677.93334961	2026-05-21	2026-05-24	Wolverhampton Wanderers
-62.0	Wolves	ENG	1	1678.80187988	2026-05-25	2026-05-27	Wolverhampton Wanderers
+62.0	Wolves	ENG	1	1678.80200195	2026-05-25	2026-05-27	Wolverhampton Wanderers
 61.0	Wolves	ENG	1	1680.49731445	2026-05-28	2026-05-30	Wolverhampton Wanderers
 61.0	Wolves	ENG	1	1679.69335938	2026-05-31	2026-07-03	Wolverhampton Wanderers
-61.0	Wolves	ENG	2	1679.69335938	2026-07-04	2026-07-04	Wolverhampton Wanderers
-58.0	Wolves	ENG	2	1679.69335938	2026-07-05	2026-08-14	Wolverhampton Wanderers
-58.0	Wolves	ENG	2	1679.69335938	2026-08-15	2026-08-30	Wolverhampton Wanderers
-58.0	Wolves	ENG	2	1679.69335938	2026-08-31	2026-12-31	Wolverhampton Wanderers
+61.0	Wolves	ENG	2	1679.69335938	2026-07-04	2026-08-14	Wolverhampton Wanderers
+61.0	Wolves	ENG	2	1679.69335938	2026-08-15	2026-08-30	Wolverhampton Wanderers
+61.0	Wolves	ENG	2	1679.69335938	2026-08-31	2026-12-31	Wolverhampton Wanderers
 	Brighton	ENG	2	1365.453125	1958-07-01	1958-08-23	Brighton & Hove Albion
 	Brighton	ENG	2	1357.70605469	1958-08-24	1958-08-30	Brighton & Hove Albion
 	Brighton	ENG	2	1360.89501953	1958-08-31	1958-09-03	Brighton & Hove Albion
@@ -8951,7 +8950,7 @@ Rank	Club	Country	Level	Elo	From	To	HistTeam
 15.0	Brighton	ENG	1	1843.56872559	2026-04-05	2026-04-07	Brighton & Hove Albion
 15.0	Brighton	ENG	1	1844.45507812	2026-04-08	2026-04-08	Brighton & Hove Albion
 15.0	Brighton	ENG	1	1842.47595215	2026-04-09	2026-04-09	Brighton & Hove Albion
-15.0	Brighton	ENG	1	1846.35705566	2026-04-10	2026-04-11	Brighton & Hove Albion
+15.0	Brighton	ENG	1	1846.35717773	2026-04-10	2026-04-11	Brighton & Hove Albion
 14.0	Brighton	ENG	1	1853.2154541	2026-04-12	2026-04-14	Brighton & Hove Albion
 14.0	Brighton	ENG	1	1850.26281738	2026-04-15	2026-04-15	Brighton & Hove Albion
 14.0	Brighton	ENG	1	1850.42248535	2026-04-16	2026-04-16	Brighton & Hove Albion
@@ -8969,10 +8968,9 @@ Rank	Club	Country	Level	Elo	From	To	HistTeam
 12.0	Brighton	ENG	1	1854.70776367	2026-05-21	2026-05-24	Brighton & Hove Albion
 13.0	Brighton	ENG	1	1841.11914062	2026-05-25	2026-05-27	Brighton & Hove Albion
 13.0	Brighton	ENG	1	1842.81445312	2026-05-28	2026-05-30	Brighton & Hove Albion
-13.0	Brighton	ENG	1	1842.01049805	2026-05-31	2026-07-04	Brighton & Hove Albion
-12.0	Brighton	ENG	1	1842.01049805	2026-07-05	2026-08-23	Brighton & Hove Albion
-12.0	Brighton	ENG	1	1842.01049805	2026-08-24	2026-08-30	Brighton & Hove Albion
-12.0	Brighton	ENG	1	1842.01049805	2026-08-31	2026-12-31	Brighton & Hove Albion
+13.0	Brighton	ENG	1	1842.01062012	2026-05-31	2026-08-23	Brighton & Hove Albion
+13.0	Brighton	ENG	1	1842.01062012	2026-08-24	2026-08-30	Brighton & Hove Albion
+13.0	Brighton	ENG	1	1842.01062012	2026-08-31	2026-12-31	Brighton & Hove Albion
 	Bournemouth	ENG	2	1428.95483398	1987-07-01	1987-08-15	AFC Bournemouth
 	Bournemouth	ENG	2	1441.60913086	1987-08-16	1987-08-22	AFC Bournemouth
 	Bournemouth	ENG	2	1451.54882812	1987-08-23	1987-08-29	AFC Bournemouth
@@ -10662,7 +10660,7 @@ Rank	Club	Country	Level	Elo	From	To	HistTeam
 19.0	Bournemouth	ENG	1	1822.14819336	2026-04-07	2026-04-07	AFC Bournemouth
 19.0	Bournemouth	ENG	1	1823.0345459	2026-04-08	2026-04-08	AFC Bournemouth
 19.0	Bournemouth	ENG	1	1821.05541992	2026-04-09	2026-04-09	AFC Bournemouth
-19.0	Bournemouth	ENG	1	1824.93652344	2026-04-10	2026-04-11	AFC Bournemouth
+19.0	Bournemouth	ENG	1	1824.93664551	2026-04-10	2026-04-11	AFC Bournemouth
 17.0	Bournemouth	ENG	1	1839.33789062	2026-04-12	2026-04-12	AFC Bournemouth
 16.0	Bournemouth	ENG	1	1839.33789062	2026-04-13	2026-04-14	AFC Bournemouth
 16.0	Bournemouth	ENG	1	1836.38525391	2026-04-15	2026-04-15	AFC Bournemouth
@@ -10674,18 +10672,17 @@ Rank	Club	Country	Level	Elo	From	To	HistTeam
 12.0	Bournemouth	ENG	1	1846.7121582	2026-04-30	2026-04-30	AFC Bournemouth
 12.0	Bournemouth	ENG	1	1847.78686523	2026-05-01	2026-05-02	AFC Bournemouth
 13.0	Bournemouth	ENG	1	1847.78686523	2026-05-03	2026-05-03	AFC Bournemouth
-11.0	Bournemouth	ENG	1	1858.42443848	2026-05-04	2026-05-05	AFC Bournemouth
-11.0	Bournemouth	ENG	1	1859.15808105	2026-05-06	2026-05-07	AFC Bournemouth
+11.0	Bournemouth	ENG	1	1858.42431641	2026-05-04	2026-05-05	AFC Bournemouth
+11.0	Bournemouth	ENG	1	1859.15795898	2026-05-06	2026-05-07	AFC Bournemouth
 11.0	Bournemouth	ENG	1	1859.64160156	2026-05-08	2026-05-09	AFC Bournemouth
 11.0	Bournemouth	ENG	1	1867.31567383	2026-05-10	2026-05-19	AFC Bournemouth
-11.0	Bournemouth	ENG	1	1869.37036133	2026-05-20	2026-05-20	AFC Bournemouth
-11.0	Bournemouth	ENG	1	1871.32055664	2026-05-21	2026-05-24	AFC Bournemouth
+11.0	Bournemouth	ENG	1	1869.37023926	2026-05-20	2026-05-20	AFC Bournemouth
+11.0	Bournemouth	ENG	1	1871.32043457	2026-05-21	2026-05-24	AFC Bournemouth
 11.0	Bournemouth	ENG	1	1871.07849121	2026-05-25	2026-05-27	AFC Bournemouth
-11.0	Bournemouth	ENG	1	1872.77392578	2026-05-28	2026-05-30	AFC Bournemouth
-11.0	Bournemouth	ENG	1	1871.9699707	2026-05-31	2026-07-04	AFC Bournemouth
-10.0	Bournemouth	ENG	1	1871.9699707	2026-07-05	2026-08-23	AFC Bournemouth
-10.0	Bournemouth	ENG	1	1871.9699707	2026-08-24	2026-08-30	AFC Bournemouth
-10.0	Bournemouth	ENG	1	1871.9699707	2026-08-31	2026-12-31	AFC Bournemouth
+11.0	Bournemouth	ENG	1	1872.77380371	2026-05-28	2026-05-30	AFC Bournemouth
+11.0	Bournemouth	ENG	1	1871.9699707	2026-05-31	2026-08-23	AFC Bournemouth
+11.0	Bournemouth	ENG	1	1871.9699707	2026-08-24	2026-08-30	AFC Bournemouth
+11.0	Bournemouth	ENG	1	1871.9699707	2026-08-31	2026-12-31	AFC Bournemouth
 	Newcastle	ENG	2	1365.06604004	1946-07-07	1946-09-05	Newcastle United
 	Newcastle	ENG	2	1379.35961914	1946-09-06	1946-09-07	Newcastle United
 	Newcastle	ENG	2	1376.04101562	1946-09-08	1946-09-11	Newcastle United
@@ -17610,13 +17607,13 @@ Rank	Club	Country	Level	Elo	From	To	HistTeam
 12.0	Newcastle	ENG	1	1875.23535156	2026-02-22	2026-02-24	Newcastle United
 12.0	Newcastle	ENG	1	1876.30761719	2026-02-25	2026-02-26	Newcastle United
 12.0	Newcastle	ENG	1	1876.22631836	2026-02-27	2026-02-28	Newcastle United
-12.0	Newcastle	ENG	1	1865.42480469	2026-03-01	2026-03-04	Newcastle United
+12.0	Newcastle	ENG	1	1865.42468262	2026-03-01	2026-03-04	Newcastle United
 12.0	Newcastle	ENG	1	1873.08569336	2026-03-05	2026-03-10	Newcastle United
 12.0	Newcastle	ENG	1	1866.88024902	2026-03-11	2026-03-11	Newcastle United
 12.0	Newcastle	ENG	1	1859.36987305	2026-03-12	2026-03-12	Newcastle United
 12.0	Newcastle	ENG	1	1856.76379395	2026-03-13	2026-03-14	Newcastle United
-12.0	Newcastle	ENG	1	1866.95703125	2026-03-15	2026-03-17	Newcastle United
-12.0	Newcastle	ENG	1	1862.06420898	2026-03-18	2026-03-18	Newcastle United
+12.0	Newcastle	ENG	1	1866.95690918	2026-03-15	2026-03-17	Newcastle United
+12.0	Newcastle	ENG	1	1862.06408691	2026-03-18	2026-03-18	Newcastle United
 14.0	Newcastle	ENG	1	1849.10791016	2026-03-19	2026-03-19	Newcastle United
 14.0	Newcastle	ENG	1	1853.38220215	2026-03-20	2026-03-22	Newcastle United
 15.0	Newcastle	ENG	1	1840.26281738	2026-03-23	2026-04-04	Newcastle United
@@ -17630,24 +17627,23 @@ Rank	Club	Country	Level	Elo	From	To	HistTeam
 18.0	Newcastle	ENG	1	1835.92236328	2026-04-17	2026-04-18	Newcastle United
 19.0	Newcastle	ENG	1	1827.16137695	2026-04-19	2026-04-19	Newcastle United
 20.0	Newcastle	ENG	1	1827.16137695	2026-04-20	2026-04-25	Newcastle United
-19.0	Newcastle	ENG	1	1824.47277832	2026-04-26	2026-04-29	Newcastle United
+19.0	Newcastle	ENG	1	1824.47265625	2026-04-26	2026-04-29	Newcastle United
 19.0	Newcastle	ENG	1	1824.65649414	2026-04-30	2026-04-30	Newcastle United
 20.0	Newcastle	ENG	1	1825.7310791	2026-05-01	2026-05-02	Newcastle United
-18.0	Newcastle	ENG	1	1837.14758301	2026-05-03	2026-05-03	Newcastle United
-17.0	Newcastle	ENG	1	1837.14758301	2026-05-04	2026-05-05	Newcastle United
+18.0	Newcastle	ENG	1	1837.14746094	2026-05-03	2026-05-03	Newcastle United
+17.0	Newcastle	ENG	1	1837.14746094	2026-05-04	2026-05-05	Newcastle United
 17.0	Newcastle	ENG	1	1837.88110352	2026-05-06	2026-05-07	Newcastle United
 16.0	Newcastle	ENG	1	1838.36474609	2026-05-08	2026-05-09	Newcastle United
 15.0	Newcastle	ENG	1	1838.36474609	2026-05-10	2026-05-10	Newcastle United
-14.0	Newcastle	ENG	1	1839.1237793	2026-05-11	2026-05-12	Newcastle United
-15.0	Newcastle	ENG	1	1839.1237793	2026-05-13	2026-05-17	Newcastle United
+14.0	Newcastle	ENG	1	1839.12365723	2026-05-11	2026-05-12	Newcastle United
+15.0	Newcastle	ENG	1	1839.12365723	2026-05-13	2026-05-17	Newcastle United
 15.0	Newcastle	ENG	1	1846.18103027	2026-05-18	2026-05-20	Newcastle United
 13.0	Newcastle	ENG	1	1848.13122559	2026-05-21	2026-05-24	Newcastle United
 14.0	Newcastle	ENG	1	1836.63977051	2026-05-25	2026-05-27	Newcastle United
 14.0	Newcastle	ENG	1	1838.33520508	2026-05-28	2026-05-30	Newcastle United
-14.0	Newcastle	ENG	1	1837.53125	2026-05-31	2026-07-04	Newcastle United
-13.0	Newcastle	ENG	1	1837.53125	2026-07-05	2026-08-23	Newcastle United
-13.0	Newcastle	ENG	1	1837.53125	2026-08-24	2026-08-30	Newcastle United
-13.0	Newcastle	ENG	1	1837.53125	2026-08-31	2026-12-31	Newcastle United
+14.0	Newcastle	ENG	1	1837.53125	2026-05-31	2026-08-23	Newcastle United
+14.0	Newcastle	ENG	1	1837.53125	2026-08-24	2026-08-30	Newcastle United
+14.0	Newcastle	ENG	1	1837.53125	2026-08-31	2026-12-31	Newcastle United
 	Tottenham	ENG	2	1365.06604004	1946-07-07	1946-09-07	Tottenham Hotspur
 	Tottenham	ENG	2	1359.64343262	1946-09-08	1946-09-09	Tottenham Hotspur
 	Tottenham	ENG	2	1365.31359863	1946-09-10	1946-09-14	Tottenham Hotspur
@@ -24508,14 +24504,14 @@ Rank	Club	Country	Level	Elo	From	To	HistTeam
 19.0	Tottenham	ENG	1	1824.87744141	2026-01-30	2026-02-01	Tottenham Hotspur
 19.0	Tottenham	ENG	1	1827.49755859	2026-02-02	2026-02-03	Tottenham Hotspur
 20.0	Tottenham	ENG	1	1827.49755859	2026-02-04	2026-02-07	Tottenham Hotspur
-22.0	Tottenham	ENG	1	1819.65917969	2026-02-08	2026-02-10	Tottenham Hotspur
+22.0	Tottenham	ENG	1	1819.65930176	2026-02-08	2026-02-10	Tottenham Hotspur
 23.0	Tottenham	ENG	1	1811.75085449	2026-02-11	2026-02-14	Tottenham Hotspur
 24.0	Tottenham	ENG	1	1811.75085449	2026-02-15	2026-02-15	Tottenham Hotspur
 23.0	Tottenham	ENG	1	1811.75085449	2026-02-16	2026-02-17	Tottenham Hotspur
 21.0	Tottenham	ENG	1	1811.75085449	2026-02-18	2026-02-18	Tottenham Hotspur
 22.0	Tottenham	ENG	1	1812.24389648	2026-02-19	2026-02-19	Tottenham Hotspur
 22.0	Tottenham	ENG	1	1815.13061523	2026-02-20	2026-02-22	Tottenham Hotspur
-24.0	Tottenham	ENG	1	1809.08557129	2026-02-23	2026-02-24	Tottenham Hotspur
+24.0	Tottenham	ENG	1	1809.08569336	2026-02-23	2026-02-24	Tottenham Hotspur
 23.0	Tottenham	ENG	1	1809.32507324	2026-02-25	2026-02-25	Tottenham Hotspur
 24.0	Tottenham	ENG	1	1809.32507324	2026-02-26	2026-02-26	Tottenham Hotspur
 24.0	Tottenham	ENG	1	1809.24377441	2026-02-27	2026-02-28	Tottenham Hotspur
@@ -24526,43 +24522,42 @@ Rank	Club	Country	Level	Elo	From	To	HistTeam
 27.0	Tottenham	ENG	1	1789.3840332	2026-03-09	2026-03-10	Tottenham Hotspur
 32.0	Tottenham	ENG	1	1775.81091309	2026-03-11	2026-03-11	Tottenham Hotspur
 32.0	Tottenham	ENG	1	1768.30053711	2026-03-12	2026-03-12	Tottenham Hotspur
-31.0	Tottenham	ENG	1	1765.69445801	2026-03-13	2026-03-14	Tottenham Hotspur
-30.0	Tottenham	ENG	1	1765.69445801	2026-03-15	2026-03-15	Tottenham Hotspur
+31.0	Tottenham	ENG	1	1765.69458008	2026-03-13	2026-03-14	Tottenham Hotspur
+30.0	Tottenham	ENG	1	1765.69458008	2026-03-15	2026-03-15	Tottenham Hotspur
 30.0	Tottenham	ENG	1	1770.95922852	2026-03-16	2026-03-17	Tottenham Hotspur
 30.0	Tottenham	ENG	1	1766.06640625	2026-03-18	2026-03-18	Tottenham Hotspur
-30.0	Tottenham	ENG	1	1764.34606934	2026-03-19	2026-03-19	Tottenham Hotspur
-31.0	Tottenham	ENG	1	1768.62036133	2026-03-20	2026-03-20	Tottenham Hotspur
-32.0	Tottenham	ENG	1	1768.62036133	2026-03-21	2026-03-22	Tottenham Hotspur
+30.0	Tottenham	ENG	1	1764.34619141	2026-03-19	2026-03-19	Tottenham Hotspur
+31.0	Tottenham	ENG	1	1768.6204834	2026-03-20	2026-03-20	Tottenham Hotspur
+32.0	Tottenham	ENG	1	1768.6204834	2026-03-21	2026-03-22	Tottenham Hotspur
 38.0	Tottenham	ENG	1	1752.9954834	2026-03-23	2026-04-04	Tottenham Hotspur
 35.0	Tottenham	ENG	1	1752.9954834	2026-04-05	2026-04-07	Tottenham Hotspur
-35.0	Tottenham	ENG	1	1753.88183594	2026-04-08	2026-04-08	Tottenham Hotspur
-37.0	Tottenham	ENG	1	1751.90270996	2026-04-09	2026-04-09	Tottenham Hotspur
-35.0	Tottenham	ENG	1	1755.78381348	2026-04-10	2026-04-12	Tottenham Hotspur
-40.0	Tottenham	ENG	1	1747.25048828	2026-04-13	2026-04-14	Tottenham Hotspur
-41.0	Tottenham	ENG	1	1744.29785156	2026-04-15	2026-04-15	Tottenham Hotspur
+35.0	Tottenham	ENG	1	1753.88195801	2026-04-08	2026-04-08	Tottenham Hotspur
+37.0	Tottenham	ENG	1	1751.90283203	2026-04-09	2026-04-09	Tottenham Hotspur
+35.0	Tottenham	ENG	1	1755.78393555	2026-04-10	2026-04-12	Tottenham Hotspur
+40.0	Tottenham	ENG	1	1747.25061035	2026-04-13	2026-04-14	Tottenham Hotspur
+41.0	Tottenham	ENG	1	1744.29797363	2026-04-15	2026-04-15	Tottenham Hotspur
 41.0	Tottenham	ENG	1	1744.45751953	2026-04-16	2026-04-16	Tottenham Hotspur
-39.0	Tottenham	ENG	1	1748.3651123	2026-04-17	2026-04-18	Tottenham Hotspur
-38.0	Tottenham	ENG	1	1750.35693359	2026-04-19	2026-04-23	Tottenham Hotspur
-39.0	Tottenham	ENG	1	1750.35693359	2026-04-24	2026-04-25	Tottenham Hotspur
-35.0	Tottenham	ENG	1	1757.45446777	2026-04-26	2026-04-26	Tottenham Hotspur
-36.0	Tottenham	ENG	1	1757.45446777	2026-04-27	2026-04-29	Tottenham Hotspur
-36.0	Tottenham	ENG	1	1757.63818359	2026-04-30	2026-04-30	Tottenham Hotspur
-36.0	Tottenham	ENG	1	1758.71276855	2026-05-01	2026-05-03	Tottenham Hotspur
+39.0	Tottenham	ENG	1	1748.36523438	2026-04-17	2026-04-18	Tottenham Hotspur
+38.0	Tottenham	ENG	1	1750.35705566	2026-04-19	2026-04-23	Tottenham Hotspur
+39.0	Tottenham	ENG	1	1750.35705566	2026-04-24	2026-04-25	Tottenham Hotspur
+35.0	Tottenham	ENG	1	1757.45458984	2026-04-26	2026-04-26	Tottenham Hotspur
+36.0	Tottenham	ENG	1	1757.45458984	2026-04-27	2026-04-29	Tottenham Hotspur
+36.0	Tottenham	ENG	1	1757.63830566	2026-04-30	2026-04-30	Tottenham Hotspur
+36.0	Tottenham	ENG	1	1758.71289062	2026-05-01	2026-05-03	Tottenham Hotspur
 30.0	Tottenham	ENG	1	1770.90722656	2026-05-04	2026-05-04	Tottenham Hotspur
 31.0	Tottenham	ENG	1	1770.90722656	2026-05-05	2026-05-05	Tottenham Hotspur
 31.0	Tottenham	ENG	1	1771.64086914	2026-05-06	2026-05-07	Tottenham Hotspur
-31.0	Tottenham	ENG	1	1772.12438965	2026-05-08	2026-05-10	Tottenham Hotspur
-32.0	Tottenham	ENG	1	1772.12438965	2026-05-11	2026-05-11	Tottenham Hotspur
+31.0	Tottenham	ENG	1	1772.12451172	2026-05-08	2026-05-10	Tottenham Hotspur
+32.0	Tottenham	ENG	1	1772.12451172	2026-05-11	2026-05-11	Tottenham Hotspur
 31.0	Tottenham	ENG	1	1771.79260254	2026-05-12	2026-05-16	Tottenham Hotspur
 30.0	Tottenham	ENG	1	1771.79260254	2026-05-17	2026-05-19	Tottenham Hotspur
-30.0	Tottenham	ENG	1	1766.38012695	2026-05-20	2026-05-20	Tottenham Hotspur
-30.0	Tottenham	ENG	1	1768.33032227	2026-05-21	2026-05-24	Tottenham Hotspur
-29.0	Tottenham	ENG	1	1776.41748047	2026-05-25	2026-05-27	Tottenham Hotspur
+30.0	Tottenham	ENG	1	1766.38024902	2026-05-20	2026-05-20	Tottenham Hotspur
+30.0	Tottenham	ENG	1	1768.33044434	2026-05-21	2026-05-24	Tottenham Hotspur
+29.0	Tottenham	ENG	1	1776.41760254	2026-05-25	2026-05-27	Tottenham Hotspur
 29.0	Tottenham	ENG	1	1778.11291504	2026-05-28	2026-05-30	Tottenham Hotspur
-29.0	Tottenham	ENG	1	1777.30895996	2026-05-31	2026-07-04	Tottenham Hotspur
-27.0	Tottenham	ENG	1	1777.30895996	2026-07-05	2026-08-22	Tottenham Hotspur
-27.0	Tottenham	ENG	1	1777.30895996	2026-08-23	2026-08-30	Tottenham Hotspur
-27.0	Tottenham	ENG	1	1777.30895996	2026-08-31	2026-12-31	Tottenham Hotspur
+29.0	Tottenham	ENG	1	1777.30908203	2026-05-31	2026-08-22	Tottenham Hotspur
+29.0	Tottenham	ENG	1	1777.30908203	2026-08-23	2026-08-30	Tottenham Hotspur
+29.0	Tottenham	ENG	1	1777.30908203	2026-08-31	2026-12-31	Tottenham Hotspur
 	Leeds	ENG	1	1551.14025879	1946-07-07	1946-08-31	Leeds United
 	Leeds	ENG	1	1545.96594238	1946-09-01	1946-09-04	Leeds United
 	Leeds	ENG	1	1531.87841797	1946-09-05	1946-09-07	Leeds United
@@ -30390,7 +30385,6 @@ Rank	Club	Country	Level	Elo	From	To	HistTeam
 21.0	Leeds	ENG	1	1811.11755371	2026-05-21	2026-05-24	Leeds United
 26.0	Leeds	ENG	1	1796.49719238	2026-05-25	2026-05-27	Leeds United
 26.0	Leeds	ENG	1	1798.19250488	2026-05-28	2026-05-30	Leeds United
-26.0	Leeds	ENG	1	1797.3885498	2026-05-31	2026-07-04	Leeds United
-24.0	Leeds	ENG	1	1797.3885498	2026-07-05	2026-08-22	Leeds United
-24.0	Leeds	ENG	1	1797.3885498	2026-08-23	2026-08-30	Leeds United
-24.0	Leeds	ENG	1	1797.3885498	2026-08-31	2026-12-31	Leeds United
+26.0	Leeds	ENG	1	1797.3885498	2026-05-31	2026-08-22	Leeds United
+26.0	Leeds	ENG	1	1797.3885498	2026-08-23	2026-08-30	Leeds United
+26.0	Leeds	ENG	1	1797.3885498	2026-08-31	2026-12-31	Leeds United
