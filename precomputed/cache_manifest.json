@@ -3,32 +3,32 @@
   "core_version": "1.3.2",
   "feature_policy_version": 2,
   "league": "epl",
-  "created_at": "2026-08-15T07:20:34.320124+00:00",
+  "created_at": "2026-08-16T07:21:54.637110+00:00",
   "artifacts": {
     "preprocessed_data": {
       "path": "precomputed/preprocessed_data.pkl",
       "bytes": 2974337,
-      "sha256": "f404f523d783799d37d3671e6e02ada95c10325bc1059d732446124407205d7b"
+      "sha256": "9708045ce3a580d56a88be38e01a02e748b709794e4ff6ce06b9ddff03658f16"
     },
     "xgb_baseline": {
       "path": "models/xgb_baseline.pkl",
       "bytes": 449466,
-      "sha256": "4e0470e2c99a2aa7a6afce8347aad491a67700a1c172248f8a989b9189ffb3c9"
+      "sha256": "8c1f764ea5a3e728ca91f86c300571513bbdf5109d54577f637c6187a5b16583"
     },
     "ensemble": {
       "path": "models/ensemble_model.pkl",
       "bytes": 945069,
-      "sha256": "b64eaba9f4858edd19ec0495b0519852e67b980e5bef8347e40362253d9a9e96"
+      "sha256": "acbca9edf2a6c5caa50b5031fb878b71a13187b6c4319d00d33633114e7c7c02"
     },
     "optimized_xgb": {
       "path": "models/optimized_xgb.pkl",
       "bytes": 1077229,
-      "sha256": "eb7f90f7f065063798b643a83e096adef610531f5dd47774aa6406c2fa68192b"
+      "sha256": "3ade40d3186c751286dc799c3d9a0e6f9e7b688252f100728d6e006032675465"
     },
     "performance": {
       "path": "models/model_performance.pkl",
       "bytes": 512,
-      "sha256": "b255b9ab886f08fed30b3a25add0dd145d21e70b7f3762986085a531ab054259"
+      "sha256": "a89e5c0aa6edc58643fe9cf0dbc2d14d7726aaba8d337ac33dd6ca2a32472f65"
     },
     "upcoming_fixtures": {
       "path": "data_files/upcoming_fixtures.csv",
@@ -38,7 +38,7 @@
     "upcoming_predictions": {
       "path": "data_files/upcoming_predictions.csv",
       "bytes": 13232,
-      "sha256": "7f7f7fe35ef0a08304c73070dd8ecdbf06aaa5f64cbc21d1fadc505932154cd4"
+      "sha256": "cfa6f7122ce6b956950e0effe62cdac2e0253855b6299501688b9945c7ccf2f8"
     }
   }
 }
