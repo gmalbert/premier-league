@@ -1,7 +1,7 @@
 {
   "meta": {
     "sport": "EPL",
-    "generated_at": "2026-08-22T07:21:44.732239+00:00",
+    "generated_at": "2026-08-23T07:22:08.769354+00:00",
     "model_version": "1.0.0",
     "season": "2026",
     "notes": "No predictions_log.csv — run automation/generate_predictions.py first"

@@ -1,9 +1,4 @@
 Date,Time,HomeTeam,AwayTeam,Status
-2026-08-22,07:30,Hull City,Man United,STATUS_SCHEDULED
-2026-08-22,10:00,Everton,Crystal Palace,STATUS_SCHEDULED
-2026-08-22,10:00,Ipswich Town,Sunderland,STATUS_SCHEDULED
-2026-08-22,10:00,Nott'm Forest,Leeds,STATUS_SCHEDULED
-2026-08-22,12:30,Brentford,Tottenham,STATUS_SCHEDULED
 2026-08-23,09:00,Brighton,Aston Villa,STATUS_SCHEDULED
 2026-08-23,09:00,Man City,Bournemouth,STATUS_SCHEDULED
 2026-08-23,11:30,Newcastle,Liverpool,STATUS_SCHEDULED
