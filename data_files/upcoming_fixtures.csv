@@ -65,3 +65,7 @@ Date,Time,HomeTeam,AwayTeam,Status
 2026-10-24,10:00,Coventry City,Fulham,STATUS_SCHEDULED
 2026-10-24,10:00,Liverpool,Brighton,STATUS_SCHEDULED
 2026-10-24,12:30,Chelsea,Tottenham,STATUS_SCHEDULED
+2026-10-25,10:00,Crystal Palace,Newcastle,STATUS_SCHEDULED
+2026-10-25,10:00,Hull City,Brentford,STATUS_SCHEDULED
+2026-10-25,10:00,Man United,Bournemouth,STATUS_SCHEDULED
+2026-10-25,12:30,Sunderland,Leeds,STATUS_SCHEDULED
