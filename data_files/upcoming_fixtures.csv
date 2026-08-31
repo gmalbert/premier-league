@@ -1,8 +1,4 @@
 Date,Time,HomeTeam,AwayTeam,Status
-2026-08-30,09:00,Chelsea,Brighton,STATUS_SCHEDULED
-2026-08-30,09:00,Leeds,Brentford,STATUS_SCHEDULED
-2026-08-30,09:00,Sunderland,Fulham,STATUS_SCHEDULED
-2026-08-30,11:30,Man United,Ipswich Town,STATUS_SCHEDULED
 2026-08-31,15:00,Aston Villa,Arsenal,STATUS_SCHEDULED
 2026-09-04,15:00,Ipswich Town,Liverpool,STATUS_SCHEDULED
 2026-09-05,07:30,Newcastle,Bournemouth,STATUS_SCHEDULED
