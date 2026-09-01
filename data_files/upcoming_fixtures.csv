@@ -1,5 +1,4 @@
 Date,Time,HomeTeam,AwayTeam,Status
-2026-08-31,15:00,Aston Villa,Arsenal,STATUS_SCHEDULED
 2026-09-04,15:00,Ipswich Town,Liverpool,STATUS_SCHEDULED
 2026-09-05,07:30,Newcastle,Bournemouth,STATUS_SCHEDULED
 2026-09-05,10:00,Brentford,Sunderland,STATUS_SCHEDULED
@@ -60,3 +59,10 @@ Date,Time,HomeTeam,AwayTeam,Status
 2026-10-25,10:00,Hull City,Brentford,STATUS_SCHEDULED
 2026-10-25,10:00,Man United,Bournemouth,STATUS_SCHEDULED
 2026-10-25,12:30,Sunderland,Leeds,STATUS_SCHEDULED
+2026-10-31,08:30,Chelsea,Man United,STATUS_SCHEDULED
+2026-10-31,11:00,Bournemouth,Leeds,STATUS_SCHEDULED
+2026-10-31,11:00,Brentford,Nott'm Forest,STATUS_SCHEDULED
+2026-10-31,11:00,Coventry City,Sunderland,STATUS_SCHEDULED
+2026-10-31,11:00,Hull City,Ipswich Town,STATUS_SCHEDULED
+2026-10-31,11:00,Man City,Brighton,STATUS_SCHEDULED
+2026-10-31,13:30,Tottenham,Crystal Palace,STATUS_SCHEDULED
