@@ -3,12 +3,12 @@
   "core_version": "1.3.2",
   "feature_policy_version": 2,
   "league": "epl",
-  "created_at": "2026-09-04T07:24:15.802836+00:00",
+  "created_at": "2026-09-05T07:19:14.562683+00:00",
   "artifacts": {
     "preprocessed_data": {
       "path": "precomputed/preprocessed_data.pkl",
-      "bytes": 2935536,
-      "sha256": "b9b91e76a8877603a00e6c21e64883d45d692d1bf04ff2b787f915335727c073"
+      "bytes": 2935570,
+      "sha256": "37e0d72630bde2bcd189f622392144eb3ae0b47a442d194029d1498db9fb6e00"
     },
     "xgb_baseline": {
       "path": "models/xgb_baseline.pkl",
@@ -28,17 +28,17 @@
     "performance": {
       "path": "models/model_performance.pkl",
       "bytes": 512,
-      "sha256": "4f357e0522e0bcf1152c56beea05c849f59633d63066a9a3041e9f66e3f1fe26"
+      "sha256": "fa74bf69143a7b5465bcf64d3ca7b15cd93bce75f4078d31c39eb709f03ad352"
     },
     "upcoming_fixtures": {
       "path": "data_files/upcoming_fixtures.csv",
-      "bytes": 3864,
-      "sha256": "34f466438e2565f0b159f325a70040c69d5b4c2d3e46e38b3ad54aa04ad8a48a"
+      "bytes": 3807,
+      "sha256": "da2df1f2bd95e488be02f3b2ffa0cc52cb43564ebc573338692e26f248a5cae4"
     },
     "upcoming_predictions": {
       "path": "data_files/upcoming_predictions.csv",
-      "bytes": 15463,
-      "sha256": "b1494de3cbd3fd16c79a24c840c76b5d1d75dc2bd07b7133cf3d15bdb4843577"
+      "bytes": 15242,
+      "sha256": "fdf5237a794ea3c3c2c344810522e8a6b34b90465106495dfd47cff59363dda3"
     }
   }
 }
