@@ -14,7 +14,7 @@ concurrency:
 
 env:
   PYTHON_VERSION: "3.12"
-  CORE_REF: "b27766c16a20a84cf69b2415bceb3bc512f499d2"
+  CORE_REF: "eb7750c5fd033213051511723e35ec253c3f1ca8"
   PITCH_ORACLE_LEAGUE: "epl"
   PITCH_ORACLE_DATA_DIR: "data_files"
   PITCH_ORACLE_MODELS_DIR: "models"
@@ -42,16 +42,17 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements-ci.txt
-          python -m pip install "pitch-oracle-core[consumer] @ git+https://github.com/gmalbert/pitch-oracle-core.git@${CORE_REF}"
+          python -m pip install "pitch-oracle-core[app,pipeline,diagnostics,experiments-neural] @ git+https://github.com/gmalbert/pitch-oracle-core.git@${CORE_REF}"
           python -m pip check
 
       - name: Fetch and prepare league data
         run: |
           python -m combine_raw_data
           python -m fetch_upcoming_fixtures
-          python -c "from config import LEAGUE_CONFIG; from fetch_clubelo import main; main(LEAGUE_CONFIG)"
-          python -c "from config import LEAGUE_CONFIG; from fetch_understat_xg import main; main(LEAGUE_CONFIG)"
+          timeout 120s python -c "from config import LEAGUE_CONFIG; from fetch_clubelo import main; main(LEAGUE_CONFIG)" || echo "Optional ClubElo enrichment unavailable; continuing with core data."
+          timeout 120s python -c "from config import LEAGUE_CONFIG; from fetch_understat_xg import main; main(LEAGUE_CONFIG)" || echo "Optional Understat xG enrichment unavailable; continuing with core data."
           python -m prepare_model_data
+          python -m pitch_oracle_core.audit_cli data_files/combined_historical_data_with_calculations_new.csv --output-dir precomputed/model-audit
 
       - name: Train models chronologically
         run: python -m train_models
@@ -84,5 +85,5 @@ jobs:
             exit 0
           fi
           git commit -m "chore: refresh EPL runtime artifacts"
-          git pull --rebase origin main
-          git push origin main
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin HEAD:"${GITHUB_REF_NAME}"
