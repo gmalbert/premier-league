@@ -49,8 +49,8 @@ jobs:
         run: |
           python -m combine_raw_data
           python -m fetch_upcoming_fixtures
-          python -c "from config import LEAGUE_CONFIG; from fetch_clubelo import main; main(LEAGUE_CONFIG)"
-          python -c "from config import LEAGUE_CONFIG; from fetch_understat_xg import main; main(LEAGUE_CONFIG)"
+          timeout 120s python -c "from config import LEAGUE_CONFIG; from fetch_clubelo import main; main(LEAGUE_CONFIG)" || echo "Optional ClubElo enrichment unavailable; continuing with core data."
+          timeout 120s python -c "from config import LEAGUE_CONFIG; from fetch_understat_xg import main; main(LEAGUE_CONFIG)" || echo "Optional Understat xG enrichment unavailable; continuing with core data."
           python -m prepare_model_data
 
       - name: Train models chronologically
