@@ -52,6 +52,7 @@ jobs:
           timeout 120s python -c "from config import LEAGUE_CONFIG; from fetch_clubelo import main; main(LEAGUE_CONFIG)" || echo "Optional ClubElo enrichment unavailable; continuing with core data."
           timeout 120s python -c "from config import LEAGUE_CONFIG; from fetch_understat_xg import main; main(LEAGUE_CONFIG)" || echo "Optional Understat xG enrichment unavailable; continuing with core data."
           python -m prepare_model_data
+          python -m pitch_oracle_core.audit_cli data_files/combined_historical_data_with_calculations_new.csv --output-dir precomputed/model-audit
 
       - name: Train models chronologically
         run: python -m train_models
