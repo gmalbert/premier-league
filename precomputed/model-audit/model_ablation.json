@@ -1,0 +1,80 @@
+{
+  "source": "data_files/combined_historical_data_with_calculations_new.csv",
+  "data_quality": {
+    "rows": 1550,
+    "invalid_dates": 0,
+    "completed_future_rows": 0,
+    "earliest_date": "2022-08-05T00:00:00",
+    "latest_date": "2026-09-06T00:00:00",
+    "duplicate_fixture_rows": 0,
+    "duplicate_no_odds_feature_rows": 10
+  },
+  "status": "complete",
+  "release_gate": {
+    "passed": true,
+    "production_candidate": "no_odds",
+    "criteria": "best of no_odds and poisson beats rolling class-prior baseline on log loss and Brier score"
+  },
+  "ablation": [
+    {
+      "candidate": "class_prior_baseline",
+      "feature_count": 0,
+      "folds": 3,
+      "test_rows": 800,
+      "metrics": {
+        "accuracy": 0.4175,
+        "log_loss": 1.0848852603316161,
+        "brier_score": 0.6575898944189005,
+        "calibration_error": 0.04269242336913792,
+        "draw_recall": 0.0,
+        "mean_confidence": 0.4601924233691379,
+        "decisive_lean_rate": 0.0
+      }
+    },
+    {
+      "candidate": "odds_heavy",
+      "feature_count": 176,
+      "folds": 3,
+      "test_rows": 800,
+      "metrics": {
+        "accuracy": 0.42,
+        "log_loss": 1.4964437773355488,
+        "brier_score": 0.7025188930009514,
+        "calibration_error": 0.17753412700777596,
+        "draw_recall": 0.2560386473429952,
+        "mean_confidence": 0.597534127007776,
+        "decisive_lean_rate": 0.525
+      }
+    },
+    {
+      "candidate": "no_odds",
+      "feature_count": 38,
+      "folds": 3,
+      "test_rows": 800,
+      "metrics": {
+        "accuracy": 0.49875,
+        "log_loss": 1.0558225533527161,
+        "brier_score": 0.6239219496346438,
+        "calibration_error": 0.06104538102927585,
+        "draw_recall": 0.033816425120772944,
+        "mean_confidence": 0.549157552787997,
+        "decisive_lean_rate": 0.425
+      }
+    },
+    {
+      "candidate": "poisson",
+      "feature_count": 0,
+      "folds": 3,
+      "test_rows": 800,
+      "metrics": {
+        "accuracy": 0.50125,
+        "log_loss": 1.024366539326187,
+        "brier_score": 0.6136732569238064,
+        "calibration_error": 0.05401817315938939,
+        "draw_recall": 0.0,
+        "mean_confidence": 0.5552681731593894,
+        "decisive_lean_rate": 0.44625
+      }
+    }
+  ]
+}
