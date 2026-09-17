@@ -90,5 +90,4 @@ jobs:
             exit 0
           fi
           git commit -m "chore: refresh EPL runtime artifacts"
-          git pull --rebase origin main
-          git push origin main
+          git push origin "HEAD:${GITHUB_REF_NAME}"
