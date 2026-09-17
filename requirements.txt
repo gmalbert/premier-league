@@ -1,1 +1,1 @@
-pitch-oracle-core[consumer] @ git+https://github.com/gmalbert/pitch-oracle-core.git@bf957d033d2094df6d997ecc21d88ec3b66e94a3
+pitch-oracle-core[consumer] @ git+https://github.com/gmalbert/pitch-oracle-core.git@ac8594de41f8ac0a2f89de4f521ff6f324ace799
