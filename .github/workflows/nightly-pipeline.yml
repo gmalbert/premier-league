@@ -14,7 +14,7 @@ concurrency:
 
 env:
   PYTHON_VERSION: "3.12"
-  CORE_REF: "64ae637bf0532a9d04f4041d9a2d6f5e3154dc08"
+  CORE_REF: "d5754bead0a354fc5f67af684ff543e7eac8bbd3"
   PITCH_ORACLE_LEAGUE: "epl"
   PITCH_ORACLE_DATA_DIR: "data_files"
   PITCH_ORACLE_MODELS_DIR: "models"
@@ -46,8 +46,6 @@ jobs:
           python -m pip check
 
       - name: Fetch and prepare league data
-        env:
-          NO_PROXY: football-data.co.uk,www.football-data.co.uk
         run: |
           python -m combine_raw_data
           python -m fetch_upcoming_fixtures
