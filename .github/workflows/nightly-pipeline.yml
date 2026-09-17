@@ -14,7 +14,7 @@ concurrency:
 
 env:
   PYTHON_VERSION: "3.12"
-  CORE_REF: "d5754bead0a354fc5f67af684ff543e7eac8bbd3"
+  CORE_REF: "cdade0d546aae400ae5d474d9351589973777aa4"
   PITCH_ORACLE_LEAGUE: "epl"
   PITCH_ORACLE_DATA_DIR: "data_files"
   PITCH_ORACLE_MODELS_DIR: "models"
