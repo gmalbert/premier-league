@@ -3,12 +3,12 @@
   "core_version": "1.4.3",
   "feature_policy_version": 3,
   "league": "epl",
-  "created_at": "2026-09-27T07:23:42.039667+00:00",
+  "created_at": "2026-09-28T07:40:41.701001+00:00",
   "artifacts": {
     "preprocessed_data": {
       "path": "precomputed/preprocessed_data.pkl",
       "bytes": 2411041,
-      "sha256": "9c20987e875bb00de182e6a3ad2f0c1b29e8f68692735e6f7af90d78a080f410"
+      "sha256": "03ce6e1517089156cff2d4222bcfcd4a13df7b6ab4290bbe0fd280ea0e25a052"
     },
     "xgb_baseline": {
       "path": "models/xgb_baseline.pkl",
@@ -28,12 +28,12 @@
     "performance": {
       "path": "models/model_performance.pkl",
       "bytes": 1214,
-      "sha256": "ed89a8b07cb3974240fd7a6e7314aa3ba918faab17c53e2d615d0beb80b3c679"
+      "sha256": "fd3da6df40b1e0eafa1c21918587a841f2c80f618ea63a27f76c3361bd45a919"
     },
     "model_metadata": {
       "path": "models/model_metadata.json",
       "bytes": 1267,
-      "sha256": "bfba8750015af16a411e1e7ebc623b1e507d4d833d91e699643665f90a72828c"
+      "sha256": "9a550a8611a24e338d39b008f072fa5a8825fecd5c2ed49440e77d1e2610f34e"
     },
     "model_audit": {
       "path": "precomputed/model-audit/model_ablation.json",
@@ -42,13 +42,13 @@
     },
     "upcoming_fixtures": {
       "path": "data_files/upcoming_fixtures.csv",
-      "bytes": 12590,
-      "sha256": "b878722c0bc6205b9f1f6b9e62f6eed99c466ca5ab682f3299fc89a3a41833d6"
+      "bytes": 12800,
+      "sha256": "9c1ec50aa964696572e767782ee62a29540b2106389697870810834e5d26448e"
     },
     "upcoming_predictions": {
       "path": "data_files/upcoming_predictions.csv",
-      "bytes": 28410,
-      "sha256": "393c12ef0b01a19b21e9950846140425ba620f07911759fcff0ed2976c651821"
+      "bytes": 28886,
+      "sha256": "30b6e4f2347bf115d3de242f2d8529a4c160cec8332299757cfa50ad6fbf32fb"
     },
     "dixon_coles_goal_model": {
       "path": "models/dixon_coles_goal_model.pkl",
@@ -58,7 +58,7 @@
     "dixon_coles_goal_model_metadata": {
       "path": "models/dixon_coles_goal_model.json",
       "bytes": 2179,
-      "sha256": "c3f75ffff1397f1928455cf781490964338bf5b6fcba361ccde0454beafcd7a4"
+      "sha256": "544f106d42bf7e16eb123ccffa78d95dbee4774199760e8c26ed58fcf956e5fb"
     },
     "goal_model_metrics": {
       "path": "models/goal_model_metrics.json",
