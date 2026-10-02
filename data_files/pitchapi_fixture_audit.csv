@@ -1,0 +1,331 @@
+provider_match_id	status	home_team	away_team	kickoff_utc	candidate_count	kickoff_delta_hours	kickoff_comparison
+m_2Fr5mh	mapped	Arsenal	Leeds United	2026-10-10T11:30:00+00:00	1	0.0	exact
+m_28XD02	mapped	Sunderland	Brighton & Hove Albion	2026-10-10T14:00:00+00:00	1	0.0	exact
+m_1NDA0e	mapped	Ipswich Town	Fulham	2026-10-10T14:00:00+00:00	1	0.0	exact
+m_4P7CqE	mapped	Chelsea	AFC Bournemouth	2026-10-10T14:00:00+00:00	1	0.0	exact
+m_0V796s	mapped	Aston Villa	Brentford	2026-10-10T14:00:00+00:00	1	0.0	exact
+m_1l8CBq	mapped	Manchester United	Tottenham Hotspur	2026-10-10T16:30:00+00:00	1	0.0	exact
+m_3pRsCX	mapped	Hull City	Everton	2026-10-11T13:00:00+00:00	1	0.0	exact
+m_0WdyE0	mapped	Crystal Palace	Nottingham Forest	2026-10-11T13:00:00+00:00	1	0.0	exact
+m_0En7Dw	mapped	Liverpool	Manchester City	2026-10-11T15:30:00+00:00	1	0.0	exact
+m_37OokP	mapped	Coventry City	Newcastle United	2026-10-12T19:00:00+00:00	1	0.0	exact
+m_3fEVzy	mapped	Everton	Chelsea	2026-10-17T11:30:00+00:00	1	0.0	exact
+m_1308RP	mapped	Manchester City	Ipswich Town	2026-10-17T14:00:00+00:00	1	0.0	exact
+m_0flqse	mapped	Brentford	Liverpool	2026-10-17T14:00:00+00:00	1	0.0	exact
+m_2Ca87d	mapped	Fulham	Hull City	2026-10-17T14:00:00+00:00	1	0.0	exact
+m_4RD4YJ	mapped	Newcastle United	Aston Villa	2026-10-17T16:30:00+00:00	1	0.0	exact
+m_2Qu6Lk	mapped	Brighton & Hove Albion	Crystal Palace	2026-10-18T13:00:00+00:00	1	0.0	exact
+m_19HAaR	mapped	AFC Bournemouth	Sunderland	2026-10-18T13:00:00+00:00	1	0.0	exact
+m_3xDs72	mapped	Leeds United	Manchester United	2026-10-18T13:00:00+00:00	1	0.0	exact
+m_0nCoAp	mapped	Nottingham Forest	Arsenal	2026-10-18T15:30:00+00:00	1	0.0	exact
+m_2KXrBt	mapped	Tottenham Hotspur	Coventry City	2026-10-19T19:00:00+00:00	1	0.0	exact
+m_0CikU4	mapped	Ipswich Town	Nottingham Forest	2026-10-23T19:00:00+00:00	1	0.0	exact
+m_3KNB9I	mapped	Aston Villa	Manchester City	2026-10-24T11:30:00+00:00	1	0.0	exact
+m_26YjGK	mapped	Coventry City	Fulham	2026-10-24T14:00:00+00:00	1	0.0	exact
+m_3VTlmY	mapped	Arsenal	Everton	2026-10-24T14:00:00+00:00	1	0.0	exact
+m_3flxzg	mapped	Chelsea	Tottenham Hotspur	2026-10-24T16:30:00+00:00	1	0.0	exact
+m_0Eg1F3	mapped	Hull City	Brentford	2026-10-25T14:00:00+00:00	1	0.0	exact
+m_1f8upu	mapped	Crystal Palace	Newcastle United	2026-10-25T14:00:00+00:00	1	0.0	exact
+m_1LrBNT	mapped	Manchester United	AFC Bournemouth	2026-10-25T14:00:00+00:00	1	0.0	exact
+m_3pgdLY	mapped	Liverpool	Brighton & Hove Albion	2026-10-25T14:00:00+00:00	1	0.0	exact
+m_0Fcvht	mapped	Sunderland	Leeds United	2026-10-25T16:30:00+00:00	1	0.0	exact
+m_0C3yM3	mapped	Chelsea	Manchester United	2026-10-31T12:30:00+00:00	1	0.0	exact
+m_0n3Keu	mapped	Hull City	Ipswich Town	2026-10-31T15:00:00+00:00	1	0.0	exact
+m_4RvJ1j	mapped	Manchester City	Brighton & Hove Albion	2026-10-31T15:00:00+00:00	1	0.0	exact
+m_0bXUBx	mapped	AFC Bournemouth	Leeds United	2026-10-31T15:00:00+00:00	1	0.0	exact
+m_0IHgwr	mapped	Coventry City	Sunderland	2026-10-31T15:00:00+00:00	1	0.0	exact
+m_1Gc5Hh	mapped	Brentford	Nottingham Forest	2026-10-31T15:00:00+00:00	1	0.0	exact
+m_0GIRbd	mapped	Tottenham Hotspur	Crystal Palace	2026-10-31T17:30:00+00:00	1	0.0	exact
+m_14WeHI	mapped	Aston Villa	Fulham	2026-10-31T20:00:00+00:00	1	0.0	exact
+m_1cQmo2	mapped	Liverpool	Arsenal	2026-11-01T16:30:00+00:00	1	0.0	exact
+m_0eAA1g	mapped	Newcastle United	Everton	2026-11-02T20:00:00+00:00	1	0.0	exact
+m_0ZFoVd	mapped	Everton	Coventry City	2026-11-06T20:00:00+00:00	1	0.0	exact
+m_4L4kXH	mapped	Leeds United	Tottenham Hotspur	2026-11-07T12:30:00+00:00	1	0.0	exact
+m_0D9KSt	mapped	Arsenal	Hull City	2026-11-07T15:00:00+00:00	1	0.0	exact
+m_2UcMLw	mapped	Fulham	Newcastle United	2026-11-07T15:00:00+00:00	1	0.0	exact
+m_2cf00t	mapped	Nottingham Forest	Manchester City	2026-11-07T17:30:00+00:00	1	0.0	exact
+m_2hOf3a	mapped	Sunderland	Chelsea	2026-11-08T14:00:00+00:00	1	0.0	exact
+m_0CUyUv	mapped	Brighton & Hove Albion	Brentford	2026-11-08T14:00:00+00:00	1	0.0	exact
+m_0sKilh	mapped	Ipswich Town	AFC Bournemouth	2026-11-08T14:00:00+00:00	1	0.0	exact
+m_4Ct268	mapped	Crystal Palace	Liverpool	2026-11-08T14:00:00+00:00	1	0.0	exact
+m_1hg20L	mapped	Manchester United	Aston Villa	2026-11-08T16:30:00+00:00	1	0.0	exact
+m_4S00KG	mapped	Manchester City	Fulham	2026-11-21T12:30:00+00:00	1	0.0	exact
+m_3IrTv6	mapped	AFC Bournemouth	Nottingham Forest	2026-11-21T15:00:00+00:00	1	0.0	exact
+m_2PtCYr	mapped	Tottenham Hotspur	Ipswich Town	2026-11-21T15:00:00+00:00	1	0.0	exact
+m_04ixCx	mapped	Aston Villa	Sunderland	2026-11-21T15:00:00+00:00	1	0.0	exact
+m_19nSVX	mapped	Chelsea	Leeds United	2026-11-21T15:00:00+00:00	1	0.0	exact
+m_0B6kF2	mapped	Coventry City	Crystal Palace	2026-11-21T15:00:00+00:00	1	0.0	exact
+m_3XXOvK	mapped	Newcastle United	Arsenal	2026-11-21T17:30:00+00:00	1	0.0	exact
+m_18ul5S	mapped	Hull City	Brighton & Hove Albion	2026-11-22T14:00:00+00:00	1	0.0	exact
+m_4Pdd0e	mapped	Liverpool	Manchester United	2026-11-22T16:30:00+00:00	1	0.0	exact
+m_2FVfvL	mapped	Brentford	Everton	2026-11-23T20:00:00+00:00	1	0.0	exact
+m_3xkED2	mapped	Nottingham Forest	Chelsea	2026-11-27T20:00:00+00:00	1	0.0	exact
+m_4AXxqK	mapped	Manchester United	Brentford	2026-11-28T15:00:00+00:00	1	0.0	exact
+m_35NS0w	mapped	Leeds United	Coventry City	2026-11-28T15:00:00+00:00	1	0.0	exact
+m_2a6aiA	mapped	Ipswich Town	Aston Villa	2026-11-28T17:30:00+00:00	1	0.0	exact
+m_30gNoT	mapped	Everton	Liverpool	2026-11-29T12:00:00+00:00	1	0.0	exact
+m_3ELOjU	mapped	Fulham	AFC Bournemouth	2026-11-29T14:05:00+00:00	1	0.0	exact
+m_1EvjuD	mapped	Brighton & Hove Albion	Newcastle United	2026-11-29T14:05:00+00:00	1	0.0	exact
+m_38YPw8	mapped	Sunderland	Tottenham Hotspur	2026-11-29T14:05:00+00:00	1	0.0	exact
+m_1cmXYH	mapped	Crystal Palace	Hull City	2026-11-29T14:05:00+00:00	1	0.0	exact
+m_000aNg	mapped	Arsenal	Manchester City	2026-11-29T16:30:00+00:00	1	0.0	exact
+m_1mNrnL	outside_source_window	Hull City	Nottingham Forest	2026-12-02T20:00:00+00:00	0		unresolved
+m_32EZEH	outside_source_window	Brentford	Arsenal	2026-12-02T20:00:00+00:00	0		unresolved
+m_0clzxH	outside_source_window	Aston Villa	Everton	2026-12-02T20:00:00+00:00	0		unresolved
+m_2q2SV8	outside_source_window	AFC Bournemouth	Brighton & Hove Albion	2026-12-02T20:00:00+00:00	0		unresolved
+m_45PBCV	outside_source_window	Manchester City	Leeds United	2026-12-02T20:00:00+00:00	0		unresolved
+m_1J5cPp	outside_source_window	Newcastle United	Manchester United	2026-12-02T20:00:00+00:00	0		unresolved
+m_1sGD9w	outside_source_window	Tottenham Hotspur	Fulham	2026-12-02T20:00:00+00:00	0		unresolved
+m_2auuWk	outside_source_window	Coventry City	Ipswich Town	2026-12-02T20:00:00+00:00	0		unresolved
+m_2ca0e2	outside_source_window	Liverpool	Sunderland	2026-12-02T20:00:00+00:00	0		unresolved
+m_109S60	outside_source_window	Chelsea	Crystal Palace	2026-12-02T20:00:00+00:00	0		unresolved
+m_48334Y	outside_source_window	Tottenham Hotspur	Arsenal	2026-12-05T15:00:00+00:00	0		unresolved
+m_189cAI	outside_source_window	Everton	Fulham	2026-12-05T15:00:00+00:00	0		unresolved
+m_0AmV5k	outside_source_window	Newcastle United	Sunderland	2026-12-05T15:00:00+00:00	0		unresolved
+m_2fT1u0	outside_source_window	AFC Bournemouth	Hull City	2026-12-05T15:00:00+00:00	0		unresolved
+m_2nz4Kg	outside_source_window	Chelsea	Liverpool	2026-12-05T15:00:00+00:00	0		unresolved
+m_2TtX4E	outside_source_window	Brentford	Manchester City	2026-12-05T15:00:00+00:00	0		unresolved
+m_0SwdA8	outside_source_window	Aston Villa	Crystal Palace	2026-12-05T15:00:00+00:00	0		unresolved
+m_0e2RrY	outside_source_window	Leeds United	Ipswich Town	2026-12-05T15:00:00+00:00	0		unresolved
+m_11rrz2	outside_source_window	Manchester United	Coventry City	2026-12-05T15:00:00+00:00	0		unresolved
+m_1gWkas	outside_source_window	Nottingham Forest	Brighton & Hove Albion	2026-12-05T15:00:00+00:00	0		unresolved
+m_0KIY6O	outside_source_window	Sunderland	Nottingham Forest	2026-12-12T15:00:00+00:00	0		unresolved
+m_1f2vOY	outside_source_window	Arsenal	AFC Bournemouth	2026-12-12T15:00:00+00:00	0		unresolved
+m_3WqHta	outside_source_window	Brighton & Hove Albion	Everton	2026-12-12T15:00:00+00:00	0		unresolved
+m_3IC4zT	outside_source_window	Coventry City	Aston Villa	2026-12-12T15:00:00+00:00	0		unresolved
+m_19lbOW	outside_source_window	Crystal Palace	Manchester United	2026-12-12T15:00:00+00:00	0		unresolved
+m_4XztkO	outside_source_window	Fulham	Brentford	2026-12-12T15:00:00+00:00	0		unresolved
+m_1AVQBI	outside_source_window	Hull City	Tottenham Hotspur	2026-12-12T15:00:00+00:00	0		unresolved
+m_3jkanD	outside_source_window	Ipswich Town	Newcastle United	2026-12-12T15:00:00+00:00	0		unresolved
+m_2VR7KU	outside_source_window	Liverpool	Leeds United	2026-12-12T15:00:00+00:00	0		unresolved
+m_0chCVz	outside_source_window	Manchester City	Chelsea	2026-12-12T15:00:00+00:00	0		unresolved
+m_2vDAcL	outside_source_window	Sunderland	Crystal Palace	2026-12-19T15:00:00+00:00	0		unresolved
+m_16T36B	outside_source_window	Arsenal	Manchester United	2026-12-19T15:00:00+00:00	0		unresolved
+m_19J23x	outside_source_window	Brentford	Newcastle United	2026-12-19T15:00:00+00:00	0		unresolved
+m_05rh5S	outside_source_window	Nottingham Forest	Everton	2026-12-19T15:00:00+00:00	0		unresolved
+m_0KUwqs	outside_source_window	Manchester City	Hull City	2026-12-19T15:00:00+00:00	0		unresolved
+m_2FenKj	outside_source_window	Liverpool	Tottenham Hotspur	2026-12-19T15:00:00+00:00	0		unresolved
+m_3dQ5jz	outside_source_window	Leeds United	Fulham	2026-12-19T15:00:00+00:00	0		unresolved
+m_1K4kuY	outside_source_window	Chelsea	Aston Villa	2026-12-19T15:00:00+00:00	0		unresolved
+m_154c6h	outside_source_window	Brighton & Hove Albion	Ipswich Town	2026-12-19T15:00:00+00:00	0		unresolved
+m_1FZZzd	outside_source_window	AFC Bournemouth	Coventry City	2026-12-19T15:00:00+00:00	0		unresolved
+m_38RvUl	outside_source_window	Aston Villa	Leeds United	2026-12-26T12:30:00+00:00	0		unresolved
+m_2Pe5Oq	outside_source_window	Everton	Sunderland	2026-12-26T15:00:00+00:00	0		unresolved
+m_0or3DK	outside_source_window	Fulham	Brighton & Hove Albion	2026-12-26T15:00:00+00:00	0		unresolved
+m_24ElGY	outside_source_window	Tottenham Hotspur	AFC Bournemouth	2026-12-26T15:00:00+00:00	0		unresolved
+m_1R9McR	outside_source_window	Ipswich Town	Brentford	2026-12-26T15:00:00+00:00	0		unresolved
+m_3l5m57	outside_source_window	Hull City	Liverpool	2026-12-26T17:30:00+00:00	0		unresolved
+m_393ypd	outside_source_window	Newcastle United	Manchester City	2026-12-26T20:00:00+00:00	0		unresolved
+m_1UNnRa	outside_source_window	Coventry City	Chelsea	2026-12-27T14:00:00+00:00	0		unresolved
+m_1i4sM0	outside_source_window	Manchester United	Nottingham Forest	2026-12-27T16:30:00+00:00	0		unresolved
+m_0QC6gL	outside_source_window	Crystal Palace	Arsenal	2026-12-27T19:00:00+00:00	0		unresolved
+m_0lC93S	outside_source_window	Hull City	Leeds United	2026-12-29T19:30:00+00:00	0		unresolved
+m_4ZQFCF	outside_source_window	Tottenham Hotspur	Brighton & Hove Albion	2026-12-29T19:30:00+00:00	0		unresolved
+m_2jTWJq	outside_source_window	Everton	Manchester City	2026-12-29T20:15:00+00:00	0		unresolved
+m_1TzP00	outside_source_window	Manchester United	Sunderland	2026-12-30T19:30:00+00:00	0		unresolved
+m_2o0l3S	outside_source_window	Newcastle United	Nottingham Forest	2026-12-30T19:30:00+00:00	0		unresolved
+m_0FhfPd	outside_source_window	Coventry City	Brentford	2026-12-30T19:30:00+00:00	0		unresolved
+m_1nVzv6	outside_source_window	Crystal Palace	AFC Bournemouth	2026-12-30T19:30:00+00:00	0		unresolved
+m_0nUyN8	outside_source_window	Fulham	Arsenal	2026-12-30T19:30:00+00:00	0		unresolved
+m_4WWFml	outside_source_window	Ipswich Town	Chelsea	2026-12-30T20:15:00+00:00	0		unresolved
+m_3ZYVIN	outside_source_window	Aston Villa	Liverpool	2026-12-30T20:15:00+00:00	0		unresolved
+m_14wGvq	outside_source_window	Leeds United	Everton	2027-01-01T20:00:00+00:00	0		unresolved
+m_2ckVQl	outside_source_window	Brighton & Hove Albion	Manchester United	2027-01-02T12:30:00+00:00	0		unresolved
+m_3zpPgw	outside_source_window	Arsenal	Ipswich Town	2027-01-02T15:00:00+00:00	0		unresolved
+m_3hZinl	outside_source_window	Sunderland	Hull City	2027-01-02T15:00:00+00:00	0		unresolved
+m_4KIN5J	outside_source_window	Brentford	Crystal Palace	2027-01-02T15:00:00+00:00	0		unresolved
+m_2Qw1ky	outside_source_window	Nottingham Forest	Fulham	2027-01-02T15:00:00+00:00	0		unresolved
+m_1fvNhP	outside_source_window	Liverpool	Coventry City	2027-01-02T15:00:00+00:00	0		unresolved
+m_2FnYly	outside_source_window	AFC Bournemouth	Aston Villa	2027-01-02T17:30:00+00:00	0		unresolved
+m_3nOFpI	outside_source_window	Chelsea	Newcastle United	2027-01-03T14:00:00+00:00	0		unresolved
+m_1tAzr3	outside_source_window	Manchester City	Tottenham Hotspur	2027-01-03T16:30:00+00:00	0		unresolved
+m_1xmxJR	outside_source_window	Brighton & Hove Albion	AFC Bournemouth	2027-01-05T19:30:00+00:00	0		unresolved
+m_0dxeyJ	outside_source_window	Nottingham Forest	Hull City	2027-01-05T19:30:00+00:00	0		unresolved
+m_4V2K8l	outside_source_window	Arsenal	Brentford	2027-01-05T19:30:00+00:00	0		unresolved
+m_40ZslX	outside_source_window	Everton	Aston Villa	2027-01-05T19:30:00+00:00	0		unresolved
+m_2YVyLs	outside_source_window	Sunderland	Liverpool	2027-01-05T20:15:00+00:00	0		unresolved
+m_0wceL1	outside_source_window	Fulham	Tottenham Hotspur	2027-01-06T19:30:00+00:00	0		unresolved
+m_07JjTH	outside_source_window	Crystal Palace	Chelsea	2027-01-06T19:30:00+00:00	0		unresolved
+m_265oNw	outside_source_window	Ipswich Town	Coventry City	2027-01-06T19:30:00+00:00	0		unresolved
+m_4YjzQt	outside_source_window	Leeds United	Manchester City	2027-01-06T20:15:00+00:00	0		unresolved
+m_1w1uBg	outside_source_window	Manchester United	Newcastle United	2027-01-07T20:00:00+00:00	0		unresolved
+m_14naYy	outside_source_window	AFC Bournemouth	Ipswich Town	2027-01-16T15:00:00+00:00	0		unresolved
+m_1TLVLa	outside_source_window	Manchester City	Nottingham Forest	2027-01-16T15:00:00+00:00	0		unresolved
+m_1924ta	outside_source_window	Coventry City	Everton	2027-01-16T15:00:00+00:00	0		unresolved
+m_0sIpy0	outside_source_window	Tottenham Hotspur	Leeds United	2027-01-16T15:00:00+00:00	0		unresolved
+m_2cg4JP	outside_source_window	Newcastle United	Fulham	2027-01-16T15:00:00+00:00	0		unresolved
+m_2SX5d7	outside_source_window	Hull City	Arsenal	2027-01-16T15:00:00+00:00	0		unresolved
+m_3ntMOG	outside_source_window	Brentford	Brighton & Hove Albion	2027-01-16T15:00:00+00:00	0		unresolved
+m_41kZGY	outside_source_window	Liverpool	Crystal Palace	2027-01-16T15:00:00+00:00	0		unresolved
+m_4FI9cE	outside_source_window	Chelsea	Sunderland	2027-01-16T15:00:00+00:00	0		unresolved
+m_1m6qEQ	outside_source_window	Aston Villa	Manchester United	2027-01-16T15:00:00+00:00	0		unresolved
+m_0XOeRl	outside_source_window	Leeds United	Chelsea	2027-01-23T15:00:00+00:00	0		unresolved
+m_1waP4H	outside_source_window	Nottingham Forest	AFC Bournemouth	2027-01-23T15:00:00+00:00	0		unresolved
+m_1NjLAz	outside_source_window	Sunderland	Coventry City	2027-01-23T15:00:00+00:00	0		unresolved
+m_1m3xMQ	outside_source_window	Ipswich Town	Hull City	2027-01-23T15:00:00+00:00	0		unresolved
+m_0AE4jS	outside_source_window	Fulham	Aston Villa	2027-01-23T15:00:00+00:00	0		unresolved
+m_3k06Pa	outside_source_window	Everton	Brentford	2027-01-23T15:00:00+00:00	0		unresolved
+m_382NLX	outside_source_window	Crystal Palace	Tottenham Hotspur	2027-01-23T15:00:00+00:00	0		unresolved
+m_4F5U49	outside_source_window	Brighton & Hove Albion	Manchester City	2027-01-23T15:00:00+00:00	0		unresolved
+m_046afk	outside_source_window	Arsenal	Newcastle United	2027-01-23T15:00:00+00:00	0		unresolved
+m_3slH7e	outside_source_window	Manchester United	Liverpool	2027-01-23T15:00:00+00:00	0		unresolved
+m_4LDsq3	outside_source_window	Newcastle United	Brighton & Hove Albion	2027-01-30T15:00:00+00:00	0		unresolved
+m_2RwMsA	outside_source_window	Manchester City	Arsenal	2027-01-30T15:00:00+00:00	0		unresolved
+m_49zH0y	outside_source_window	Liverpool	Everton	2027-01-30T15:00:00+00:00	0		unresolved
+m_3qlkCd	outside_source_window	Hull City	Crystal Palace	2027-01-30T15:00:00+00:00	0		unresolved
+m_27X9H1	outside_source_window	Coventry City	Leeds United	2027-01-30T15:00:00+00:00	0		unresolved
+m_3Wt6Y1	outside_source_window	Chelsea	Nottingham Forest	2027-01-30T15:00:00+00:00	0		unresolved
+m_2K7WJE	outside_source_window	Brentford	Manchester United	2027-01-30T15:00:00+00:00	0		unresolved
+m_1RWGAZ	outside_source_window	Aston Villa	Ipswich Town	2027-01-30T15:00:00+00:00	0		unresolved
+m_3wkwCT	outside_source_window	AFC Bournemouth	Fulham	2027-01-30T15:00:00+00:00	0		unresolved
+m_4W3lqF	outside_source_window	Tottenham Hotspur	Sunderland	2027-01-30T15:00:00+00:00	0		unresolved
+m_1pjpJ7	outside_source_window	Fulham	Manchester City	2027-02-06T15:00:00+00:00	0		unresolved
+m_0nq1CU	outside_source_window	Arsenal	Liverpool	2027-02-06T15:00:00+00:00	0		unresolved
+m_0LU9oY	outside_source_window	Brighton & Hove Albion	Hull City	2027-02-06T15:00:00+00:00	0		unresolved
+m_31AVez	outside_source_window	Crystal Palace	Coventry City	2027-02-06T15:00:00+00:00	0		unresolved
+m_07sQyu	outside_source_window	Everton	Newcastle United	2027-02-06T15:00:00+00:00	0		unresolved
+m_0NOrLk	outside_source_window	Ipswich Town	Tottenham Hotspur	2027-02-06T15:00:00+00:00	0		unresolved
+m_139Njl	outside_source_window	Manchester United	Chelsea	2027-02-06T15:00:00+00:00	0		unresolved
+m_1XjTWV	outside_source_window	Nottingham Forest	Brentford	2027-02-06T15:00:00+00:00	0		unresolved
+m_3ZNtG7	outside_source_window	Sunderland	Aston Villa	2027-02-06T15:00:00+00:00	0		unresolved
+m_2a12pu	outside_source_window	Leeds United	AFC Bournemouth	2027-02-06T15:00:00+00:00	0		unresolved
+m_03CsBM	outside_source_window	Crystal Palace	Brentford	2027-02-10T20:00:00+00:00	0		unresolved
+m_2IzwqZ	outside_source_window	Coventry City	Liverpool	2027-02-10T20:00:00+00:00	0		unresolved
+m_00fyzs	outside_source_window	Aston Villa	AFC Bournemouth	2027-02-10T20:00:00+00:00	0		unresolved
+m_4Nh2rI	outside_source_window	Tottenham Hotspur	Manchester City	2027-02-10T20:00:00+00:00	0		unresolved
+m_1e6bxB	outside_source_window	Newcastle United	Chelsea	2027-02-10T20:00:00+00:00	0		unresolved
+m_2mOc3R	outside_source_window	Manchester United	Brighton & Hove Albion	2027-02-10T20:00:00+00:00	0		unresolved
+m_10Xlfs	outside_source_window	Ipswich Town	Arsenal	2027-02-10T20:00:00+00:00	0		unresolved
+m_1rGIj5	outside_source_window	Hull City	Sunderland	2027-02-10T20:00:00+00:00	0		unresolved
+m_2P09Xo	outside_source_window	Fulham	Nottingham Forest	2027-02-10T20:00:00+00:00	0		unresolved
+m_4b7Vpg	outside_source_window	Everton	Leeds United	2027-02-10T20:00:00+00:00	0		unresolved
+m_06tFaS	outside_source_window	Brighton & Hove Albion	Tottenham Hotspur	2027-02-20T15:00:00+00:00	0		unresolved
+m_3bgJ7x	outside_source_window	Nottingham Forest	Manchester United	2027-02-20T15:00:00+00:00	0		unresolved
+m_3tIQC0	outside_source_window	Manchester City	Newcastle United	2027-02-20T15:00:00+00:00	0		unresolved
+m_3zlr7K	outside_source_window	Chelsea	Ipswich Town	2027-02-20T15:00:00+00:00	0		unresolved
+m_2baf5g	outside_source_window	Leeds United	Aston Villa	2027-02-20T15:00:00+00:00	0		unresolved
+m_1ITcCO	outside_source_window	Arsenal	Fulham	2027-02-20T15:00:00+00:00	0		unresolved
+m_3obVdo	outside_source_window	Brentford	Coventry City	2027-02-20T15:00:00+00:00	0		unresolved
+m_1Vks8f	outside_source_window	Sunderland	Everton	2027-02-20T15:00:00+00:00	0		unresolved
+m_25PjmC	outside_source_window	Liverpool	Hull City	2027-02-20T15:00:00+00:00	0		unresolved
+m_0NjVif	outside_source_window	AFC Bournemouth	Crystal Palace	2027-02-20T15:00:00+00:00	0		unresolved
+m_4V7mAY	outside_source_window	Everton	Nottingham Forest	2027-02-27T15:00:00+00:00	0		unresolved
+m_2g5j15	outside_source_window	Fulham	Leeds United	2027-02-27T15:00:00+00:00	0		unresolved
+m_20qawO	outside_source_window	Manchester United	Arsenal	2027-02-27T15:00:00+00:00	0		unresolved
+m_1xHxPn	outside_source_window	Aston Villa	Chelsea	2027-02-27T15:00:00+00:00	0		unresolved
+m_1h61z0	outside_source_window	Coventry City	AFC Bournemouth	2027-02-27T15:00:00+00:00	0		unresolved
+m_10C0On	outside_source_window	Crystal Palace	Sunderland	2027-02-27T15:00:00+00:00	0		unresolved
+m_3AUOmH	outside_source_window	Newcastle United	Brentford	2027-02-27T15:00:00+00:00	0		unresolved
+m_4JiGDx	outside_source_window	Tottenham Hotspur	Liverpool	2027-02-27T15:00:00+00:00	0		unresolved
+m_1y6mvF	outside_source_window	Hull City	Manchester City	2027-02-27T15:00:00+00:00	0		unresolved
+m_0cXDfI	outside_source_window	Ipswich Town	Brighton & Hove Albion	2027-02-27T15:00:00+00:00	0		unresolved
+m_2Ue4zc	outside_source_window	AFC Bournemouth	Tottenham Hotspur	2027-03-03T20:00:00+00:00	0		unresolved
+m_3p4ieP	outside_source_window	Manchester City	Everton	2027-03-03T20:00:00+00:00	0		unresolved
+m_0KTn9w	outside_source_window	Sunderland	Manchester United	2027-03-03T20:00:00+00:00	0		unresolved
+m_3UF5Wr	outside_source_window	Nottingham Forest	Newcastle United	2027-03-03T20:00:00+00:00	0		unresolved
+m_3wVX3w	outside_source_window	Liverpool	Aston Villa	2027-03-03T20:00:00+00:00	0		unresolved
+m_45tw0F	outside_source_window	Brentford	Ipswich Town	2027-03-03T20:00:00+00:00	0		unresolved
+m_3A1473	outside_source_window	Leeds United	Hull City	2027-03-03T20:00:00+00:00	0		unresolved
+m_0VHjnh	outside_source_window	Chelsea	Coventry City	2027-03-03T20:00:00+00:00	0		unresolved
+m_3o4B05	outside_source_window	Brighton & Hove Albion	Fulham	2027-03-03T20:00:00+00:00	0		unresolved
+m_46gHte	outside_source_window	Arsenal	Crystal Palace	2027-03-03T20:00:00+00:00	0		unresolved
+m_48t3NN	outside_source_window	AFC Bournemouth	Newcastle United	2027-03-13T15:00:00+00:00	0		unresolved
+m_3lq8t0	outside_source_window	Aston Villa	Hull City	2027-03-13T15:00:00+00:00	0		unresolved
+m_2y3rlU	outside_source_window	Chelsea	Arsenal	2027-03-13T15:00:00+00:00	0		unresolved
+m_3cU4a8	outside_source_window	Coventry City	Manchester City	2027-03-13T15:00:00+00:00	0		unresolved
+m_3Wxwq4	outside_source_window	Crystal Palace	Fulham	2027-03-13T15:00:00+00:00	0		unresolved
+m_3p0P7W	outside_source_window	Leeds United	Brighton & Hove Albion	2027-03-13T15:00:00+00:00	0		unresolved
+m_1PC36a	outside_source_window	Liverpool	Ipswich Town	2027-03-13T15:00:00+00:00	0		unresolved
+m_2gdmlu	outside_source_window	Manchester United	Everton	2027-03-13T15:00:00+00:00	0		unresolved
+m_0GcWUo	outside_source_window	Sunderland	Brentford	2027-03-13T15:00:00+00:00	0		unresolved
+m_1ltPyk	outside_source_window	Tottenham Hotspur	Nottingham Forest	2027-03-13T15:00:00+00:00	0		unresolved
+m_32AK0Y	outside_source_window	Everton	Tottenham Hotspur	2027-03-20T15:00:00+00:00	0		unresolved
+m_3eAL0o	outside_source_window	Brighton & Hove Albion	Coventry City	2027-03-20T15:00:00+00:00	0		unresolved
+m_3y1Saj	outside_source_window	Nottingham Forest	Aston Villa	2027-03-20T15:00:00+00:00	0		unresolved
+m_3xZl3d	outside_source_window	Newcastle United	Leeds United	2027-03-20T15:00:00+00:00	0		unresolved
+m_1ia1OM	outside_source_window	Manchester City	Manchester United	2027-03-20T15:00:00+00:00	0		unresolved
+m_3C9EJI	outside_source_window	Ipswich Town	Crystal Palace	2027-03-20T15:00:00+00:00	0		unresolved
+m_4LcwAz	outside_source_window	Hull City	Chelsea	2027-03-20T15:00:00+00:00	0		unresolved
+m_4W1llf	outside_source_window	Fulham	Liverpool	2027-03-20T15:00:00+00:00	0		unresolved
+m_0Rt3jJ	outside_source_window	Brentford	AFC Bournemouth	2027-03-20T15:00:00+00:00	0		unresolved
+m_4TEXdw	outside_source_window	Arsenal	Sunderland	2027-03-20T15:00:00+00:00	0		unresolved
+m_4ciN34	outside_source_window	Manchester United	Hull City	2027-04-10T14:00:00+00:00	0		unresolved
+m_0E4G4x	outside_source_window	Tottenham Hotspur	Brentford	2027-04-10T14:00:00+00:00	0		unresolved
+m_45RtWv	outside_source_window	AFC Bournemouth	Manchester City	2027-04-10T14:00:00+00:00	0		unresolved
+m_3prhup	outside_source_window	Aston Villa	Brighton & Hove Albion	2027-04-10T14:00:00+00:00	0		unresolved
+m_0y2y2k	outside_source_window	Chelsea	Fulham	2027-04-10T14:00:00+00:00	0		unresolved
+m_2Qu8p4	outside_source_window	Coventry City	Arsenal	2027-04-10T14:00:00+00:00	0		unresolved
+m_0ymIKj	outside_source_window	Crystal Palace	Everton	2027-04-10T14:00:00+00:00	0		unresolved
+m_35q6Zd	outside_source_window	Liverpool	Newcastle United	2027-04-10T14:00:00+00:00	0		unresolved
+m_2CgZpm	outside_source_window	Leeds United	Nottingham Forest	2027-04-10T14:00:00+00:00	0		unresolved
+m_02sEoB	outside_source_window	Sunderland	Ipswich Town	2027-04-10T14:00:00+00:00	0		unresolved
+m_0MvMl0	outside_source_window	Brentford	Leeds United	2027-04-17T14:00:00+00:00	0		unresolved
+m_3baGws	outside_source_window	Arsenal	Aston Villa	2027-04-17T14:00:00+00:00	0		unresolved
+m_3MZIjU	outside_source_window	Newcastle United	Tottenham Hotspur	2027-04-17T14:00:00+00:00	0		unresolved
+m_3gTwdh	outside_source_window	Nottingham Forest	Liverpool	2027-04-17T14:00:00+00:00	0		unresolved
+m_2ZfA4E	outside_source_window	Ipswich Town	Manchester United	2027-04-17T14:00:00+00:00	0		unresolved
+m_4CHJ5I	outside_source_window	Manchester City	Crystal Palace	2027-04-17T14:00:00+00:00	0		unresolved
+m_3KAIBO	outside_source_window	Hull City	Coventry City	2027-04-17T14:00:00+00:00	0		unresolved
+m_3YgEBb	outside_source_window	Fulham	Sunderland	2027-04-17T14:00:00+00:00	0		unresolved
+m_3B8zRD	outside_source_window	Everton	AFC Bournemouth	2027-04-17T14:00:00+00:00	0		unresolved
+m_0tWU9K	outside_source_window	Brighton & Hove Albion	Chelsea	2027-04-17T14:00:00+00:00	0		unresolved
+m_2A4Kq7	outside_source_window	Newcastle United	Ipswich Town	2027-04-24T14:00:00+00:00	0		unresolved
+m_31jGxN	outside_source_window	AFC Bournemouth	Arsenal	2027-04-24T14:00:00+00:00	0		unresolved
+m_1wFwaQ	outside_source_window	Aston Villa	Coventry City	2027-04-24T14:00:00+00:00	0		unresolved
+m_0u1h5n	outside_source_window	Brentford	Fulham	2027-04-24T14:00:00+00:00	0		unresolved
+m_2rJJT2	outside_source_window	Chelsea	Manchester City	2027-04-24T14:00:00+00:00	0		unresolved
+m_1TNyJA	outside_source_window	Everton	Brighton & Hove Albion	2027-04-24T14:00:00+00:00	0		unresolved
+m_2ClHSP	outside_source_window	Leeds United	Liverpool	2027-04-24T14:00:00+00:00	0		unresolved
+m_4FpHnW	outside_source_window	Manchester United	Crystal Palace	2027-04-24T14:00:00+00:00	0		unresolved
+m_2JFA6C	outside_source_window	Nottingham Forest	Sunderland	2027-04-24T14:00:00+00:00	0		unresolved
+m_1h62Y2	outside_source_window	Tottenham Hotspur	Hull City	2027-04-24T14:00:00+00:00	0		unresolved
+m_1bnZem	outside_source_window	Arsenal	Tottenham Hotspur	2027-05-01T14:00:00+00:00	0		unresolved
+m_3u3jew	outside_source_window	Brighton & Hove Albion	Nottingham Forest	2027-05-01T14:00:00+00:00	0		unresolved
+m_0OLT9g	outside_source_window	Coventry City	Manchester United	2027-05-01T14:00:00+00:00	0		unresolved
+m_3Fjdjq	outside_source_window	Crystal Palace	Aston Villa	2027-05-01T14:00:00+00:00	0		unresolved
+m_1X0pXj	outside_source_window	Ipswich Town	Leeds United	2027-05-01T14:00:00+00:00	0		unresolved
+m_3mJb3L	outside_source_window	Liverpool	Chelsea	2027-05-01T14:00:00+00:00	0		unresolved
+m_2FS9RL	outside_source_window	Manchester City	Brentford	2027-05-01T14:00:00+00:00	0		unresolved
+m_1ctbH8	outside_source_window	Sunderland	Newcastle United	2027-05-01T14:00:00+00:00	0		unresolved
+m_0nt4iF	outside_source_window	Hull City	AFC Bournemouth	2027-05-01T14:00:00+00:00	0		unresolved
+m_0Nh1WB	outside_source_window	Fulham	Everton	2027-05-01T14:00:00+00:00	0		unresolved
+m_2DB71p	outside_source_window	AFC Bournemouth	Manchester United	2027-05-08T14:00:00+00:00	0		unresolved
+m_3SJrFa	outside_source_window	Brentford	Aston Villa	2027-05-08T14:00:00+00:00	0		unresolved
+m_04mBX2	outside_source_window	Brighton & Hove Albion	Sunderland	2027-05-08T14:00:00+00:00	0		unresolved
+m_0F9rPK	outside_source_window	Everton	Hull City	2027-05-08T14:00:00+00:00	0		unresolved
+m_2DIj7v	outside_source_window	Fulham	Ipswich Town	2027-05-08T14:00:00+00:00	0		unresolved
+m_1zYriE	outside_source_window	Manchester City	Liverpool	2027-05-08T14:00:00+00:00	0		unresolved
+m_2qYh02	outside_source_window	Leeds United	Arsenal	2027-05-08T14:00:00+00:00	0		unresolved
+m_3gOgJa	outside_source_window	Newcastle United	Coventry City	2027-05-08T14:00:00+00:00	0		unresolved
+m_4XamBx	outside_source_window	Nottingham Forest	Crystal Palace	2027-05-08T14:00:00+00:00	0		unresolved
+m_0C5Nju	outside_source_window	Tottenham Hotspur	Chelsea	2027-05-08T14:00:00+00:00	0		unresolved
+m_3v8SAD	outside_source_window	Coventry City	Tottenham Hotspur	2027-05-15T14:00:00+00:00	0		unresolved
+m_0jX2sp	outside_source_window	Manchester United	Leeds United	2027-05-15T14:00:00+00:00	0		unresolved
+m_47aIGR	outside_source_window	Liverpool	Brentford	2027-05-15T14:00:00+00:00	0		unresolved
+m_05bY4D	outside_source_window	Ipswich Town	Manchester City	2027-05-15T14:00:00+00:00	0		unresolved
+m_3F5HjZ	outside_source_window	Hull City	Fulham	2027-05-15T14:00:00+00:00	0		unresolved
+m_2Cq7XH	outside_source_window	Crystal Palace	Brighton & Hove Albion	2027-05-15T14:00:00+00:00	0		unresolved
+m_2bWwTk	outside_source_window	Sunderland	AFC Bournemouth	2027-05-15T14:00:00+00:00	0		unresolved
+m_4TfZAY	outside_source_window	Chelsea	Everton	2027-05-15T14:00:00+00:00	0		unresolved
+m_4NAp7k	outside_source_window	Aston Villa	Newcastle United	2027-05-15T14:00:00+00:00	0		unresolved
+m_4dPulz	outside_source_window	Arsenal	Nottingham Forest	2027-05-15T14:00:00+00:00	0		unresolved
+m_0ukuro	outside_source_window	AFC Bournemouth	Chelsea	2027-05-23T14:00:00+00:00	0		unresolved
+m_0qDHHd	outside_source_window	Tottenham Hotspur	Manchester United	2027-05-23T14:00:00+00:00	0		unresolved
+m_2zIAKF	outside_source_window	Nottingham Forest	Ipswich Town	2027-05-23T14:00:00+00:00	0		unresolved
+m_0et5I9	outside_source_window	Newcastle United	Crystal Palace	2027-05-23T14:00:00+00:00	0		unresolved
+m_3pNYiT	outside_source_window	Manchester City	Aston Villa	2027-05-23T14:00:00+00:00	0		unresolved
+m_4ZDYGh	outside_source_window	Leeds United	Sunderland	2027-05-23T14:00:00+00:00	0		unresolved
+m_0RykTz	outside_source_window	Fulham	Coventry City	2027-05-23T14:00:00+00:00	0		unresolved
+m_0M0uTP	outside_source_window	Everton	Arsenal	2027-05-23T14:00:00+00:00	0		unresolved
+m_11dDlk	outside_source_window	Brighton & Hove Albion	Liverpool	2027-05-23T14:00:00+00:00	0		unresolved
+m_2Gvwg4	outside_source_window	Brentford	Hull City	2027-05-23T14:00:00+00:00	0		unresolved
+m_1W4wIe	outside_source_window	Sunderland	Manchester City	2027-05-30T15:00:00+00:00	0		unresolved
+m_2Bmsm8	outside_source_window	Manchester United	Fulham	2027-05-30T15:00:00+00:00	0		unresolved
+m_3Ar24f	outside_source_window	Liverpool	AFC Bournemouth	2027-05-30T15:00:00+00:00	0		unresolved
+m_3zbj5q	outside_source_window	Ipswich Town	Everton	2027-05-30T15:00:00+00:00	0		unresolved
+m_0zEZJY	outside_source_window	Crystal Palace	Leeds United	2027-05-30T15:00:00+00:00	0		unresolved
+m_3qYVSv	outside_source_window	Coventry City	Nottingham Forest	2027-05-30T15:00:00+00:00	0		unresolved
+m_3gQKfs	outside_source_window	Chelsea	Brentford	2027-05-30T15:00:00+00:00	0		unresolved
+m_1ObJ0x	outside_source_window	Aston Villa	Tottenham Hotspur	2027-05-30T15:00:00+00:00	0		unresolved
+m_1Jhevi	outside_source_window	Arsenal	Brighton & Hove Albion	2027-05-30T15:00:00+00:00	0		unresolved
+m_3jEeAh	outside_source_window	Hull City	Newcastle United	2027-05-30T15:00:00+00:00	0		unresolved

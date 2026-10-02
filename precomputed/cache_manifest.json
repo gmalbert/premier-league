@@ -1,44 +1,174 @@
 {
   "schema_version": 2,
-  "core_version": "1.3.2",
-  "feature_policy_version": 2,
+  "core_version": "1.5.0",
+  "feature_policy_version": 4,
   "league": "epl",
-  "created_at": "2026-09-05T07:19:14.562683+00:00",
+  "created_at": "2026-10-02T16:16:49.176755+00:00",
   "artifacts": {
     "preprocessed_data": {
       "path": "precomputed/preprocessed_data.pkl",
-      "bytes": 2935570,
-      "sha256": "37e0d72630bde2bcd189f622392144eb3ae0b47a442d194029d1498db9fb6e00"
+      "bytes": 5963778,
+      "sha256": "97780170aa7fcb50dd96dd7d1989fd6c22965c306f20891fa926ee1e6f814097"
     },
     "xgb_baseline": {
       "path": "models/xgb_baseline.pkl",
-      "bytes": 447352,
-      "sha256": "7e6bcb8efe77ed1f36e8c925fede0b08d849065b62ebaa5c53a37ea2f42bec77"
+      "bytes": 674548,
+      "sha256": "bf8e95c620fe64e6bc82a862389f72bba3d7aca63376956721896a90142b60fd"
     },
     "ensemble": {
       "path": "models/ensemble_model.pkl",
-      "bytes": 926646,
-      "sha256": "6bf377bf5bf5bee02f2bc000631d5f70d6bdb43d517674da9c6f8fdad413cdd9"
+      "bytes": 2871,
+      "sha256": "0a107c760a43a997bb5040f5648223d4a2a3ba8f2d2f222086c2e42674760a45"
     },
     "optimized_xgb": {
       "path": "models/optimized_xgb.pkl",
-      "bytes": 1068253,
-      "sha256": "8d989f88bf77e9495e8bac093b495d007f0bdf49a431dc81b5299316816990a4"
+      "bytes": 1291909,
+      "sha256": "aa19a4046a448cf24108b85042147e599aed90622100bae3319990f68edf6d7b"
     },
     "performance": {
       "path": "models/model_performance.pkl",
-      "bytes": 512,
-      "sha256": "fa74bf69143a7b5465bcf64d3ca7b15cd93bce75f4078d31c39eb709f03ad352"
+      "bytes": 1214,
+      "sha256": "2c94489d697ad530d453d64a5de3187681bece71bd87699a8f56030926ccb0fb"
+    },
+    "model_metadata": {
+      "path": "models/model_metadata.json",
+      "bytes": 1231,
+      "sha256": "e84612269c51aec0dfab8cf6ba704dd13bec9a8cfb78ec3e0ead1b22089b0520"
+    },
+    "model_audit": {
+      "path": "precomputed/model-audit/model_ablation.json",
+      "bytes": 2433,
+      "sha256": "18f4e1ddaffe73478c5cc324c82460618c0c0d330f8565f9e3f2b833909f6371"
     },
     "upcoming_fixtures": {
       "path": "data_files/upcoming_fixtures.csv",
-      "bytes": 3807,
-      "sha256": "da2df1f2bd95e488be02f3b2ffa0cc52cb43564ebc573338692e26f248a5cae4"
+      "bytes": 14735,
+      "sha256": "99d2182e2914de92b726bc6dca67d0e0efec629ca766087b1679004960e63b75"
     },
     "upcoming_predictions": {
       "path": "data_files/upcoming_predictions.csv",
-      "bytes": 15242,
-      "sha256": "fdf5237a794ea3c3c2c344810522e8a6b34b90465106495dfd47cff59363dda3"
+      "bytes": 47595,
+      "sha256": "d306c5a77dac472db8bdc7a82158659ed68f9b4961a9f4808152c6690e8f17ca"
+    },
+    "dixon_coles_goal_model": {
+      "path": "models/dixon_coles_goal_model.pkl",
+      "bytes": 250719,
+      "sha256": "58158189a2d45bd6ebc3ddb5f451828144b161a5ce5537c8464c4764af7d8c4c"
+    },
+    "dixon_coles_goal_model_metadata": {
+      "path": "models/dixon_coles_goal_model.json",
+      "bytes": 2245,
+      "sha256": "ae5b34911399ab8b59be34cef1ce02ed27c511bdcbd360cde07050a61bcc2179"
+    },
+    "goal_model_metrics": {
+      "path": "models/goal_model_metrics.json",
+      "bytes": 188,
+      "sha256": "c07563bc4389b53ca417f003c47e4f71423580fad65d95bd408be73c20e29e0e"
+    },
+    "pitchapi_response_revisions": {
+      "path": "data_files/pitchapi_response_revisions.parquet",
+      "sha256": "7c24b25ad57d07dddc57975acd93a7d60ec227070134b3c923333570623da90f",
+      "bytes": 4796,
+      "required": false,
+      "schema_version": 2
+    },
+    "pitchapi_upcoming_predictions": {
+      "path": "data_files/pitchapi_upcoming_predictions.csv",
+      "sha256": "2905dd31a2b3d93ded2474cee0f84dd34ebe450250dd4e398c7cbff45a93d9a8",
+      "bytes": 212,
+      "required": false,
+      "schema_version": 2
+    },
+    "pitchapi_matches": {
+      "path": "data_files/pitchapi_matches.csv",
+      "sha256": "4e56d71af61fccbcaaa9a0c0ef990d279736649994c00b29cc3a1a234685409e",
+      "bytes": 79043,
+      "required": false,
+      "schema_version": 2
+    },
+    "pitchapi_shots": {
+      "path": "data_files/pitchapi_shots.parquet",
+      "sha256": "a6ce59f0fc4e0d554f8292a36707585766816bef11920d9ac3615776b5bcaa6e",
+      "bytes": 33888,
+      "required": false,
+      "schema_version": 2
+    },
+    "pitchapi_match_shot_features": {
+      "path": "data_files/pitchapi_match_shot_features.csv",
+      "sha256": "8ebf42129249707114b18985c7231729872e4c063d9e0bf2a855d5db723a2939",
+      "bytes": 4329,
+      "required": false,
+      "schema_version": 2
+    },
+    "pitchapi_advanced_team": {
+      "path": "data_files/pitchapi_advanced_team.parquet",
+      "sha256": "6991d005c321dcb6980e70c5a6f39f3c4244097bf0e79483f2df103fbec627bb",
+      "bytes": 41412,
+      "required": false,
+      "schema_version": 2
+    },
+    "pitchapi_player_match": {
+      "path": "data_files/pitchapi_player_match.parquet",
+      "sha256": "ec77524867903c8275a21605e17dd623258cd0a62562756e65c228ad6d9afbe3",
+      "bytes": 70893,
+      "required": false,
+      "schema_version": 2
+    },
+    "pitchapi_lineup_snapshots": {
+      "path": "data_files/pitchapi_lineup_snapshots.parquet",
+      "sha256": "4f7d1d3ddf4a85947be6528371753407f721cbac003f026b0f3a0e944037864a",
+      "bytes": 18688,
+      "required": false,
+      "schema_version": 2
+    },
+    "pitchapi_momentum": {
+      "path": "data_files/pitchapi_momentum.parquet",
+      "sha256": "8e5f41e657659b668fb387c439718120de9a237d41a3201f77f41fcfdad2917c",
+      "bytes": 6359,
+      "required": false,
+      "schema_version": 2
+    },
+    "pitchapi_network": {
+      "path": "data_files/pitchapi_network.parquet",
+      "sha256": "db7e9ffbd09ed6b2c343ba56f468e3dca3fa3d5c0a2ac7c43a40e6bdc917715b",
+      "bytes": 31985,
+      "required": false,
+      "schema_version": 2
+    },
+    "pitchapi_heatmaps": {
+      "path": "data_files/pitchapi_heatmaps.parquet",
+      "sha256": "37e5b79b64a30a5ddc7b7581e47117f46cfaf41c00c132e9ee0f8d2ed6d5c4fb",
+      "bytes": 46129,
+      "required": false,
+      "schema_version": 2
+    },
+    "pitchapi_health": {
+      "path": "data_files/pitchapi_health.json",
+      "sha256": "ba72fc4387321323c5d487d170b4f8d64fcc9d1a26f14e43ad94b00832c65953",
+      "bytes": 15790,
+      "required": false,
+      "schema_version": 2
+    },
+    "pitchapi_fixture_audit": {
+      "path": "data_files/pitchapi_fixture_audit.csv",
+      "sha256": "e5f2c5c5814f500ab7099e7355a45dc1b1bed0a671804bf3cb749532627eab02",
+      "bytes": 31428,
+      "required": false,
+      "schema_version": 2
+    },
+    "pitchapi_ablation": {
+      "path": "data_files/pitchapi_ablation.json",
+      "sha256": "0e4b5ba9884a12fff7076280b66174d0248197c898b64fead8d6a3e830e037a5",
+      "bytes": 63900,
+      "required": false,
+      "schema_version": 2
     }
+  },
+  "pitchapi": {
+    "integration_schema_version": 2,
+    "feature_policy_version": 4,
+    "league_key": "epl",
+    "enabled_families": [],
+    "evidence_id": null
   }
 }

@@ -1,0 +1,80 @@
+{
+  "source": "data_files\\combined_historical_data_with_calculations_new.csv",
+  "data_quality": {
+    "rows": 1570,
+    "invalid_dates": 0,
+    "completed_future_rows": 0,
+    "earliest_date": "2022-08-05T00:00:00",
+    "latest_date": "2026-09-20T00:00:00",
+    "duplicate_fixture_rows": 0,
+    "duplicate_no_odds_feature_rows": 10
+  },
+  "status": "complete",
+  "release_gate": {
+    "passed": true,
+    "production_candidate": "no_odds",
+    "criteria": "best of no_odds and poisson beats rolling class-prior baseline on log loss and Brier score"
+  },
+  "ablation": [
+    {
+      "candidate": "class_prior_baseline",
+      "feature_count": 0,
+      "folds": 3,
+      "test_rows": 803,
+      "metrics": {
+        "accuracy": 0.41344956413449563,
+        "log_loss": 1.0877424231111854,
+        "brier_score": 0.659400567380968,
+        "calibration_error": 0.04641188026387327,
+        "draw_recall": 0.0,
+        "mean_confidence": 0.4598614443983689,
+        "decisive_lean_rate": 0.0
+      }
+    },
+    {
+      "candidate": "odds_heavy",
+      "feature_count": 592,
+      "folds": 3,
+      "test_rows": 803,
+      "metrics": {
+        "accuracy": 0.42216687422166876,
+        "log_loss": 2.062602771971011,
+        "brier_score": 0.7956653597326968,
+        "calibration_error": 0.2831769744368938,
+        "draw_recall": 0.33490566037735847,
+        "mean_confidence": 0.7053438486585626,
+        "decisive_lean_rate": 0.6973848069738481
+      }
+    },
+    {
+      "candidate": "no_odds",
+      "feature_count": 34,
+      "folds": 3,
+      "test_rows": 803,
+      "metrics": {
+        "accuracy": 0.4919053549190536,
+        "log_loss": 1.0565670262301856,
+        "brier_score": 0.6268502677026935,
+        "calibration_error": 0.07049390171445954,
+        "draw_recall": 0.02358490566037736,
+        "mean_confidence": 0.5513047198030245,
+        "decisive_lean_rate": 0.43462017434620176
+      }
+    },
+    {
+      "candidate": "poisson",
+      "feature_count": 0,
+      "folds": 3,
+      "test_rows": 803,
+      "metrics": {
+        "accuracy": 0.49564134495641343,
+        "log_loss": 1.033046523926645,
+        "brier_score": 0.6196687925399441,
+        "calibration_error": 0.057503684243644076,
+        "draw_recall": 0.0,
+        "mean_confidence": 0.5531450292000576,
+        "decisive_lean_rate": 0.43586550435865506
+      }
+    }
+  ]
+}

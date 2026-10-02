@@ -1,0 +1,18 @@
+{
+  "core_version": "1.5.0",
+  "core_ref": "e31c5b9703ef05bad486fc348894fedd64655033",
+  "league": "epl",
+  "core_pr": "https://github.com/gmalbert/pitch-oracle-core/pull/30",
+  "provider_optional": true,
+  "enhanced_families_promoted": [],
+  "validation": {
+    "core_tests": 421,
+    "consumer_tests": "passed locally",
+    "actual_consumer_playwright_checks": 12,
+    "real_payload_pilot_checks": 9,
+    "runtime_python_compile": "passed"
+  },
+  "secret_configuration": "PITCH_API_KEY requires explicit user approval",
+  "historical_evidence": "New backfill observations do not prove pre-kickoff availability; strict family ablations retain baseline.",
+  "runbook": "https://github.com/gmalbert/pitch-oracle-core/blob/e31c5b9703ef05bad486fc348894fedd64655033/docs/pitchapi-production-runbook.md"
+}
