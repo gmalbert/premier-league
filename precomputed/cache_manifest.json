@@ -3,7 +3,7 @@
   "core_version": "1.5.0",
   "feature_policy_version": 4,
   "league": "epl",
-  "created_at": "2026-10-02T16:16:49.176755+00:00",
+  "created_at": "2026-10-02T16:41:59.712689+00:00",
   "artifacts": {
     "preprocessed_data": {
       "path": "precomputed/preprocessed_data.pkl",
