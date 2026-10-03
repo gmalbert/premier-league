@@ -12,7 +12,9 @@
     "real_payload_pilot_checks": 9,
     "runtime_python_compile": "passed"
   },
-  "secret_configuration": "PITCH_API_KEY requires explicit user approval",
+  "secret_configuration": "Configured and metadata-verified after explicit user approval on October 3.",
   "historical_evidence": "New backfill observations do not prove pre-kickoff availability; strict family ablations retain baseline.",
-  "runbook": "https://github.com/gmalbert/pitch-oracle-core/blob/e31c5b9703ef05bad486fc348894fedd64655033/docs/pitchapi-production-runbook.md"
+  "runbook": "https://github.com/gmalbert/pitch-oracle-core/blob/e31c5b9703ef05bad486fc348894fedd64655033/docs/pitchapi-production-runbook.md",
+  "secret_scope": "repository GitHub Actions",
+  "secret_verified_at": "2026-10-03T11:20:38Z"
 }

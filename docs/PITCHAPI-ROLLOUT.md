@@ -20,9 +20,10 @@ checks and nine real-payload pilot checks. The shared final core suite passed
 421 tests, with all six cross-platform CI jobs passing. Runtime Python
 compilation passed.
 
-Configure `PITCH_API_KEY` as a protected repository Actions secret to enable
-live provider refreshes. This credential transfer is awaiting explicit user
-approval. Jobs without it still produce a baseline and honest unavailable
+`PITCH_API_KEY` was configured as a protected repository GitHub Actions secret
+and its presence verified on October 3 after explicit user approval. The daily
+and hourly integrations can use it once the rollout PR is merged. Jobs without
+the optional credential still produce baseline forecasts and unavailable
 provider health.
 
 See the [production runbook](https://github.com/gmalbert/pitch-oracle-core/blob/e31c5b9703ef05bad486fc348894fedd64655033/docs/pitchapi-production-runbook.md) for
