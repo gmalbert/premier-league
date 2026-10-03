@@ -1,0 +1,1 @@
+{"configuration": {"enabled_families": [], "evidence_id": null, "league_key": "epl", "version": 1}, "models": {"baseline": {"feature_count": 34, "fingerprint": "ecd9d95de3e35a977668f1bfd8ea674d2636b40e3887daf9f92d7e81f982d891", "model_id": "pitchapi-baseline-v1"}}, "schema_version": 1}

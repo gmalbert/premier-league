@@ -1,0 +1,21 @@
+name: Hourly lineup and forecast capture
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "11 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ${{ github.repository }}-runtime-artifacts
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    uses: gmalbert/pitch-oracle-core/.github/workflows/pitchapi-hourly-consumer.yml@e31c5b9703ef05bad486fc348894fedd64655033
+    with:
+      core_ref: e31c5b9703ef05bad486fc348894fedd64655033
+      league_key: epl
+    secrets: inherit
