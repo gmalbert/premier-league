@@ -49,5 +49,5 @@
   "calibration_method": "temperature_scaling",
   "production_model": "regularized_multinomial_logistic_regression",
   "release_gate": "beats_training_class_prior_on_log_loss_and_brier",
-  "generated_at": "2026-10-05T15:48:50.312854+00:00"
+  "generated_at": "2026-10-06T14:07:10.517079+00:00"
 }
