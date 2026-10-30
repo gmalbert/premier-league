@@ -90,4 +90,15 @@ jobs:
             exit 0
           fi
           git commit -m "chore: refresh EPL runtime artifacts"
-          git push origin "HEAD:${GITHUB_REF_NAME}"
+          for attempt in 1 2 3 4 5; do
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 5 ]; then
+              echo "git push failed after $attempt attempts" >&2
+              exit 1
+            fi
+            delay=$((2 ** attempt))
+            echo "git push failed; retrying in ${delay}s (attempt $((attempt + 1))/5)" >&2
+            sleep "$delay"
+          done
